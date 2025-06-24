@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  fcm_api:
+    build: ./api
+    environment:
+      - APP_NAME=fcm_api
+    ports:
+      - "5000:5000"
