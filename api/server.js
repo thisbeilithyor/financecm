@@ -7,8 +7,7 @@ const port = 5000;
 const appName = process.env.APP_NAME
 
 app.use('/api/sendTime', (req, res) => {
-    console.log(req);
-    console.log(res);
+    console.log("worked");
     res.json({message: "success"});
 })
 
