@@ -1,13 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from "react";
 
 function App() {
+  const [currentTime, setCurrentTime] = useState("hi");
+  useEffect(() => {
+    fetch('/api/sendTime').then(res => res.json()).then(data => {
+      setCurrentTime(data.message);
+    });
+  }, []);
+
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          { currentTime } <code>src/App.js</code> and save to reload.
         </p>
         <a
           className="App-link"
