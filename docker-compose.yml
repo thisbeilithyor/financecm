@@ -5,9 +5,15 @@ services:
     build: ./api
     environment:
       - APP_NAME=fcm_api
+    container_name: fcm_api
     ports:
       - "5000:5000"
   fcm_webserver:
     build: ./frontend
+    environment:
+      - API_ROUTE=http://fcm_api:5000
+    container_name: fcm_webserver
     ports:
       - "80:80"
+    depends_on:
+      - fcm_api

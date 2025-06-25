@@ -13,7 +13,7 @@ RUN npm run build
 #Stage 3: prod env
 FROM nginx:alpine AS production
 
-COPY conf /etc/nginx
+COPY nginx.conf /etc/nginx
 COPY --from=build /build /usr/share/nginx/html
 
 EXPOSE 80
