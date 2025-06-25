@@ -10,8 +10,6 @@ services:
       - "5000:5000"
   fcm_webserver:
     build: ./frontend
-    environment:
-      - API_ROUTE=http://fcm_api:5000
     container_name: fcm_webserver
     ports:
       - "80:80"
