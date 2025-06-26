@@ -1,6 +1,21 @@
 version: '3'
 
 services:
+
+#ToDo: setup secure credentials for prod
+  fcm_db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: fcm_db
+      MYSQL_USER: some_user
+      MYSQL_PASSWORD: some_password
+    container_name: fcm_db
+    ports:
+      - "5555:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
   fcm_api:
     build: ./api
     environment:
@@ -15,3 +30,6 @@ services:
       - "80:80"
     depends_on:
       - fcm_api
+
+volumes:
+  db_data:
