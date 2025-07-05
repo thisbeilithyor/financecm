@@ -25,14 +25,17 @@ services:
     environment:
       - APP_NAME=fcm_api
     container_name: fcm_api
-    image: ilithyor/myrepo-api:1.0
+#    image: ilithyor/myrepo-api:1.0
     ports:
       - "5000:5000"
+    
+    depends_on:
+      - fcm_db
 
   fcm_webserver:
     build: ./frontend
     container_name: fcm_webserver
-    image: ilithyor/myrepo-webserver:1.0
+#    image: ilithyor/myrepo-webserver:1.0
     ports:
       - "80:80"
     depends_on:
