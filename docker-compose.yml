@@ -14,11 +14,15 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: user
 
-    ports:
-      - "5555:3306"
-
     volumes:
       - fcm_db_data:/var/lib/mysql
+    
+    healthcheck:
+      test: ["CMD-SHELL", "true"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
   fcm_api:
     build: ./api
@@ -30,7 +34,8 @@ services:
       - "5000:5000"
     
     depends_on:
-      - fcm_db
+      fcm_db:
+        condition: service_healthy
 
   fcm_webserver:
     build: ./frontend
