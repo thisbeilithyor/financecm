@@ -2,6 +2,7 @@ import express from "express";
 
 //database
 import testModel from "./database/models/test.js";
+import User from "./database/models/user.js";
 import sequelize from "./database/util/database.js";
 
 
@@ -13,10 +14,9 @@ const appName = process.env.APP_NAME;
 let customerId = null;
 let c = null;
 
-sequelize.sync()
+sequelize.sync({ force: true})
 .then((result) => {
-    return testModel.create({name: "juergen"});
-    //console.log(result);
+    return User.create({ username: "administrator", admin: true, password: "1111" });
 })
 .then(customer => {
     customerId = customer.id;
