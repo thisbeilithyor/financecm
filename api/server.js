@@ -7,6 +7,8 @@ import sequelize from "./database/util/database.js";
 
 
 const app = express();
+app.use(express.json());
+
 const port = 5000;
 
 const appName = process.env.APP_NAME;
@@ -34,6 +36,12 @@ app.use('/api/sendTime', async (req, res) => {
         c = await testModel.findAll({ where: 2 });
     }
     res.json({message: "success", allC: c});
+})
+
+app.post('/api/admin/login', async(req, res) => {
+    console.log("called");
+    console.log(req.body.username);
+    res.json({login: "successful"});
 })
 
 app.listen(port, () => {

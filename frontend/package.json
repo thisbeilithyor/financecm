@@ -36,5 +36,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://fcm_api:5000"
+  "proxy": "http://fcm_api:5000",
+  "devDependencies": {
+    "react-router-dom": "^7.6.3"
+  }
 }
