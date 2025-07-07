@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
+    const [redirect, setRedirect] = useState(false);
 
     const handleForm = async (event) => {
         event.preventDefault();
@@ -19,14 +21,20 @@ const Login = () => {
         const response = await rawResponse.json();
         console.log(response.token);
         if(response.token){ 
-            window.localStorage.setItem("token", response.token)
+            window.localStorage.setItem("token", response.token);
+            setRedirect(true);
         };
         setMessage(response.message);
         console.log(response.login);
     }
 
+    if(redirect){
+        return <Navigate to="/adminpanel" />;
+    }
+
     return (
         <>
+            
             <h1>Admin Login</h1>
             <form onSubmit={handleForm}>
                 <label>username</label>
