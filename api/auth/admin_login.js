@@ -26,7 +26,8 @@ const admin_login = async(req, res) => {
 const generate_jwt_token = (user, currentUsername) => {
     return jwt.sign(
         { id: user.id, username: currentUsername },
-        "aslfjindid"
+        "aslfjindid",
+        { expiresIn: '2h'}
     )
 }
 
