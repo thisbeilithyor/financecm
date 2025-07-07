@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import User from "./database/models/user.js";
+import User from "../database/models/user.js";
 
 const admin_login = async(req, res) => {
     let bodySet = false;
