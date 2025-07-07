@@ -2,11 +2,11 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './Login.js';
 import Home from './Home.js';
-import AdminPanel from "./AdminPanel.js";
+import AdminPanel from "./admin/AdminPanel.js";
 import ProtectedRoutes from "./ProtectedRoutes.js";
-import Immobiliencenter from "./Immobiliencenter.js";
-import KPI from "./KPI.js";
-import AdminNavBar from "./AdminNavBar.js";
+import Immobiliencenter from "./.\/admin/Immobiliencenter.js"; //errors otherwise, but this is how it works
+import KPI from "./admin/KPI.js";
+import AdminNavBar from "./admin/AdminNavBar.js";
 
 function App() {
   return(

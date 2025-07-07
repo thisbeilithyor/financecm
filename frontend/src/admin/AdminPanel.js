@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
-import AdminNavBar from "./AdminNavBar";
 
 const AdminPanel = () => {
     const [homeRedirect, setHomeRedirect] = useState(false);
