@@ -7,19 +7,27 @@ const ProtectedRoutes = () => {
     const [loading, setLoading] = useState(true);
     const token = window.localStorage.getItem("token");
     useEffect(() => {
-        fetch('/api/verifyJWT', {
+        const verify_token = () => {
+            fetch('/api/verifyJWT', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
             }
-        }).then(async (rawResponse) => {
-            const res = await rawResponse.json();
-            const a = res.verified;
-            a ? setPermission(true) : setPermission(false);
-            setLoading(false);
+            }).then(async (rawResponse) => {
+                const res = await rawResponse.json();
+                const a = res.verified;
+                a ? setPermission(true) : setPermission(false);
+                setLoading(false);
+            })
         }
-        )
+        if(token){
+            verify_token();
+        }
+        else{
+            setLoading(false);
+            setPermission(false);
+        }
     }, [token]);
 
     if(loading){
