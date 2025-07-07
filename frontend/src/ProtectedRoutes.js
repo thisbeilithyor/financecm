@@ -33,7 +33,7 @@ const ProtectedRoutes = () => {
     if(loading){
         return <p>Laden... Berechtigung überprüfen...</p>
     }
-    return permission ? <Outlet /> : <Navigate to="/" />;
+    return permission ? <Outlet /> : <Navigate to="/admin" />;
 }
 
 export default ProtectedRoutes;

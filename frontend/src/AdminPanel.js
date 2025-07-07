@@ -1,6 +1,23 @@
+import { useState } from "react";
+import { Navigate } from "react-router-dom";
+
 const AdminPanel = () => {
+    const [homeRedirect, setHomeRedirect] = useState(false);
+
+    const logout = () => {
+        window.localStorage.removeItem("token");
+        setHomeRedirect(true);
+    }
+
+    if(homeRedirect){
+        return <Navigate to="/" />;
+    }
+
     return (
-        <h1>hier ist adminpanel</h1>
+        <>
+            <h1>hier ist adminpanel</h1>
+            <button onClick={logout}>Logout</button>
+        </>
     )
 }
 
