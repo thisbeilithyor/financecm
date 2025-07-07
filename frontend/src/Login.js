@@ -3,18 +3,26 @@ import { useState, useEffect } from "react";
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [message, setMessage] = useState("");
 
     const handleForm = async (event) => {
+        event.preventDefault();
+
         const rawResponse = await fetch('/api/admin/login', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({username: {username}, password: {password}})
+            body: JSON.stringify({ username, password })
         });
         const response = await rawResponse.json();
-        console.log(response);
+        console.log(response.token);
+        if(response.token){ 
+            window.localStorage.setItem("token", response.token)
+        };
+        setMessage(response.message);
+        console.log(response.login);
     }
 
     return (
@@ -27,6 +35,8 @@ const Login = () => {
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <input type="submit" />
             </form>
+
+            <p>{ message }</p>
         </>
     );
 }
