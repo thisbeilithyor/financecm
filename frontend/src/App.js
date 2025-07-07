@@ -6,6 +6,7 @@ import AdminPanel from "./AdminPanel.js";
 import ProtectedRoutes from "./ProtectedRoutes.js";
 import Immobiliencenter from "./Immobiliencenter.js";
 import KPI from "./KPI.js";
+import AdminNavBar from "./AdminNavBar.js";
 
 function App() {
   return(
@@ -13,9 +14,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route element={<ProtectedRoutes/>}>
-          <Route path="adminpanel" element={<AdminPanel />}></Route>
-          <Route path="admin/immobiliencenter" element={<Immobiliencenter />}></Route>
-          <Route path="admin/kpi" element={<KPI />}></Route>
+          <Route element={<AdminNavBar />}>
+            <Route path="admin/panel" element={<AdminPanel />}></Route>
+            <Route path="admin/immobiliencenter" element={<Immobiliencenter />}></Route>
+            <Route path="admin/kpi" element={<KPI />}></Route>
+          </Route>
         </Route>
         <Route path="admin" element={<Login />}></Route>
       </Routes>

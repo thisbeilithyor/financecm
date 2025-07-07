@@ -29,7 +29,7 @@ const Login = () => {
     }
 
     if(redirect){
-        return <Navigate to="/adminpanel" />;
+        return <Navigate to="/admin/panel" />;
     }
 
     return (

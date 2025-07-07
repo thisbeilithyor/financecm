@@ -16,7 +16,6 @@ const AdminPanel = () => {
 
     return (
         <>
-            <AdminNavBar />
             <h1>hier ist adminpanel</h1>
             <button onClick={logout}>Logout</button>
         </>
