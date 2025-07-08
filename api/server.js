@@ -24,6 +24,12 @@ app.post('/api/admin/login', admin_login);
 
 app.use('/api/verifyJWT', verifyJWT);
 
+app.use('/api/saveNewImmoForm', (req, res) => {
+    console.log("a");
+    console.log(req.body);
+    res.json({ message: "kanye" });
+})
+
 app.listen(PORT, () => {
     console.log(`${appName} is listening on port ${PORT}`);
 });

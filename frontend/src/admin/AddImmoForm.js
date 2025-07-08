@@ -1,4 +1,13 @@
-const AddImmoForm = (formData, handleChange) => {
+import { useState } from "react";
+const AddImmoForm = ({ formData, handleChange, setMapImage }) => {
+
+    const [mapFile, setMapFile] = useState(null);
+    
+    const handleImageChange = (e) => {
+        setMapFile(URL.createObjectURL(e.target.files[0]));
+        setMapImage(URL.createObjectURL(e.target.files[0]));
+    }
+
     return (
     <form>
         <label>Objektnr.</label>
@@ -18,6 +27,10 @@ const AddImmoForm = (formData, handleChange) => {
             value={formData.description}
             onChange={handleChange}
         />
+
+        <label>Kartenbild</label>
+        <input type="file" accept="image/*" onChange={handleImageChange}/>
+        <img style={{width: 100}} src={mapFile}></img>
 
         <label>Haus?</label>
         <input

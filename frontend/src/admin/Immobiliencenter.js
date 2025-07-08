@@ -24,12 +24,32 @@ const Immobiliencenter = () => {
         uberStandort: ""
     });
 
+    const [mapImage, setMapImage] = useState(null);
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData((previous) => ({
             ...previous,
             [name]: type === "checkbox" ? checked : value
         }))
+    }
+
+    const handleSave = (e) => {
+        const token = window.localStorage.getItem("token");
+        try{
+            fetch('/api/saveNewImmoForm', {
+                method: 'POST',
+                headers: {
+                    'Authentification': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            }).then((rawRes) => {
+                console.log(rawRes);
+            })
+        }catch(err){
+            console.log(err);
+        }
     }
 
     if(formActive){
@@ -39,10 +59,10 @@ const Immobiliencenter = () => {
 
                 <h2>Objekte hinzufügen</h2>
 
-                <AddImmoForm formData={formData} handleChange={handleChange}/>
+                <AddImmoForm formData={formData} handleChange={handleChange} setMapImage={setMapImage}/>
 
                 <button onClick={() => setFormActive(false)}>Abbruch</button>
-                <button onClick={() => setFormActive(false)}>Speichern</button>
+                <button onClick={handleSave}>Speichern</button>
             </>
         )
     }
