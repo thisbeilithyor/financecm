@@ -26,14 +26,20 @@ const Immobiliencenter = () => {
 
     const [imageUploadData, setImageUploadData] = useState({
         mapImage: null,
-        titleImage: null
+        titleImage: null,
+        furtherImages: null
     })
 
     const handleImageChange = (e) => {
         const { name, value, type } = e.target;
+        let images_to_add = [];
+        for(let i=0; i<e.target.files.length; i++){
+            images_to_add.push(URL.createObjectURL(e.target.files[i]));
+        }
+        console.log(images_to_add);
         setImageUploadData((prev) => ({
             ...prev,
-            [name]: URL.createObjectURL(e.target.files[0])
+            [name]: images_to_add
         }))
     }
 

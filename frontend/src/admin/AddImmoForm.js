@@ -29,6 +29,12 @@ const AddImmoForm = ({ formData, handleChange, handleImageChange, imageUploadDat
         <input type="file" accept="image/*" name="titleImage" onChange={handleImageChange}/>
         <img style={{width: 100}} src={imageUploadData.titleImage}></img>
 
+        <label>Weitere Bilder</label>
+        <input type="file" accept="image/*" multiple name="furtherImages" onChange={handleImageChange}/>
+        { imageUploadData.furtherImages && imageUploadData.furtherImages.map((imageURL) => {
+            return <img style={{width: 100}} src={imageURL}></img>
+        })}
+
         <label>Haus?</label>
         <input
             type="checkbox"
