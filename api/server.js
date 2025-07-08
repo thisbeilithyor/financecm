@@ -8,8 +8,11 @@ import sequelize from "./database/util/database.js";
 import admin_login from "./auth/admin_login.js";
 import verifyJWT from "./auth/verifyJWT.js";
 
+import jwt from "jsonwebtoken";
+
+
 const app = express();
-app.use(express.json());
+app.use(express.json({ limit: '200mb'}));
 
 const PORT = 5000;
 const appName = process.env.APP_NAME;
@@ -23,12 +26,40 @@ sequelize.sync({ force: true})
 app.post('/api/admin/login', admin_login);
 
 app.use('/api/verifyJWT', verifyJWT);
+const checkPermission = (req, res, next) => {
+    const authHeader = req.headers['authorization'];   
+    
+    if(!authHeader){ 
+        return res.json( {message: "You have no permission!"} );
+    }
+    let token = authHeader.split(' ')[1];
+    if(token === "null" || !token){
+        return res.json( {message: "You have no permission!"} );
+    }
 
-app.use('/api/saveNewImmoForm', (req, res) => {
-    console.log("a");
+    try{
+        jwt.verify(token, "aslfjindid", (err, user) => {
+            if(err){
+                return res.json({message: "You have no permission!"});
+            }
+            if(user.id){
+                if(user.id === 1 && user.username === 'administrator'){
+                    console.log("upload permission is ok");
+                    next();
+                }
+            }
+            return res.json({message: "You have no permission!"});
+        })
+    }catch(err){
+        console.log("verifyJWT FAILED:", err);
+        return res.json({message: "You have no permission!"});
+    }
+}
+app.use('/api/saveNewImmoForm', checkPermission, (req, res) => {
     console.log(req.body);
-    res.json({ message: "kanye" });
 })
+
+
 
 app.listen(PORT, () => {
     console.log(`${appName} is listening on port ${PORT}`);

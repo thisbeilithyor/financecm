@@ -24,6 +24,25 @@ const Immobiliencenter = () => {
         uberStandort: ""
     });
 
+    const blobToBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            if (file){
+                const reader = new FileReader();
+
+                reader.addEventListener("load", () => {
+                    resolve(reader.result);
+                })
+
+                reader.addEventListener("error", (error) => {
+                    reject(error);
+                })
+
+                reader.readAsDataURL(file);
+            }
+        })
+
+    }
+
     const [imageUploadData, setImageUploadData] = useState({
         mapImage: null,
         titleImage: null,
@@ -36,7 +55,7 @@ const Immobiliencenter = () => {
         for(let i=0; i<e.target.files.length; i++){
             images_to_add.push(URL.createObjectURL(e.target.files[i]));
         }
-        console.log(images_to_add);
+
         setImageUploadData((prev) => ({
             ...prev,
             [name]: images_to_add
@@ -51,16 +70,35 @@ const Immobiliencenter = () => {
         }))
     }
 
-    const handleSave = (e) => {
+    const convertImgURLToBase64 = async (fileURL) => {
+        if(fileURL) return await blobToBase64(await (await fetch(fileURL)).blob());
+    }
+
+    const handleSave = async (e) => {
         const token = window.localStorage.getItem("token");
+
+        let titleImage64, mapImage64, furtherImages64 = [];
+        if(imageUploadData.titleImage) {
+            titleImage64 = await convertImgURLToBase64(imageUploadData.titleImage[0]);
+        }
+        if(imageUploadData.mapImage){
+            mapImage64 = await convertImgURLToBase64(imageUploadData.mapImage[0]);
+        }
+
+        if(imageUploadData.furtherImages){
+            for (const value of imageUploadData.furtherImages){
+                furtherImages64.push(await convertImgURLToBase64(value));
+            }
+        }
+
         try{
             fetch('/api/saveNewImmoForm', {
                 method: 'POST',
                 headers: {
-                    'Authentification': `Bearer ${token}`,
+                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({ titleImage64, mapImage64, furtherImages64, formData })
             }).then((rawRes) => {
                 console.log(rawRes);
             })
