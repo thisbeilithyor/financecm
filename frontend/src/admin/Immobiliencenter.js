@@ -24,7 +24,18 @@ const Immobiliencenter = () => {
         uberStandort: ""
     });
 
-    const [mapImage, setMapImage] = useState(null);
+    const [imageUploadData, setImageUploadData] = useState({
+        mapImage: null,
+        titleImage: null
+    })
+
+    const handleImageChange = (e) => {
+        const { name, value, type } = e.target;
+        setImageUploadData((prev) => ({
+            ...prev,
+            [name]: URL.createObjectURL(e.target.files[0])
+        }))
+    }
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -59,7 +70,7 @@ const Immobiliencenter = () => {
 
                 <h2>Objekte hinzufügen</h2>
 
-                <AddImmoForm formData={formData} handleChange={handleChange} setMapImage={setMapImage}/>
+                <AddImmoForm formData={formData} handleChange={handleChange} handleImageChange={handleImageChange} imageUploadData={imageUploadData}/>
 
                 <button onClick={() => setFormActive(false)}>Abbruch</button>
                 <button onClick={handleSave}>Speichern</button>
