@@ -32,7 +32,6 @@ app.use('/api/verifyJWT', verifyJWT);
 app.post('/api/admin/saveNewImmoForm', checkPermissionMiddleware, async (req, res) => {
     const { mapImage64, titleImage64, furtherImages64, formData } = req.body;
     saveImmobilie(mapImage64, titleImage64, formData, furtherImages64, res);
-    
 })
 
 app.listen(PORT, () => {

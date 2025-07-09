@@ -33,19 +33,20 @@ const saveImmobilie = async (mapImage64, titleImage64, formData, furtherImages64
         //Logging
         return handleDatabaseInsertError(formData.objectnr, err, res);
     }
+    if(success){
+        try{
+            for(const currentImage of furtherImages64){
+                const a = await FurtherImages.create({
+                    image: currentImage,
+                    objectnr: formData.objectnr
+                })
+            }
 
-    try{
-        for(const currentImage of furtherImages64){
-            const a = await FurtherImages.create({
-                image: currentImage,
-                objectnr: formData.objectnr
-            })
+            const responseString = `Neues Object ${formData.objectnr} wurde erfolgreich gespeichert!`;
+            return res.json({ message: responseString });
+        }catch(err){
+            return handleDatabaseInsertError(formData.objectnr, err, res);
         }
-
-        const responseString = `Neues Object ${formData.objectnr} wurde erfolgreich gespeichert!`;
-        return res.json({ message: responseString });
-    }catch(err){
-        return handleDatabaseInsertError(formData.objectnr, err, res);
     }
 }
 

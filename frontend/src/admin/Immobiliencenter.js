@@ -23,6 +23,7 @@ const Immobiliencenter = () => {
         uberDasProjekt: "",
         uberStandort: ""
     });
+    const [message, setMessage] = useState("");
 
     const blobToBase64 = (file) => {
         return new Promise((resolve, reject) => {
@@ -102,8 +103,7 @@ const Immobiliencenter = () => {
                 body: JSON.stringify({ titleImage64, mapImage64, furtherImages64, formData })
             })
             const res = await request.json();
-            console.log(res.message);
-
+            setMessage(res.message);
         }catch(err){
             console.log(err);
         }
@@ -115,6 +115,7 @@ const Immobiliencenter = () => {
                 <h1>Immobiliencenter</h1>
 
                 <h2>Objekte hinzufügen</h2>
+                <p>{message}</p>
 
                 <AddImmoForm formData={formData} handleChange={handleChange} handleImageChange={handleImageChange} imageUploadData={imageUploadData}/>
 
