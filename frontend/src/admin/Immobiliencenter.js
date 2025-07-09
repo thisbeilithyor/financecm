@@ -92,16 +92,18 @@ const Immobiliencenter = () => {
         }
 
         try{
-            fetch('/api/admin/saveNewImmoForm', {
+            const request = await fetch('/api/admin/saveNewImmoForm', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
                 body: JSON.stringify({ titleImage64, mapImage64, furtherImages64, formData })
-            }).then((rawRes) => {
-                console.log(rawRes);
             })
+            const res = await request.json();
+            console.log(res.message);
+
         }catch(err){
             console.log(err);
         }
