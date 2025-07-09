@@ -3,8 +3,8 @@ import AddImmoForm from "./AddImmoForm";
 
 const Immobiliencenter = () => {
     const [formActive, setFormActive] = useState(false);
-   
-    const [formData, setFormData] = useState({
+    
+    const initalFormState = {
         objectnr: 0,
         city: "",
         description: "",
@@ -22,8 +22,19 @@ const Immobiliencenter = () => {
         buildingFinished: "01.2026",
         uberDasProjekt: "",
         uberStandort: ""
-    });
-    const [message, setMessage] = useState("");
+    }
+    const [formData, setFormData] = useState(initalFormState);
+
+    const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
+
+    const initalImageState = {
+        mapImage: null,
+        titleImage: null,
+        furtherImages: null
+    }
+
+    const [imageUploadData, setImageUploadData] = useState(initalImageState);
 
     const blobToBase64 = (file) => {
         return new Promise((resolve, reject) => {
@@ -44,11 +55,7 @@ const Immobiliencenter = () => {
 
     }
 
-    const [imageUploadData, setImageUploadData] = useState({
-        mapImage: null,
-        titleImage: null,
-        furtherImages: null
-    })
+    
 
     const handleImageChange = (e) => {
         const { name, value, type } = e.target;
@@ -103,7 +110,17 @@ const Immobiliencenter = () => {
                 body: JSON.stringify({ titleImage64, mapImage64, furtherImages64, formData })
             })
             const res = await request.json();
-            setMessage(res.message);
+            
+
+            if(res.success){
+                setFormData(initalFormState);
+                setImageUploadData(initalImageState);
+                setFormActive(false);
+                setErrorMessage("");
+                setSuccessMessage(res.message);
+            }else{
+                setErrorMessage(res.message);
+            }
         }catch(err){
             console.log(err);
         }
@@ -115,11 +132,12 @@ const Immobiliencenter = () => {
                 <h1>Immobiliencenter</h1>
 
                 <h2>Objekte hinzufügen</h2>
-                <p>{message}</p>
+                {errorMessage && <p style={{color: 'red'}}>{errorMessage}</p>}
 
                 <AddImmoForm formData={formData} handleChange={handleChange} handleImageChange={handleImageChange} imageUploadData={imageUploadData}/>
 
                 <button onClick={() => setFormActive(false)}>Abbruch</button>
+                <button onClick={() => {setFormData(initalFormState); setImageUploadData(initalImageState)}}>Reset Formulareingaben</button>
                 <button onClick={handleSave}>Speichern</button>
             </>
         )
@@ -130,6 +148,7 @@ const Immobiliencenter = () => {
         <h1>Immobiliencenter</h1>
 
         <button onClick={() => setFormActive(true)}>Neues Objekt hinzufügen</button>
+        {successMessage && <p style={{color: 'green'}}>{successMessage}</p>}
         </>
     )
 }

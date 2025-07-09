@@ -11,7 +11,7 @@ const admin_login = async(req, res) => {
         bodySet = true;
     }
     let user;
-    if(bodySet){
+    if(bodySet){ //better -> everything in one if
         user = await query_database(currentUsername, currentPassword);
     }
 

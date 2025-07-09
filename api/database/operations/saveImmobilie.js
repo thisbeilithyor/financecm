@@ -43,7 +43,7 @@ const saveImmobilie = async (mapImage64, titleImage64, formData, furtherImages64
             }
 
             const responseString = `Neues Object ${formData.objectnr} wurde erfolgreich gespeichert!`;
-            return res.json({ message: responseString });
+            return res.json({ message: responseString, success: true });
         }catch(err){
             return handleDatabaseInsertError(formData.objectnr, err, res);
         }
