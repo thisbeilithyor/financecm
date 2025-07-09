@@ -25,7 +25,7 @@ app.post('/api/admin/login', admin_login);
 
 app.use('/api/verifyJWT', verifyJWT);
 
-app.use('/api/saveNewImmoForm', checkPermissionMiddleware, (req, res) => {
+app.use('/api/admin/saveNewImmoForm', checkPermissionMiddleware, (req, res) => {
     console.log(req.body);
 })
 

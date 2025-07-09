@@ -92,7 +92,7 @@ const Immobiliencenter = () => {
         }
 
         try{
-            fetch('/api/saveNewImmoForm', {
+            fetch('/api/admin/saveNewImmoForm', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
