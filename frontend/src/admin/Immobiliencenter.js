@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddImmoForm from "./AddImmoForm";
 import { inital_admin_newImmoFormData, initial_admin_newImmoFormImages } from "../initalFormStates/initalFormStates.js";
 import { convertImgURLToBlob } from "../util/convertImgURLToBlob.js";
@@ -9,6 +9,8 @@ const Immobiliencenter = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
     const [imageUploadData, setImageUploadData] = useState(initial_admin_newImmoFormImages); 
+
+    const [immosData, setImmosData] = useState([]);
 
     const handleImageChange = (e) => {
         const { name, value, type } = e.target;
@@ -76,6 +78,20 @@ const Immobiliencenter = () => {
         }
     }
 
+    useEffect(() => {
+        const request = async () => {
+            const response = await fetch('/api/getImmos',  {
+                method: 'GET',
+                headers: {
+                    'Accept-Content': 'application/json'
+                }
+            })
+            const res = await response.json();
+            setImmosData(res);
+        }
+        request();
+    }, [formActive]);
+
     if(formActive){
         return (
             <>
@@ -102,7 +118,17 @@ const Immobiliencenter = () => {
 
         <button onClick={() => setFormActive(true)}>Neues Objekt hinzufügen</button>
         {successMessage && <p style={{color: 'green'}}>{successMessage}</p>}
-        <img style={{ width: 100 }} src="/api/images/ebe198f62af936c5f247e0cea3b62b91" alt="photo"></img>
+
+        {immosData &&
+        immosData.map((immo) => {
+            return (
+                <>
+                <h2>Objektnummer: {immo.objectnr}</h2>
+                <img style={{ width: 100 }} src={'/api/images/'+immo.titleImagePath}></img>
+                </>
+            )
+        })
+        }
         </>
     )
 }
