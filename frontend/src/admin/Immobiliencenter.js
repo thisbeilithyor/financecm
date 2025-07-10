@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddImmoForm from "./AddImmoForm";
 import { inital_admin_newImmoFormData, initial_admin_newImmoFormImages } from "../initalFormStates/initalFormStates.js";
+import { convertImgURLToBlob } from "../util/convertImgURLToBlob.js";
 
 const Immobiliencenter = () => {
     const [formActive, setFormActive] = useState(false);
@@ -28,10 +29,6 @@ const Immobiliencenter = () => {
             ...previous,
             [name]: type === "checkbox" ? checked : value
         }))
-    }
-
-    const convertImgURLToBlob = async (fileURL) => {
-        if(fileURL) return await (await fetch(fileURL)).blob();
     }
 
     const handleSave = async (e) => {
