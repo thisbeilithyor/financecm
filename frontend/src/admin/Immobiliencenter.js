@@ -36,25 +36,6 @@ const Immobiliencenter = () => {
 
     const [imageUploadData, setImageUploadData] = useState(initalImageState);
 
-    const blobToBase64 = (file) => {
-        return new Promise((resolve, reject) => {
-            if (file){
-                const reader = new FileReader();
-
-                reader.addEventListener("load", () => {
-                    resolve(reader.result);
-                })
-
-                reader.addEventListener("error", (error) => {
-                    reject(error);
-                })
-
-                reader.readAsDataURL(file);
-            }
-        })
-
-    }    
-
     const handleImageChange = (e) => {
         const { name, value, type } = e.target;
         let images_to_add = [];
@@ -74,10 +55,6 @@ const Immobiliencenter = () => {
             ...previous,
             [name]: type === "checkbox" ? checked : value
         }))
-    }
-
-    const convertImgURLToBase64 = async (fileURL) => {
-        if(fileURL) return await blobToBase64(await (await fetch(fileURL)).blob());
     }
 
     const convertImgURLToBlob = async (fileURL) => {
@@ -118,36 +95,18 @@ const Immobiliencenter = () => {
             body: formDataContainer
         })
         const res = await request.json();
-        console.log(res);
+        if(res.success){
+            setFormData(initalFormState);
+            setImageUploadData(initalImageState);
+            setFormActive(false);
+            setErrorMessage("");
+            setSuccessMessage(res.message);
+        }else{
+            setErrorMessage(res.message);
+        }
         }catch(err){
             console.log(err);
         }
-
-        /*try{
-            const request = await fetch('/api/admin/saveNewImmoForm', {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({ titleImage64, mapImage64, furtherImages64, formData })
-            })
-            const res = await request.json();
-            
-
-            if(res.success){
-                setFormData(initalFormState);
-                setImageUploadData(initalImageState);
-                setFormActive(false);
-                setErrorMessage("");
-                setSuccessMessage(res.message);
-            }else{
-                setErrorMessage(res.message);
-            }
-        }catch(err){
-            console.log(err);
-        }*/
     }
 
     if(formActive){
