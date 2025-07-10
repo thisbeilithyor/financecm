@@ -37,6 +37,9 @@ services:
       fcm_db:
         condition: service_healthy
 
+    volumes:
+      - fcm_images_data:/upload_images
+
   fcm_webserver:
     build: ./frontend
     container_name: fcm_webserver
@@ -48,3 +51,4 @@ services:
 
 volumes:
   fcm_db_data:
+  fcm_images_data:

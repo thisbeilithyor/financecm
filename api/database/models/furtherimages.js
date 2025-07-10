@@ -8,8 +8,8 @@ const FurtherImages = sequelize.define('FurtherImages', {
         autoIncrement: true,
         primaryKey: true
     },
-    image: {
-        type: Sequelize.BLOB('long'),
+    imagePath: {
+        type: Sequelize.STRING,
         allowNull: false
     },
     objectnr: {

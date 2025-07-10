@@ -2,7 +2,7 @@ import Immobilie from "../models/immobilie.js";
 import FurtherImages from "../models/furtherimages.js";
 import Sequelize from "sequelize";
 
-const saveImmobilie = async (mapImage64, titleImage64, formData, furtherImages64, res) =>{
+const saveImmobilie = async (mapImagePath, titleImagePath, formData, furtherImagesPaths, res) =>{
     let success = false;
     try{
         const immo = await Immobilie.create({
@@ -23,8 +23,8 @@ const saveImmobilie = async (mapImage64, titleImage64, formData, furtherImages64
             buildingFinished: formData.buildingFinished || "01.2026",
             uberDasProjekt: formData.uberDasProjekt || "",
             uberStandort: formData.uberStandort || "",
-            mapImage: mapImage64,
-            titleImage: titleImage64
+            mapImagePath: mapImagePath || "",
+            titleImagePath: titleImagePath || ""
         })
         if(immo.objectnr){
             success = true;
@@ -35,10 +35,10 @@ const saveImmobilie = async (mapImage64, titleImage64, formData, furtherImages64
     }
     if(success){
         try{
-            for(const currentImage of furtherImages64){
+            for(const currentImagePath of furtherImagesPaths){
                 const a = await FurtherImages.create({
-                    image: currentImage,
-                    objectnr: formData.objectnr
+                    imagePath: currentImagePath || "",
+                    objectnr: formData.objectnr || 0
                 })
             }
 

@@ -53,9 +53,7 @@ const Immobiliencenter = () => {
             }
         })
 
-    }
-
-    
+    }    
 
     const handleImageChange = (e) => {
         const { name, value, type } = e.target;
@@ -82,24 +80,50 @@ const Immobiliencenter = () => {
         if(fileURL) return await blobToBase64(await (await fetch(fileURL)).blob());
     }
 
+    const convertImgURLToBlob = async (fileURL) => {
+        if(fileURL) return await (await fetch(fileURL)).blob();
+    }
+
     const handleSave = async (e) => {
         const token = window.localStorage.getItem("token");
 
-        let titleImage64, mapImage64, furtherImages64 = [];
+        const formDataContainer = new FormData();
+        
+
+        let titleImage, mapImage, furtherImages = [];
         if(imageUploadData.titleImage) {
-            titleImage64 = await convertImgURLToBase64(imageUploadData.titleImage[0]);
+            titleImage = await convertImgURLToBlob(imageUploadData.titleImage[0]);
+            formDataContainer.append("titleImage", titleImage);
         }
         if(imageUploadData.mapImage){
-            mapImage64 = await convertImgURLToBase64(imageUploadData.mapImage[0]);
+            mapImage = await convertImgURLToBlob(imageUploadData.mapImage[0]);
+            formDataContainer.append("mapImage", mapImage);
         }
 
         if(imageUploadData.furtherImages){
             for (const value of imageUploadData.furtherImages){
-                furtherImages64.push(await convertImgURLToBase64(value));
+                const a = await convertImgURLToBlob(value);
+                formDataContainer.append('furtherImages', a);
             }
         }
 
+        formDataContainer.append('formData', JSON.stringify(formData));
+
         try{
+        const request = await fetch('/api/admin/saveTitleImage', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+            body: formDataContainer
+        })
+        const res = await request.json();
+        console.log(res);
+        }catch(err){
+            console.log(err);
+        }
+
+        /*try{
             const request = await fetch('/api/admin/saveNewImmoForm', {
                 method: 'POST',
                 headers: {
@@ -123,7 +147,7 @@ const Immobiliencenter = () => {
             }
         }catch(err){
             console.log(err);
-        }
+        }*/
     }
 
     if(formActive){
@@ -142,7 +166,10 @@ const Immobiliencenter = () => {
             </>
         )
     }
-
+//TODO: Im frontend anzeigen (Achtung: am besten so, dass für User und Admin gleiche Funktionen benutzt werden)
+//TODO: Bearbeiten von Datensätzen
+//TODO: Löschen von Datensätzen
+//TODO: Löschen einzelner Bilder während Formulareingabe möglich
     return (
         <>
         <h1>Immobiliencenter</h1>

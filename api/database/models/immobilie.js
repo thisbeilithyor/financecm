@@ -71,12 +71,12 @@ const Immobilie = sequelize.define("Immobilie", {
         type: Sequelize.TEXT,
         allowNull: true
     },
-    titleImage: {
-        type: Sequelize.BLOB('long'),
+    titleImagePath: {
+        type: Sequelize.STRING,
         allowNull: false
     },
-    mapImage: {
-        type: Sequelize.BLOB('long'),
+    mapImagePath: {
+        type: Sequelize.STRING,
         allowNull: true
     }
 });
