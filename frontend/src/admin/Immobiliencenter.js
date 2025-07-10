@@ -1,37 +1,13 @@
 import { useState } from "react";
 import AddImmoForm from "./AddImmoForm";
+import { inital_admin_newImmoFormData, initial_admin_newImmoFormImages } from "../initalFormStates/initalFormStates.js";
 
 const Immobiliencenter = () => {
     const [formActive, setFormActive] = useState(false);
-    
-    const initalFormState = {
-        objectnr: 0,
-        city: "",
-        description: "",
-        house: true,
-        price: 0,
-        squareMeters: 0,
-        bathroom: true,
-        supermarket: true,
-        electricity: true,
-        water: true,
-        pool: true,
-        garden: true,
-        atOcean: true,
-        paymentDuration: 0,
-        buildingFinished: "01.2026",
-        uberDasProjekt: "",
-        uberStandort: ""
-    }
-    const initalImageState = {
-        mapImage: null,
-        titleImage: null,
-        furtherImages: null
-    }
-    const [formData, setFormData] = useState(initalFormState);
+    const [formData, setFormData] = useState(inital_admin_newImmoFormData);
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
-    const [imageUploadData, setImageUploadData] = useState(initalImageState); 
+    const [imageUploadData, setImageUploadData] = useState(initial_admin_newImmoFormImages); 
 
     const handleImageChange = (e) => {
         const { name, value, type } = e.target;
@@ -81,23 +57,23 @@ const Immobiliencenter = () => {
         formDataContainer.append('formData', JSON.stringify(formData));
 
         try{
-        const request = await fetch('/api/admin/saveNewImmo', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-            },
-            body: formDataContainer
-        })
-        const res = await request.json();
-        if(res.success){
-            setFormData(initalFormState);
-            setImageUploadData(initalImageState);
-            setFormActive(false);
-            setErrorMessage("");
-            setSuccessMessage(res.message);
-        }else{
-            setErrorMessage(res.message);
-        }
+            const request = await fetch('/api/admin/saveNewImmo', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: formDataContainer
+            })
+            const res = await request.json();
+            if(res.success){
+                setFormData(inital_admin_newImmoFormData);
+                setImageUploadData(initial_admin_newImmoFormImages);
+                setFormActive(false);
+                setErrorMessage("");
+                setSuccessMessage(res.message);
+            }else{
+                setErrorMessage(res.message);
+            }
         }catch(err){
             console.log(err);
         }
@@ -114,7 +90,7 @@ const Immobiliencenter = () => {
                 <AddImmoForm formData={formData} handleChange={handleChange} handleImageChange={handleImageChange} imageUploadData={imageUploadData}/>
 
                 <button onClick={() => setFormActive(false)}>Abbruch</button>
-                <button onClick={() => {setFormData(initalFormState); setImageUploadData(initalImageState)}}>Reset Formulareingaben</button>
+                <button onClick={() => {setFormData(inital_admin_newImmoFormData); setImageUploadData(initial_admin_newImmoFormImages)}}>Reset Formulareingaben</button>
                 <button onClick={handleSave}>Speichern</button>
             </>
         )
@@ -129,6 +105,7 @@ const Immobiliencenter = () => {
 
         <button onClick={() => setFormActive(true)}>Neues Objekt hinzufügen</button>
         {successMessage && <p style={{color: 'green'}}>{successMessage}</p>}
+        <img style={{ width: 100 }} src="/api/images/ebe198f62af936c5f247e0cea3b62b91" alt="photo"></img>
         </>
     )
 }

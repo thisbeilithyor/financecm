@@ -14,19 +14,23 @@ import checkPermissionMiddleware from "./auth/checkPermissionMiddleware.js";
 
 import multer from "multer";
 
+import path from "path";
+
 const uploader = multer({ dest: 'upload_images/'});
 
 const app = express();
 app.use(express.json({ limit: '450mb'}));
 
+app.use('/api/images', express.static('/upload_images'));
+
 const PORT = 5000;
 const appName = process.env.APP_NAME;
 
 //init one and only admin user
-sequelize.sync({ force: true})
+sequelize.sync();/*{ force: true})
 .then((result) => {
     return User.create({ username: "administrator", admin: true, password: "1111" });
-})
+})*/
 
 app.post('/api/admin/login', admin_login);
 
