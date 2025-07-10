@@ -23,18 +23,15 @@ const Immobiliencenter = () => {
         uberDasProjekt: "",
         uberStandort: ""
     }
-    const [formData, setFormData] = useState(initalFormState);
-
-    const [errorMessage, setErrorMessage] = useState("");
-    const [successMessage, setSuccessMessage] = useState("");
-
     const initalImageState = {
         mapImage: null,
         titleImage: null,
         furtherImages: null
     }
-
-    const [imageUploadData, setImageUploadData] = useState(initalImageState);
+    const [formData, setFormData] = useState(initalFormState);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
+    const [imageUploadData, setImageUploadData] = useState(initalImageState); 
 
     const handleImageChange = (e) => {
         const { name, value, type } = e.target;
@@ -63,17 +60,14 @@ const Immobiliencenter = () => {
 
     const handleSave = async (e) => {
         const token = window.localStorage.getItem("token");
-
         const formDataContainer = new FormData();
         
-
-        let titleImage, mapImage, furtherImages = [];
         if(imageUploadData.titleImage) {
-            titleImage = await convertImgURLToBlob(imageUploadData.titleImage[0]);
+            const titleImage = await convertImgURLToBlob(imageUploadData.titleImage[0]);
             formDataContainer.append("titleImage", titleImage);
         }
         if(imageUploadData.mapImage){
-            mapImage = await convertImgURLToBlob(imageUploadData.mapImage[0]);
+            const mapImage = await convertImgURLToBlob(imageUploadData.mapImage[0]);
             formDataContainer.append("mapImage", mapImage);
         }
 
@@ -87,7 +81,7 @@ const Immobiliencenter = () => {
         formDataContainer.append('formData', JSON.stringify(formData));
 
         try{
-        const request = await fetch('/api/admin/saveTitleImage', {
+        const request = await fetch('/api/admin/saveNewImmo', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
