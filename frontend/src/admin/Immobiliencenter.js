@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import AddImmoForm from "./AddImmoForm";
 import { inital_admin_newImmoFormData, initial_admin_newImmoFormImages } from "../initalFormStates/initalFormStates.js";
 import { convertImgURLToBlob } from "../util/convertImgURLToBlob.js";
+import ImmobilieItem from "../ImmobilieItem.js";
 
 const Immobiliencenter = () => {
     const [formActive, setFormActive] = useState(false);
@@ -122,10 +123,7 @@ const Immobiliencenter = () => {
         {immosData &&
         immosData.map((immo) => {
             return (
-                <>
-                <h2>Objektnummer: {immo.objectnr}</h2>
-                <img style={{ width: 100 }} src={'/api/images/'+immo.titleImagePath}></img>
-                </>
+                <ImmobilieItem immo={immo}/>
             )
         })
         }

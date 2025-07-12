@@ -1,0 +1,19 @@
+.card {
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 10px;
+    box-shadow: 5px 5px hsla(0, 0%, 0%, 0.1);
+    margin-top: 10px;
+    width: 66%;
+    margin: auto;
+    display: flex;
+    /*display: inline;*/
+}
+
+img{
+    max-width: 10%;
+    height: auto;
+}
+
+#asdf{
+    margin-left: 5px;
+}
