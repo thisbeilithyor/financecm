@@ -1,11 +1,10 @@
 import Card from "react";
 import "./card.css";
 
-const ImmobilieItem = (props) => {
-    const immo = props.immo;
+const ImmobilieItem = ({immo, handleClick}) => {
     return (
         <>
-        <div className="card">
+        <div className="card" onClick={(e) => handleClick(e, immo.objectnr)}>
             <img src={'/api/images/'+immo.titleImagePath}></img>
             <div id="asdf">
                 <h2>Objektnummer: {immo.objectnr}</h2>

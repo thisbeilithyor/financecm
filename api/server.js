@@ -72,3 +72,16 @@ app.get('/api/getImmos', async (req, res) => {
 
     res.json(queryResult);
 })
+
+app.get('/api/getImmoItem/:objectnr', async (req, res) => {
+    const objectnr = req.params.objectnr;
+
+    console.log(objectnr);
+    const queryResult = await Immobilie.findOne({
+        where: {objectnr: objectnr},
+        raw: true
+    })
+    console.log(queryResult);
+    if(queryResult) return res.json(queryResult);
+    return res.status(404).json({message: "Dieses Objekt ist nicht vorhanden!"});
+})

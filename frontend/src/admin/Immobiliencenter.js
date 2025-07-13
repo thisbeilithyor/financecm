@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import AddImmoForm from "./AddImmoForm";
 import { inital_admin_newImmoFormData, initial_admin_newImmoFormImages } from "../initalFormStates/initalFormStates.js";
 import { convertImgURLToBlob } from "../util/convertImgURLToBlob.js";
@@ -10,7 +11,9 @@ const Immobiliencenter = () => {
     const [formData, setFormData] = useState(inital_admin_newImmoFormData);
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
-    const [imageUploadData, setImageUploadData] = useState(initial_admin_newImmoFormImages); 
+    const [imageUploadData, setImageUploadData] = useState(initial_admin_newImmoFormImages);
+    const [immoRedirect, setImmoRedirect] = useState(false);
+    const [immoRedirectONr, setImmoRedirectONr] = useState(0);
 
     const [immosData, setImmosData] = useState([]);
 
@@ -94,6 +97,18 @@ const Immobiliencenter = () => {
         request();
     }, [formActive]);
 
+    //handleClick of a immoItem
+    const handleClick = (e, objectnr) =>{
+        setImmoRedirectONr(objectnr);
+        setImmoRedirect(true)
+    }
+
+    if(immoRedirect){
+        return (
+            <Navigate to={`/admin/immobiliencenter/${immoRedirectONr}`} />
+        )
+    }
+
     if(formActive){
         return (
             <>
@@ -125,7 +140,7 @@ const Immobiliencenter = () => {
         {immosData &&
         immosData.map((immo) => {
             return (
-                <ImmobilieItem immo={immo}/>
+                <ImmobilieItem immo={immo} handleClick={handleClick}/>
             )
         })
         }
