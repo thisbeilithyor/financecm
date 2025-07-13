@@ -13,7 +13,7 @@ const EditImmo = () => {
                     'Accept-Content': 'application/json'
                 }
             })
-            if(res.status == 404){
+            if(res.status === 404){
                 setMessage("Objekt nicht vorhanden");
             }
             else{
