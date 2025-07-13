@@ -1,4 +1,5 @@
-import { useState } from "react";
+import "./addimmo.css";
+
 const AddImmoForm = ({ formData, handleChange, handleImageChange, imageUploadData }) => {
 
     return (

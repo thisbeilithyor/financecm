@@ -1,0 +1,58 @@
+form {
+    width: 60%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: sans-serif;
+}
+
+label {
+    display: block;
+    margin-top: 1.5rem;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+img {
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    width: 100px;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+}
+
+input[type="file"] {
+    margin-top: 0.3rem;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    color: #333;
+}

@@ -1,0 +1,11 @@
+#buttoncontainer > button {
+    border-radius: 15%;
+    height: 30px;
+    margin: auto;
+}
+
+#buttoncontainer {
+    display: flex;
+    width: 66%;
+    margin: auto;
+}

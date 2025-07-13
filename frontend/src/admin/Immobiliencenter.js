@@ -3,6 +3,7 @@ import AddImmoForm from "./AddImmoForm";
 import { inital_admin_newImmoFormData, initial_admin_newImmoFormImages } from "../initalFormStates/initalFormStates.js";
 import { convertImgURLToBlob } from "../util/convertImgURLToBlob.js";
 import ImmobilieItem from "../ImmobilieItem.js";
+import "./immobiliencenter.css";
 
 const Immobiliencenter = () => {
     const [formActive, setFormActive] = useState(false);
@@ -103,13 +104,14 @@ const Immobiliencenter = () => {
 
                 <AddImmoForm formData={formData} handleChange={handleChange} handleImageChange={handleImageChange} imageUploadData={imageUploadData}/>
 
+                <div id="buttoncontainer">
+                <button onClick={handleSave}>Speichern</button>
                 <button onClick={() => setFormActive(false)}>Abbruch</button>
                 <button onClick={() => {setFormData(inital_admin_newImmoFormData); setImageUploadData(initial_admin_newImmoFormImages)}}>Reset Formulareingaben</button>
-                <button onClick={handleSave}>Speichern</button>
+                </div>
             </>
         )
     }
-//TODO: Im frontend anzeigen (Achtung: am besten so, dass für User und Admin gleiche Funktionen benutzt werden)
 //TODO: Bearbeiten von Datensätzen
 //TODO: Löschen von Datensätzen
 //TODO: Löschen einzelner Bilder während Formulareingabe möglich
