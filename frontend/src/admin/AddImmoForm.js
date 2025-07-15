@@ -146,6 +146,14 @@ const AddImmoForm = ({ formData, handleChange, handleImageChange, imageUploadDat
             value={formData.uberStandort}
             onChange={handleChange}
         />
+
+        <label>Im Homecarousel anzeigen?</label>
+        <input
+            type="checkbox"
+            name="carouselObject"
+            checked={formData.carouselObject}
+            onChange={handleChange}
+        />
     </form>
     )
 }

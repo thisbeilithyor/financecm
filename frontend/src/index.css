@@ -162,3 +162,25 @@ hr {
     justify-content: center;
     background-color: #f1f1f1;
 }
+
+/*ImageCarousel*/
+.carouselContainer{
+    width: 60%;
+    margin: auto;
+    padding: 2em;
+}
+.carouselContainer div{
+    margin: auto;
+    height: 12em;
+    display: flex;
+    justify-content: center;
+}
+
+.carouselContainer div img{
+    width: 30%;
+    margin: auto;
+}
+
+.darkText {
+    color:#093B3F;
+}

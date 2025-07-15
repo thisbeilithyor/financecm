@@ -15,7 +15,8 @@ export const inital_admin_newImmoFormData = {
     paymentDuration: 0,
     buildingFinished: "01.2026",
     uberDasProjekt: "",
-    uberStandort: ""
+    uberStandort: "",
+    carouselObject: false
 }
 
 export const initial_admin_newImmoFormImages = {
