@@ -24,7 +24,8 @@ const saveImmobilie = async (mapImagePath, titleImagePath, formData, furtherImag
             uberDasProjekt: formData.uberDasProjekt || "",
             uberStandort: formData.uberStandort || "",
             mapImagePath: mapImagePath || "",
-            titleImagePath: titleImagePath || ""
+            titleImagePath: titleImagePath || "",
+            carouselObject: formData.carouselObject ?? false
         })
         if(immo.objectnr){
             success = true;

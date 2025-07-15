@@ -3,12 +3,12 @@
 const IslandGraphic = () => {
     return (
         <>
-            <div class="islandContainer">
-            <div class="hrContainer">
+            <div className="islandContainer">
+            <div className="hrContainer">
             <hr></hr>
             </div>
             <img src='/island.svg'></img>
-            <div class="hrContainer">
+            <div className="hrContainer">
             <hr></hr>
             </div>
             </div>

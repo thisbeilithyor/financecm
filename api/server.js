@@ -85,3 +85,13 @@ app.get('/api/getImmoItem/:objectnr', async (req, res) => {
     if(queryResult) return res.json(queryResult);
     return res.status(404).json({message: "Dieses Objekt ist nicht vorhanden!"});
 })
+
+app.get('/api/getCarouselImages', async (req, res) => {
+    const queryResult = await Immobilie.findAll({
+        where: { carouselObject: true },
+        raw: true,
+        attributes: ['city', 'titleImagePath', 'objectnr']
+    })
+
+    res.json(queryResult);
+})

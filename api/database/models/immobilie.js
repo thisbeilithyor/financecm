@@ -78,6 +78,10 @@ const Immobilie = sequelize.define("Immobilie", {
     mapImagePath: {
         type: Sequelize.STRING,
         allowNull: true
+    },
+    carouselObject: {
+        type: Sequelize.BOOLEAN,
+        allowNull: true
     }
 });
 
