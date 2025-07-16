@@ -4,17 +4,20 @@ import express from "express";
 import User from "./database/models/user.js";
 import sequelize from "./database/util/database.js";
 import Immobilie from "./database/models/immobilie.js";
+import Analytics from "./database/models/analytics.js";
+
 //database queries
 import saveImmobilie from "./database/operations/saveImmobilie.js";
+import saveRecord from "./database/operations/saveRecord.js";
 
 //auth
 import admin_login from "./auth/admin_login.js";
 import verifyJWT from "./auth/verifyJWT.js";
 import checkPermissionMiddleware from "./auth/checkPermissionMiddleware.js";
 
+//image saving
 import multer from "multer";
 
-import path from "path";
 
 const uploader = multer({ dest: 'upload_images/'});
 
@@ -27,10 +30,10 @@ const PORT = 5000;
 const appName = process.env.APP_NAME;
 
 //init one and only admin user
-sequelize.sync();/*{ force: true})
+sequelize.sync({ force: true})
 .then((result) => {
     return User.create({ username: "administrator", admin: true, password: "1111" });
-})*/
+})
 
 app.post('/api/admin/login', admin_login);
 
@@ -94,4 +97,15 @@ app.get('/api/getCarouselImages', async (req, res) => {
     })
 
     res.json(queryResult);
+})
+
+app.post('/api/track', (req, res) => {
+    res.status(200);
+
+    const path = req.body.path;
+    const timestamp = new Date().toISOString();
+    const userAgent = req.headers['user-agent'];
+    const ipaddr = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+
+    saveRecord(ipaddr, timestamp, path, userAgent);
 })

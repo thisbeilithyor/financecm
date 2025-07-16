@@ -9,9 +9,13 @@ import KPI from "./admin/KPI.js";
 import AdminNavBar from "./admin/AdminNavBar.js";
 import EditImmo from "./admin/EditImmo.js";
 
+import useWebsiteVisitTracker from "./util/useWebsiteVisitTracker.js";
+
+
 function App() {
+  useWebsiteVisitTracker();
+
   return(
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route element={<ProtectedRoutes/>}>
@@ -24,8 +28,10 @@ function App() {
         </Route>
         <Route path="admin" element={<Login />}></Route>
       </Routes>
-    </BrowserRouter>
   )
 }
+
+
+
 
 export default App;
