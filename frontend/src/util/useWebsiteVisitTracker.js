@@ -5,16 +5,21 @@ const useWebsiteVisitTracker = () => {
     const location = useLocation();
 
     useEffect(() => {
-        fetch('/api/track', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                path: location.pathname
-            })
+
+        console.log(location.pathname);
+        const handleVisibilityChange = () => {
+            if(document.visibilityState === 'hidden'){
+                const blob = new Blob([JSON.stringify({path: location.pathname})], { type: 'application/json' });
+                navigator.sendBeacon('/api/track', blob);
+            }
+        }
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
+        return (() => {
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
         })
-    }, [location]);
+    }, [])
 }
 
 export default useWebsiteVisitTracker;
