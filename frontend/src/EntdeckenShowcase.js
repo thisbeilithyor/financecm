@@ -27,7 +27,7 @@ const EntdeckenShowcase = () => {
 
 
     return (
-        <section>
+        <section class="mySection">
             <center><h2 className="darkText">Entdecke aktuelle Projekte</h2></center>
             <ImageCarousel images={images}></ImageCarousel>
         </section>

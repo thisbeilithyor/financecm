@@ -3,6 +3,7 @@ import Navbar from "./Navbar.js";
 import Ansprechpartner from "./Ansprechpartner.js";
 import IslandGraphic from "./IslandGraphic.js";
 import EntdeckenShowcase from "./EntdeckenShowcase.js";
+import RelevanteThemen from "./RelevanteThemen.js";
 
 import "./index.css";
 
@@ -12,7 +13,7 @@ const Home = () => {
         <Navbar></Navbar>
         <Ansprechpartner></Ansprechpartner>
         <EntdeckenShowcase></EntdeckenShowcase>
-        <p>this is home</p>
+        <RelevanteThemen></RelevanteThemen>
         <IslandGraphic></IslandGraphic>
         <Footer></Footer> 
         </>
