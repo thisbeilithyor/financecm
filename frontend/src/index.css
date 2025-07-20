@@ -27,7 +27,7 @@ img{
 .mySection h2{
     margin-block-start: 0 !important;
     font-size: 1.75em;
-    color: black;
+    color: #042325 ;
     font-weight: bolder;
 }
 
@@ -204,7 +204,7 @@ hr {
 }
 
 .darkText {
-    color:#093B3F;
+    color:#042325 ;
 }
 
 /*RelevanteThemen*/
@@ -213,7 +213,7 @@ hr {
     align-items: stretch;
     justify-content: center;
     flex-wrap: wrap;
-    color:black;
+    color:#042325;
     text-align: left;
     padding-bottom: 150px;
 }
@@ -269,18 +269,22 @@ hr {
 .buttonWrapper {
     width: 100%;
     display: flex;
+    justify-content: space-between !important;
 }
 
-.buttonWrapper button{
-    margin: auto;
+.h1Wrapper h1{
+    text-align: center;
+}
+
+.myButton{
+    width: 20%;
+    margin: auto !important;
     display: inline;
     font-family: myFont;
     background-color: #093B3F;
     border: 2pt solid #093B3F;
     color: inherit;
-    width: 20%;
     padding: 6pt;
     border-radius: 57pt;
     font-size: medium;
-
 }

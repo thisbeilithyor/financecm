@@ -10,14 +10,16 @@ const Einstieg = () => {
 
             <div className="entraceWrapper">
                 <div className="itemWrapper">
-                    <h1>IHRE EXPERTEN FÜR IMMOBILIEN UND INVESTITIONEN</h1>
+                    <div className="h1Wrapper">
+                        <h1>IHRE EXPERTEN FÜR IMMOBILIEN UND INVESTITIONEN</h1>
+                    </div>
                     <div class="h2Wrapper">
                         <h2>Immobilien auf Zypern</h2>
                     </div>
                     <div className="buttonWrapper">
-                        <button>ALLE IMMOBILIEN</button>
-                        <button>WOHNUNGEN</button>
-                        <button>HÄUSER</button>
+                        <button className="myButton">ALLE IMMOBILIEN</button>
+                        <button className="myButton">WOHNUNGEN</button>
+                        <button className="myButton">HÄUSER</button>
                     </div>
                 </div>
             </div>
