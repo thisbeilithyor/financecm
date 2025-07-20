@@ -36,7 +36,13 @@ img{
     background-color: #f1f1f1;
     display: flex;
     align-items: center;
+    width: 100%;
     height: 6em;
+    position: fixed;
+    box-shadow: 2px 0px 6px #07070799;
+    z-index: 5;
+    top: 0;
+    left: 0;
 }
 
 .logo {
@@ -230,4 +236,51 @@ hr {
     margin-top: 1em;
     margin-left: 2em;
     margin-right: 2em;
+}
+
+/*Einstieg.js*/
+.backgroundvideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.entraceWrapper {
+    height: 100vh;
+    max-width: 100vw;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.h2Wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonWrapper {
+    width: 100%;
+    display: flex;
+}
+
+.buttonWrapper button{
+    margin: auto;
+    display: inline;
+    font-family: myFont;
+    background-color: #093B3F;
+    border: 2pt solid #093B3F;
+    color: inherit;
+    width: 20%;
+    padding: 6pt;
+    border-radius: 57pt;
+    font-size: medium;
+
 }
