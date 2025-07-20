@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './Login.js';
-import Home from './Home.js';
+import Home from './nonadmin/homepage/Home.js';
 import AdminPanel from "./admin/AdminPanel.js";
 import ProtectedRoutes from "./ProtectedRoutes.js";
 import Immobiliencenter from "./.\/admin/Immobiliencenter.js"; //errors otherwise, but this is how it works

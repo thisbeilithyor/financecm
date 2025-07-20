@@ -1,7 +1,7 @@
 /*GLOBAL*/
 @font-face{
     font-family: myFont;
-    src: url('Poppins-Regular.ttf') format('truetype');
+    src: url('../Poppins-Regular.ttf') format('truetype');
 }
 
 body{
@@ -21,7 +21,7 @@ img{
 
 .mySection{
     background-color: #f1f1f1;
-    
+    padding-top: 6em;
 }
 
 .mySection h2{
@@ -74,6 +74,7 @@ ul {
 
 /*Ansprechpartner*/
 .containerAP {
+    padding-top: 3em;
     display: flex;
     height: 300px;
     align-items: center;
@@ -204,7 +205,7 @@ hr {
 }
 
 .darkText {
-    color:#042325 ;
+    color:#042325;
 }
 
 /*RelevanteThemen*/
@@ -287,4 +288,21 @@ hr {
     padding: 6pt;
     border-radius: 57pt;
     font-size: medium;
+}
+
+/*ZweiBilder*/
+
+.wrapper {
+    width: 80%;
+    margin: auto;
+}
+
+.setBackground {
+    background-color: #f1f1f1;
+}
+
+.wrapper img {
+    margin: 0;
+    margin-bottom: 0;
+    min-width: 50%;
 }
