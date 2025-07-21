@@ -37,26 +37,21 @@ const ImageElement = () => {
     return (
         <>
             <Navbar></Navbar>
-
-            <img className="mapImage" src={`/mapbeispiel.png`}></img>
-            <div className="immoItemWrapper">
-                <div className="titleImgWrapper">
-                    <img className="titleImage" src={`/a.jpg`}></img>
-                </div>
-                <div className="txtWrapper">
-                    <p>Yeni Erenköy</p>
-                    <p>Objekt Nr.: 425</p>
-                    <p>-Komfort und Bequemlichkeit</p>
-                    <p>-blablabla</p>
-                    <p>-blablabla</p>
-                    <p>+49 (0) 172 - 77 45 656</p>
-                    <p>meiner-finanz@gmx.de</p>
-                </div>
-            </div>
             {data && (
                 <>
-                    <h3>{data.city}</h3>
-                    <p>{data.objectnr}</p>
+                    <img class="mapImage" src={`/api/images/${data.mapImagePath}`}></img>
+                    <div className="immoItemWrapper">
+                        <div className="titleImgWrapper">
+                            <img className="titleImage" src={`/api/images/${data.titleImagePath}`}></img>
+                        </div>
+                        <div className="txtWrapper">
+                            <p>{data.city}</p>
+                            <p>Objekt Nr.: {data.objectnr}</p>
+                            <p>{data.description}</p>
+                            <p>+49 (0) 172 - 77 45 656</p>
+                            <p>meiner-finanz@gmx.de</p>
+                        </div>
+                    </div>
                 </>
                 ) 
             }
