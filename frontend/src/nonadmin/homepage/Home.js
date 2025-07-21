@@ -1,9 +1,9 @@
 import Footer from "../Footer.js";
 import Navbar from "../Navbar.js";
 import Ansprechpartner from "./Ansprechpartner.js";
-import IslandGraphic from "./IslandGraphic.js";
+import IslandGraphic from "../components/IslandGraphic.js";
 import EntdeckenShowcase from "./EntdeckenShowcase.js";
-import RelevanteThemen from "./RelevanteThemen.js";
+import RelevanteThemen from "../components/RelevanteThemen.js";
 import Einstieg from "./Einstieg.js";
 import ZweiBilder from "./ZweiBilder.js";
 
