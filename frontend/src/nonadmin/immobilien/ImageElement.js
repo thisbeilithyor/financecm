@@ -2,12 +2,14 @@ import { useParams} from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navbar from "../Navbar.js";
 import Footer from "../Footer.js";
+import IslandGraphic from "../components/IslandGraphic.js";
 
 const ImageElement = () => {
     const { objectnr } = useParams();
 
     const [message, setMessage] = useState('');
     const [data, setData] = useState([]);
+    const [furtherImages, setFurtherImages] = useState([]);
     
     useEffect(() => {
         const reqData = async () => {
@@ -23,12 +25,24 @@ const ImageElement = () => {
             else{
                 const ress = await res.json();
                 setData(ress);
-                console.log(ress);
-                console.log(ress.objectnr);
             }
 
         }
+        const reqFurtherImages = async () => {
+            const res = await fetch(`/api/getFurtherImages/${objectnr}`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            if(res.status === 404){}
+            else{
+                const ress = await res.json();
+                setFurtherImages(ress);
+            }
+        }
         reqData();
+        reqFurtherImages();
     }, [])
 
 
@@ -57,6 +71,16 @@ const ImageElement = () => {
             }
             <center><h2 className="darkText immoSecHeading">Entdecken Sie Wohnungen mit Garten: Ihre Wohnung direkt am Meer</h2></center>
             <center><h4 className="darkText">Ihre Wohnung in Zypern!</h4></center>
+            <IslandGraphic></IslandGraphic>
+            {data && (
+                <>
+                    {furtherImages.map((item, index) => {
+                        return (
+                             <img key={index} src={`/api/images/${item.imagePath}`}></img>
+                        )
+                    })}
+                </>
+            )}
             <Footer></Footer>
         </>
     )

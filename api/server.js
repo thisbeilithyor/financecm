@@ -19,6 +19,7 @@ import checkPermissionMiddleware from "./auth/checkPermissionMiddleware.js";
 
 //image saving
 import multer from "multer";
+import FurtherImages from "./database/models/furtherimages.js";
 
 
 const uploader = multer({ dest: 'upload_images/'});
@@ -164,4 +165,15 @@ app.get('/api/getVisits', checkPermissionMiddleware, async (req, res) => {
     }
 
     res.status(200).json( {labels, data} );
+})
+
+app.get('/api/getFurtherImages/:objectnr', async (req, res) => {
+    const objnr = req.params.objectnr;
+    const queryResult = await FurtherImages.findAll({
+        where: { objectnr: objnr},
+        raw: true,
+        attributes: ['imagePath']
+    })
+
+    res.json(queryResult);
 })
