@@ -9,6 +9,7 @@ import KPI from "./admin/KPI.js";
 import AdminNavBar from "./admin/AdminNavBar.js";
 import EditImmo from "./admin/EditImmo.js";
 import Immobilien from "./nonadmin/immobilien/Immobilien.js";
+import ImageElement from "./nonadmin/immobilien/ImageElement.js";
 
 import useWebsiteVisitTracker from "./util/useWebsiteVisitTracker.js";
 
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/immobilien" element={<Immobilien />}></Route>
+        <Route path="/immobilien/:objectnr" element={<ImageElement />}></Route>
         <Route element={<ProtectedRoutes/>}>
           <Route element={<AdminNavBar />}>
             <Route path="admin/panel" element={<AdminPanel />}></Route>

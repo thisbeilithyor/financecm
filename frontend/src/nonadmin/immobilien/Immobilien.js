@@ -7,13 +7,16 @@ import useGetImmos from "../../util/useGetImmos.js";
 import { useState } from "react";
 import RelevanteThemen from "../components/RelevanteThemen.js";
 
+import { useNavigate } from "react-router-dom";
+
 const Immobilien = () =>{
     const [immosData, setImmosData] = useState([]);
+    const navigate = useNavigate();
 
-    const handleClick = () => {
-        console.log("yeezy");
+    const handleClick = (e, objectnr) => {
+        navigate('/immobilien/'+objectnr);
     }
-
+    
     return(
     <>
         {useGetImmos(setImmosData)}
