@@ -1,7 +1,13 @@
-
+import { useNavigate } from "react-router-dom";
 
 const Einstieg = () => {
     //no muted in prod build!
+    const navigate = useNavigate();
+
+    const handleClick = (e) => {
+        console.log(e);
+    }
+
     return (
         <>
             <video className="backgroundvideo" autoPlay muted loop playsInline> 
@@ -17,9 +23,9 @@ const Einstieg = () => {
                         <h2>Immobilien auf Zypern</h2>
                     </div>
                     <div className="buttonWrapper">
-                        <button className="myButton">ALLE IMMOBILIEN</button>
-                        <button className="myButton">WOHNUNGEN</button>
-                        <button className="myButton">HÄUSER</button>
+                        <button className="myButton" onClick={() => navigate('/immobilien')}>ALLE IMMOBILIEN</button>
+                        <button className="myButton" onClick={() => navigate('/wohnungen')}>WOHNUNGEN</button>
+                        <button className="myButton" onClick={() => navigate('/house')}>HÄUSER</button>
                     </div>
                 </div>
             </div>

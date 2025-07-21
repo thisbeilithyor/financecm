@@ -8,6 +8,7 @@ import Immobiliencenter from "./.\/admin/Immobiliencenter.js"; //errors otherwis
 import KPI from "./admin/KPI.js";
 import AdminNavBar from "./admin/AdminNavBar.js";
 import EditImmo from "./admin/EditImmo.js";
+import Immobilien from "./nonadmin/immobilien/Immobilien.js";
 
 import useWebsiteVisitTracker from "./util/useWebsiteVisitTracker.js";
 
@@ -18,6 +19,7 @@ function App() {
   return(
       <Routes>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/immobilien" element={<Immobilien />}></Route>
         <Route element={<ProtectedRoutes/>}>
           <Route element={<AdminNavBar />}>
             <Route path="admin/panel" element={<AdminPanel />}></Route>

@@ -13,7 +13,7 @@ const Navbar = () => {
                         <Link className="linkEl" to="/">HOME</Link>
                     </li>
                     <li>
-                        <Link className="linkEl" to="/admin/immobiliencenter">IMMOBILIEN & PROJEKTE</Link>
+                        <Link className="linkEl" to="/immobilien">IMMOBILIEN & PROJEKTE</Link>
                     </li>
                     <li>
                         <Link className="linkEl" to="/admin/kpi">ÜBER ZYPERN</Link>

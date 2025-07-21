@@ -1,10 +1,11 @@
 import ImageCarousel from "./ImageCarousel";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const EntdeckenShowcase = () => {
     const [images, setImages] = useState([]);
-
+    const navigate = useNavigate();
     
     useEffect(() => {
         const reqRandomImages = async () => {
@@ -31,7 +32,7 @@ const EntdeckenShowcase = () => {
             <center><h2 className="darkText">Entdecke aktuelle Projekte</h2></center>
             <ImageCarousel images={images}></ImageCarousel>
 
-            <center><button className="myButton">JETZT WEITERE ENTDECKEN</button></center>
+            <center><button className="myButton" onClick={() => navigate('/immobilien')}>JETZT WEITERE ENTDECKEN</button></center>
         </section>
     );
 }
