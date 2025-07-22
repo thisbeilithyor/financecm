@@ -72,15 +72,17 @@ const ImageElement = () => {
             <center><h2 className="darkText immoSecHeading">Entdecken Sie Wohnungen mit Garten: Ihre Wohnung direkt am Meer</h2></center>
             <center><h4 className="darkText">Ihre Wohnung in Zypern!</h4></center>
             <IslandGraphic></IslandGraphic>
-            {data && (
-                <>
-                    {furtherImages.map((item, index) => {
-                        return (
-                             <img key={index} src={`/api/images/${item.imagePath}`}></img>
-                        )
-                    })}
-                </>
-            )}
+            <div className="furtherImagesWrapper">
+                {data && (
+                    <>
+                        {furtherImages.map((item, index) => {
+                            return (
+                                <img key={index} src={`/api/images/${item.imagePath}`}></img>
+                            )
+                        })}
+                    </>
+                )}
+            </div>
             <Footer></Footer>
         </>
     )

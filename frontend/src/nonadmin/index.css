@@ -359,3 +359,20 @@ hr {
 .immoSecHeading {
     margin-top: 10em;
 }
+
+.furtherImagesWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.furtherImagesWrapper img {
+    flex: 1 1 calc(33.333% - 1rem);
+    max-width: calc(33.333% - 1rem);
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
