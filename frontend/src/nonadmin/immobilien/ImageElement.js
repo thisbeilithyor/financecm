@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Navbar from "../Navbar.js";
 import Footer from "../Footer.js";
 import IslandGraphic from "../components/IslandGraphic.js";
+import UntereInfos from "./UntereInfos.js";
+import Ansprechpartner2 from "./Ansprechpartner2.js";
 
 const ImageElement = () => {
     const { objectnr } = useParams();
@@ -83,6 +85,22 @@ const ImageElement = () => {
                     </>
                 )}
             </div>
+            
+            <center><h2 class="darkText">Zahlen & Fakten</h2></center>
+
+            <div style={{display: "flex"}}>
+                <UntereInfos immo={data}></UntereInfos>
+                <Ansprechpartner2></Ansprechpartner2>
+            </div>
+
+            <h2>Über das Projekt</h2>
+            <p>{data.uberDasProjekt}</p>
+
+            <h2>Über den Standort</h2>
+            <p>{data.uberStandort}</p>
+
+            
+
             <Footer></Footer>
         </>
     )
