@@ -4,7 +4,6 @@ import express from "express";
 import User from "./database/models/user.js";
 import sequelize from "./database/util/database.js";
 import Immobilie from "./database/models/immobilie.js";
-import Analytics from "./database/models/analytics.js";
 
 
 //database queries
@@ -22,6 +21,7 @@ import FurtherImages from "./database/models/furtherimages.js";
 //aplication-requests
 import saveNewImmo from "./application-requests/saveNewImmo.js";
 import getVisits from "./application-requests/getVisits.js";
+import saveTracking from "./application-requests/saveTracking.js";
 
 const uploader = multer({ dest: 'upload_images/'});
 
@@ -83,15 +83,7 @@ app.get('/api/getCarouselImages', async (req, res) => {
     res.json(queryResult);
 })
 
-app.post('/api/track', (req, res) => {
-    const path = req.body.path;
-    const timestamp = new Date().toISOString();
-    const userAgent = req.headers['user-agent'];
-    const ipaddr = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-    res.sendStatus(204);
-
-    saveRecord(ipaddr, timestamp, path, userAgent);
-})
+app.post('/api/track', saveTracking)
 
 app.get('/api/getVisits', checkPermissionMiddleware, getVisits);
 
