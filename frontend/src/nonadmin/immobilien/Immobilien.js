@@ -1,6 +1,6 @@
 import Navbar from "../Navbar.js";
 import Footer from "../Footer.js";
-import ImmobilieItem from "../../ImmobilieItem.js";
+import ImmobilieItem from "../../general-components/ImmobilieItem.js";
 import IslandGraphic from "../components/IslandGraphic.js";
 
 import useGetImmos from "../../util/useGetImmos.js";
@@ -20,7 +20,6 @@ const Immobilien = () =>{
     return(
     <>
         {useGetImmos(setImmosData)}
-        {console.log(immosData)}
         <Navbar></Navbar>
         <center><h1 className="firstHeading">Aktuelle Immobilien & Projekte in Nordzypern</h1></center>
         {immosData && 

@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import AddImmoForm from "./AddImmoForm";
 import { inital_admin_newImmoFormData, initial_admin_newImmoFormImages } from "../initalFormStates/initalFormStates.js";
 import { convertImgURLToBlob } from "../util/convertImgURLToBlob.js";
-import ImmobilieItem from "../ImmobilieItem.js";
+import ImmobilieItem from "../general-components/ImmobilieItem.js";
 import "./immobiliencenter.css";
 
 const Immobiliencenter = () => {
