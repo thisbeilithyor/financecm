@@ -23,6 +23,7 @@ import saveNewImmo from "./application-requests/saveNewImmo.js";
 import getVisits from "./application-requests/getVisits.js";
 import saveTracking from "./application-requests/saveTracking.js";
 import getFurtherImages from "./application-requests/getFurtherImages.js";
+import getCarouselImages from "./application-requests/getCarouslImages.js";
 
 const uploader = multer({ dest: 'upload_images/'});
 
@@ -74,17 +75,9 @@ app.get('/api/getImmoItem/:objectnr', async (req, res) => {
     return res.status(404).json({message: "Dieses Objekt ist nicht vorhanden!"});
 })
 
-app.get('/api/getCarouselImages', async (req, res) => {
-    const queryResult = await Immobilie.findAll({
-        where: { carouselObject: true },
-        raw: true,
-        attributes: ['city', 'titleImagePath', 'objectnr']
-    })
+app.get('/api/getCarouselImages', getCarouselImages);
 
-    res.json(queryResult);
-})
-
-app.post('/api/track', saveTracking)
+app.post('/api/track', saveTracking);
 
 app.get('/api/getVisits', checkPermissionMiddleware, getVisits);
 
