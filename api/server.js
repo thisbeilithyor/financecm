@@ -9,7 +9,6 @@ import Analytics from "./database/models/analytics.js";
 import { fn, col, literal, Op } from 'sequelize';
 
 //database queries
-import saveImmobilie from "./database/operations/saveImmobilie.js";
 import saveRecord from "./database/operations/saveRecord.js";
 
 //auth
@@ -21,6 +20,8 @@ import checkPermissionMiddleware from "./auth/checkPermissionMiddleware.js";
 import multer from "multer";
 import FurtherImages from "./database/models/furtherimages.js";
 
+//aplication-requests
+import saveNewImmo from "./application-requests/saveNewImmo.js";
 
 const uploader = multer({ dest: 'upload_images/'});
 
@@ -46,26 +47,7 @@ app.post('/api/admin/saveNewImmo', checkPermissionMiddleware, uploader.fields([{
     name: 'titleImage', maxCount: 1}, {
     name: 'furtherImages', maxCount: 25} ,{
     name: 'mapImage', maxCount: 1}
-    ]), (req, res) => {
-    let {formData} = req.body;
-    formData = JSON.parse(formData);
-    let furtherImagesPaths = [];
-    if(req.files.furtherImages){
-        for(const value of req.files.furtherImages){
-            furtherImagesPaths.push(value.filename);
-        }
-    }
-    let mapImageFilename = null;
-    if(req.files.mapImage){
-        mapImageFilename = req.files.mapImage[0].filename;
-    }
-
-    let titleImageFilename = null;
-    if(req.files.titleImage){
-        titleImageFilename = req.files.titleImage[0].filename;
-    }
-    return saveImmobilie(mapImageFilename, titleImageFilename, formData, furtherImagesPaths, res);
-})
+    ]), saveNewImmo);
 
 app.listen(PORT, () => {
     console.log(`${appName} is listening on port ${PORT}`);
