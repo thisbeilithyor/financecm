@@ -1,6 +1,8 @@
 import saveImmobilie from "../database/operations/saveImmobilie.js";
+import Immobilie from "../database/models/immobilie.js";
 
-const saveNewImmo = (req, res) => {
+
+export const saveNewImmo = (req, res) => {
     let {formData} = req.body;
     formData = JSON.parse(formData);
     let furtherImagesPaths = [];
@@ -21,4 +23,23 @@ const saveNewImmo = (req, res) => {
     return saveImmobilie(mapImageFilename, titleImageFilename, formData, furtherImagesPaths, res);
 }
 
-export default saveNewImmo;
+
+export const getImmos = async (req, res) => {
+    const queryResult = await Immobilie.findAll({
+        raw: true
+    })
+    res.json(queryResult);
+}
+
+
+export const getImmoItem = async (req, res) => {
+    const objectnr = req.params.objectnr;
+
+    const queryResult = await Immobilie.findOne({
+        where: {objectnr: objectnr},
+        raw: true
+    })
+
+    if(queryResult) return res.json(queryResult);
+    return res.status(404).json({message: "Dieses Objekt ist nicht vorhanden!"});
+}

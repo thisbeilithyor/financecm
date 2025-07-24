@@ -3,11 +3,6 @@ import express from "express";
 //database
 import User from "./database/models/user.js";
 import sequelize from "./database/util/database.js";
-import Immobilie from "./database/models/immobilie.js";
-
-
-//database queries
-import saveRecord from "./database/operations/saveRecord.js";
 
 //auth
 import admin_login from "./auth/admin_login.js";
@@ -16,16 +11,11 @@ import checkPermissionMiddleware from "./auth/checkPermissionMiddleware.js";
 
 //image saving
 import multer from "multer";
-import FurtherImages from "./database/models/furtherimages.js";
 
-//aplication-requests
-import saveNewImmo from "./application-requests/saveNewImmo.js";
-import getVisits from "./application-requests/getVisits.js";
-import saveTracking from "./application-requests/saveTracking.js";
-import getFurtherImages from "./application-requests/getFurtherImages.js";
-import getCarouselImages from "./application-requests/getCarouslImages.js";
-import getImmoItem from "./application-requests/getImmoItem.js";
-import getImmos from "./application-requests/getImmos.js";
+//aplication-controllers
+import { saveTracking, getVisits} from "./application-controllers/kpiController.js";
+import { getFurtherImages, getCarouselImages } from "./application-controllers/imageController.js";
+import { saveNewImmo, getImmos, getImmoItem } from "./application-controllers/immoController.js";
 
 const uploader = multer({ dest: 'upload_images/'});
 

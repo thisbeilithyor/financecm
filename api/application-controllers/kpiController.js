@@ -1,7 +1,9 @@
 import Analytics from "../database/models/analytics.js";
 import { fn, col, Op } from 'sequelize';
+import saveRecord from "../database/operations/saveRecord.js";
 
-const getVisits = async (req, res) => {
+
+export const getVisits = async (req, res) => {
     const targetDate = new Date();
 
     const startOfDay = new Date(targetDate.setHours(0, 0, 0, 0));
@@ -56,4 +58,13 @@ const getVisits = async (req, res) => {
     res.status(200).json( {labels, data} );
 }
 
-export default getVisits;
+
+export const saveTracking = (req, res) => {
+    const path = req.body.path;
+    const timestamp = new Date().toISOString();
+    const userAgent = req.headers['user-agent'];
+    const ipaddr = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    res.sendStatus(204);
+
+    saveRecord(ipaddr, timestamp, path, userAgent);
+}
