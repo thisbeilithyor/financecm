@@ -25,6 +25,7 @@ import saveTracking from "./application-requests/saveTracking.js";
 import getFurtherImages from "./application-requests/getFurtherImages.js";
 import getCarouselImages from "./application-requests/getCarouslImages.js";
 import getImmoItem from "./application-requests/getImmoItem.js";
+import getImmos from "./application-requests/getImmos.js";
 
 const uploader = multer({ dest: 'upload_images/'});
 
@@ -56,12 +57,7 @@ app.listen(PORT, () => {
     console.log(`${appName} is listening on port ${PORT}`);
 });
 
-app.get('/api/getImmos', async (req, res) => {
-    const queryResult = await Immobilie.findAll({
-        raw: true
-    })
-    res.json(queryResult);
-})
+app.get('/api/getImmos', getImmos);
 
 app.get('/api/getImmoItem/:objectnr', getImmoItem)
 
