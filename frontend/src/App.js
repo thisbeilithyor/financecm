@@ -9,7 +9,7 @@ import KPI from "./admin/KPI.js";
 import AdminNavBar from "./admin/AdminNavBar.js";
 import EditImmo from "./admin/EditImmo.js";
 import Immobilien from "./nonadmin/immobilien/Immobilien.js";
-import ImmoElement from "./nonadmin/immobilien/ImmoElement.js";
+import ImmoElement from "./nonadmin/immobilien/specific_item/ImmoElement.js";
 
 import useWebsiteVisitTracker from "./util/useWebsiteVisitTracker.js";
 

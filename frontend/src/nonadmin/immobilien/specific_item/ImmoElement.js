@@ -1,8 +1,8 @@
 import { useParams} from "react-router-dom";
 import { useEffect, useState } from "react";
-import Navbar from "../Navbar.js";
-import Footer from "../Footer.js";
-import IslandGraphic from "../components/IslandGraphic.js";
+import Navbar from "../../Navbar.js";
+import Footer from "../../Footer.js";
+import IslandGraphic from "../../components/IslandGraphic.js";
 import UntereInfos from "./UntereInfos.js";
 import Ansprechpartner2 from "./Ansprechpartner2.js";
 
