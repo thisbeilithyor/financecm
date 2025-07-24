@@ -1,5 +1,5 @@
-import Footer from "../Footer.js";
-import Navbar from "../Navbar.js";
+import Footer from "../components/Footer.js";
+import Navbar from "../components/Navbar.js";
 import Ansprechpartner from "./Ansprechpartner.js";
 import IslandGraphic from "../components/IslandGraphic.js";
 import EntdeckenShowcase from "./EntdeckenShowcase.js";

@@ -1,5 +1,5 @@
-import Navbar from "../Navbar.js";
-import Footer from "../Footer.js";
+import Navbar from "../components/Navbar.js";
+import Footer from "../components/Footer.js";
 import ImmobilieItem from "../../general-components/ImmobilieItem.js";
 import IslandGraphic from "../components/IslandGraphic.js";
 
