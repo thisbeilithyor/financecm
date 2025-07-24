@@ -4,10 +4,10 @@ import Login from './Login.js';
 import Home from './nonadmin/homepage/Home.js';
 import AdminPanel from "./admin/AdminPanel.js";
 import ProtectedRoutes from "./ProtectedRoutes.js";
-import Immobiliencenter from "./.\/admin/Immobiliencenter.js"; //errors otherwise, but this is how it works
+import Immobiliencenter from "./admin/immobiliencenter/Immobiliencenter.js"; //errors otherwise, but this is how it works
 import KPI from "./admin/KPI.js";
 import AdminNavBar from "./admin/AdminNavBar.js";
-import EditImmo from "./admin/EditImmo.js";
+import EditImmo from "./admin/immobiliencenter/EditImmo.js";
 import Immobilien from "./nonadmin/immobilien/Immobilien.js";
 import ImmoElement from "./nonadmin/immobilien/specific_item/ImmoElement.js";
 
