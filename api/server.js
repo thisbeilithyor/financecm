@@ -22,6 +22,7 @@ import FurtherImages from "./database/models/furtherimages.js";
 import saveNewImmo from "./application-requests/saveNewImmo.js";
 import getVisits from "./application-requests/getVisits.js";
 import saveTracking from "./application-requests/saveTracking.js";
+import getFurtherImages from "./application-requests/getFurtherImages.js";
 
 const uploader = multer({ dest: 'upload_images/'});
 
@@ -87,13 +88,4 @@ app.post('/api/track', saveTracking)
 
 app.get('/api/getVisits', checkPermissionMiddleware, getVisits);
 
-app.get('/api/getFurtherImages/:objectnr', async (req, res) => {
-    const objnr = req.params.objectnr;
-    const queryResult = await FurtherImages.findAll({
-        where: { objectnr: objnr},
-        raw: true,
-        attributes: ['imagePath']
-    })
-
-    res.json(queryResult);
-})
+app.get('/api/getFurtherImages/:objectnr', getFurtherImages);
