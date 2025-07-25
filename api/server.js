@@ -28,10 +28,10 @@ const PORT = 5000;
 const appName = process.env.APP_NAME;
 
 //init one and only admin user
-sequelize.sync(); /*{ force: true})
+sequelize.sync({ force: true})
 .then((result) => {
     return User.create({ username: "administrator", admin: true, password: "1111" });
-}) */
+})
 
 app.post('/api/admin/login', admin_login);
 
@@ -43,9 +43,12 @@ app.post('/api/admin/saveNewImmo', checkPermissionMiddleware, uploader.fields([{
     name: 'mapImage', maxCount: 1}
     ]), saveNewImmo);
 
-app.listen(PORT, () => {
-    console.log(`${appName} is listening on port ${PORT}`);
-});
+
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(PORT, () => {
+        console.log(`${appName} is listening on port ${PORT}`);
+    });
+}
 
 app.get('/api/getImmos', getImmos);
 
@@ -58,3 +61,5 @@ app.post('/api/track', saveTracking);
 app.get('/api/getVisits', checkPermissionMiddleware, getVisits);
 
 app.get('/api/getFurtherImages/:objectnr', getFurtherImages);
+
+export default app;

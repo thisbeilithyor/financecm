@@ -3,3 +3,12 @@
 .gitignore
 .package-lock.json
 .package.json
+.env
+
+
+/application-controllers
+/auth
+/database
+/dist
+server.js
+tsconfig.tsbuildinfo

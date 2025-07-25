@@ -28,7 +28,11 @@ export const getImmos = async (req, res) => {
     const queryResult = await Immobilie.findAll({
         raw: true
     })
-    res.json(queryResult);
+    if(queryResult){
+        res.status(200).json(queryResult);
+    }else{
+        res.status(404);
+    }
 }
 
 

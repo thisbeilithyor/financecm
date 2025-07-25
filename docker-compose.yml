@@ -28,6 +28,7 @@ services:
     build: ./api
     environment:
       - APP_NAME=fcm_api
+    env_file: "api.env"
     container_name: fcm_api
 #    image: ilithyor/myrepo-api:1.0
     ports:

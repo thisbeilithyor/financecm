@@ -2,15 +2,19 @@
   "name": "api",
   "version": "1.0.0",
   "main": "server.js",
+  "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "build": "tsc --build",
+    "start": "node ./dist/server.js",
+    "start:dev": "nodemon ./src/server.ts"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "connect-session-sequelize": "^8.0.1",
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "express-session": "^1.18.1",
     "jsonwebtoken": "^9.0.2",
@@ -20,7 +24,12 @@
     "sequelize": "^6.37.7"
   },
   "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^5.0.3",
     "jest": "^30.0.5",
-    "supertest": "^7.1.4"
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }
