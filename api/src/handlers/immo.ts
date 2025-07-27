@@ -1,10 +1,16 @@
 import { NextFunction, Request, Response } from "express";
 import { CreateImmoDto } from "../dtos/CreateImmo.dto";
+import { Immobilie } from "../database/models/immobilie.model";
 
-export const getImmos = (req: Request, res: Response, next: NextFunction) => {
-    console.log("has been called!");
-    req.body.email;
-    res.json({ message: "getImmos here!" });
+export const getImmos = async (req: Request, res: Response, next: NextFunction) => {
+    const queryResult = await Immobilie.findAll({
+        raw: true
+    })
+    if(queryResult){
+        res.status(200).json(queryResult);
+    }else{
+        res.status(404);
+    }
 }
 
 export const createImmo = (req: Request, res: Response, next: NextFunction) => {

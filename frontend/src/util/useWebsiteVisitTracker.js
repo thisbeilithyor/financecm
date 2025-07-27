@@ -10,7 +10,7 @@ const useWebsiteVisitTracker = () => {
         const handleVisibilityChange = () => {
             if(document.visibilityState === 'hidden'){
                 const blob = new Blob([JSON.stringify({path: location.pathname})], { type: 'application/json' });
-                navigator.sendBeacon('/api/track', blob);
+                navigator.sendBeacon('/api/kpi/track', blob);
             }
         }
 
@@ -19,7 +19,7 @@ const useWebsiteVisitTracker = () => {
         return (() => {
             document.removeEventListener('visibilitychange', handleVisibilityChange);
         })
-    }, [])
+    }, [location])
 }
 
 export default useWebsiteVisitTracker;

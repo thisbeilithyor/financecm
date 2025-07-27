@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import express, { NextFunction, Request, Response } from "express";
 import immoRouter from "./routes/immo";
 import authRouter from "./routes/auth";
+import kpiRouter from "./routes/kpi";
 import sequelize from "./database/util/database";
 import { User } from "./database/models/users.model";
 import { hashPassword } from './miniscripts/hash';
@@ -40,3 +41,5 @@ app.listen(PORT, () => {
 app.use('/api/immo', immoRouter);
 
 app.use('/api/auth', authRouter);
+
+app.use('/api/kpi', kpiRouter);
