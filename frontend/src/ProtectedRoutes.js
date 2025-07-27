@@ -8,7 +8,7 @@ const ProtectedRoutes = () => {
     const token = window.localStorage.getItem("token");
     useEffect(() => {
         const verify_token = () => {
-            fetch('/api/verifyJWT', {
+            fetch('/api/auth/verifyJWT', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
