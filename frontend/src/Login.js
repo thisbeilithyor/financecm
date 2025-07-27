@@ -10,7 +10,7 @@ const Login = () => {
     const handleForm = async (event) => {
         event.preventDefault();
 
-        const rawResponse = await fetch('/api/admin/login', {
+        const rawResponse = await fetch('/api/auth/adminlogin', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
