@@ -15,7 +15,7 @@ router.post('/createImmo', uploader.fields([{
 
 router.get('/getCarouselImages', getCarouselImages);
 
-router.get('/getFurhterImages:objectnr', getFurtherImages);
+router.get('/getFurtherImages/:objectnr', getFurtherImages);
 
 router.get('/getImmoItem/:objectnr', getImmoItem);
 

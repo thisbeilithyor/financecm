@@ -57,7 +57,7 @@ export const getFurtherImages = async (req: Request, res: Response, next: NextFu
         attributes: ['imagePath']
     })
 
-    res.json(queryResult);
+    res.status(200).json(queryResult);
 }
 
 export const getImmoItem = async (req: Request, res: Response, next: NextFunction) => {
@@ -68,6 +68,6 @@ export const getImmoItem = async (req: Request, res: Response, next: NextFunctio
         raw: true
     })
 
-    if(queryResult) return res.json(queryResult);
+    if(queryResult) return res.status(200).json(queryResult);
     return res.status(404).json({message: "Dieses Objekt ist nicht vorhanden!"});
 }
