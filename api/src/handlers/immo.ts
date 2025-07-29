@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { CreateImmoDto } from "../dtos/CreateImmo.dto";
 import { Immobilie } from "../database/models/immobilie.model";
+import { FurtherImages } from "../database/models/furtherimages.model";
 import createImmobilie from "../database/operations/immo";
 
 export const getImmos = async (req: Request, res: Response, next: NextFunction) => {
@@ -45,4 +46,28 @@ export const getCarouselImages = async (req: Request, res: Response, next: NextF
     });
 
     res.json(queryResult);
+}
+
+
+export const getFurtherImages = async (req: Request, res: Response, next: NextFunction) => {
+    const objnr = req.params.objectnr;
+    const queryResult: FurtherImages[] = await FurtherImages.findAll({
+        where: { objectnr: objnr},
+        raw: true,
+        attributes: ['imagePath']
+    })
+
+    res.json(queryResult);
+}
+
+export const getImmoItem = async (req: Request, res: Response, next: NextFunction) => {
+    const objectnr = req.params.objectnr;
+
+    const queryResult: Immobilie | null = await Immobilie.findOne({
+        where: {objectnr: objectnr},
+        raw: true
+    })
+
+    if(queryResult) return res.json(queryResult);
+    return res.status(404).json({message: "Dieses Objekt ist nicht vorhanden!"});
 }

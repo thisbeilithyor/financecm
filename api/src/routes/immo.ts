@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getImmos, getCarouselImages, createImmo } from "../handlers/immo";
+import { getImmos, getCarouselImages, createImmo, getFurtherImages, getImmoItem } from "../handlers/immo";
 import multer from "multer";
 
 const router = Router();
@@ -15,5 +15,8 @@ router.post('/createImmo', uploader.fields([{
 
 router.get('/getCarouselImages', getCarouselImages);
 
+router.get('/getFurhterImages:objectnr', getFurtherImages);
+
+router.get('/getImmoItem/:objectnr', getImmoItem);
 
 export default router;

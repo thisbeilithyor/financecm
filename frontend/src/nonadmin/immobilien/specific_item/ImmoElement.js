@@ -15,7 +15,7 @@ const ImageElement = () => {
     
     useEffect(() => {
         const reqData = async () => {
-            const res = await fetch(`/api/getImmoItem/${objectnr}`, {
+            const res = await fetch(`/api/immo/getImmoItem/${objectnr}`, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json'
@@ -31,7 +31,7 @@ const ImageElement = () => {
 
         }
         const reqFurtherImages = async () => {
-            const res = await fetch(`/api/getFurtherImages/${objectnr}`, {
+            const res = await fetch(`/api/immo/getFurtherImages/${objectnr}`, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json'
