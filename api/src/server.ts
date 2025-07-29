@@ -38,6 +38,8 @@ app.listen(PORT, () => {
     console.log(`${appName} is listening on port ${PORT}`);
 })
 
+app.use('/api/images', express.static('/upload_images'));
+
 app.use('/api/immo', immoRouter);
 
 app.use('/api/auth', authRouter);

@@ -1,5 +1,20 @@
 export interface CreateImmoDto {
-    username: string,
-    email: string,
-    password: string
+    objectnr: number,
+    city?: string,
+    description?: string,
+    house?: boolean,
+    price?: number,
+    squareMeters?: number,
+    bathroom?: boolean,
+    supermarket?: boolean,
+    electricity?: boolean,
+    water?: boolean,
+    pool?: boolean,
+    garden?: boolean,
+    atOcean?: boolean,
+    paymentDuration?: number,
+    buildingFinished?: string,
+    uberDasProjekt?: string,
+    uberStandort?: string,
+    carouselObject?: boolean
 }

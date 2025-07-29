@@ -9,7 +9,7 @@ const EntdeckenShowcase = () => {
     
     useEffect(() => {
         const reqRandomImages = async () => {
-            const res = await fetch('/api/getCarouselImages', {
+            const res = await fetch('/api/immo/getCarouselImages', {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json'

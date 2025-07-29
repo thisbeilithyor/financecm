@@ -13,6 +13,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@types/multer": "^2.0.0",
     "bcrypt": "^6.0.0",
     "connect-session-sequelize": "^8.0.1",
     "dotenv": "^17.2.1",

@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { CreateImmoDto } from "../dtos/CreateImmo.dto";
 import { Immobilie } from "../database/models/immobilie.model";
+import createImmobilie from "../database/operations/immo";
 
 export const getImmos = async (req: Request, res: Response, next: NextFunction) => {
     const queryResult = await Immobilie.findAll({
@@ -14,22 +15,34 @@ export const getImmos = async (req: Request, res: Response, next: NextFunction) 
 }
 
 export const createImmo = (req: Request, res: Response, next: NextFunction) => {
-    /*let {formData} = req.body;
-    formData = JSON.parse(formData);
+    const files = req.files as { [fieldname: string]: Express.Multer.File[] };
+    const myFormData: CreateImmoDto = JSON.parse(req.body.formData);
+
     let furtherImagesPaths: string[] = [];
-    if(req.files.furtherImages){
-        for(const value of req.files.furtherImages){
+    if(files.furtherImages){
+        for(const value of files.furtherImages){
             furtherImagesPaths.push(value.filename);
         }
     }
-    let mapImageFilename = null;
-    if(req.files.mapImage){
-        mapImageFilename = req.files.mapImage[0].filename;
+    let mapImageFilename: string = '';
+    if(files.mapImage){
+        mapImageFilename = files.mapImage[0].filename;
     }
 
-    let titleImageFilename = null;
-    if(req.files.titleImage){
-        titleImageFilename = req.files.titleImage[0].filename;
-    }*/
-    res.json({ message: "saveImmo" });
+    let titleImageFilename: string = '';
+    if(files.titleImage){
+        titleImageFilename = files.titleImage[0].filename;
+    }
+
+    return createImmobilie(mapImageFilename, titleImageFilename, myFormData, furtherImagesPaths, res);
+}
+
+export const getCarouselImages = async (req: Request, res: Response, next: NextFunction) => {
+    const queryResult: Immobilie[] = await Immobilie.findAll({
+        where: { carouselObject: true },
+        raw: true,
+        attributes: ['city', 'titleImagePath', 'objectnr']
+    });
+
+    res.json(queryResult);
 }

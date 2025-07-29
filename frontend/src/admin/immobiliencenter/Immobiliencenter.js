@@ -61,7 +61,7 @@ const Immobiliencenter = () => {
         formDataContainer.append('formData', JSON.stringify(formData));
 
         try{
-            const request = await fetch('/api/admin/saveNewImmo', {
+            const request = await fetch('/api/immo/createImmo', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
