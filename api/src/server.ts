@@ -15,11 +15,13 @@ app.use(express.json());
 const PORT: number = 5000;
 const appName: string | undefined = process.env.APP_NAME;
 
+const dev: boolean = false;
+
 //TODO: validate input with middleware 
 
 const startDBConnection = async () =>{
     try{
-        await sequelize.sync({ force: true });
+        await sequelize.sync({ force: dev });
         console.log("DB synced");
 
         const user = await User.create({

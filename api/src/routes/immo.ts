@@ -13,6 +13,7 @@ router.post('/createImmo', uploader.fields([{
     name: 'mapImage', maxCount: 1}
     ]), createImmo);
 
-router.get('/getCarouselImages', getCarouselImages)
+router.get('/getCarouselImages', getCarouselImages);
+
 
 export default router;
