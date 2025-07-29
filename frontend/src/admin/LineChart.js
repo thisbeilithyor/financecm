@@ -55,7 +55,7 @@ const LineChart = () => {
     useEffect(() => {
         const token = localStorage.getItem("token");
         const reqVisits = async () =>{
-            const res = await fetch('/api/getVisits', {
+            const res = await fetch('/api/kpi/getVisits', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
