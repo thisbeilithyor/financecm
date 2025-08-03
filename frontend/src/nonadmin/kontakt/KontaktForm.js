@@ -1,4 +1,4 @@
-const KontaktForm = (form, handleChange) => {
+const KontaktForm = ({form, handleChange}) => {
     return ( 
         <>
             <form>
@@ -8,11 +8,13 @@ const KontaktForm = (form, handleChange) => {
                 <label>E-Mail</label>
                 <input type="email" name="email" value={form.email} onChange={handleChange}></input>
 
-                <label>Telefonnummber</label>
+                <label>Telefonnummer</label>
                 <input type="text" name="phonenumber" value={form.phonenumber} onChange={handleChange}></input>
 
                 <label>Nachricht</label>
                 <input type="text" name="message" value={form.message} onChange={handleChange}></input>
+
+                
             </form>
         
         </>

@@ -8,7 +8,7 @@ import KontaktForm from "./KontaktForm.js";
 import { useState } from "react";
 
 const Kontakt = () => {
-    let initialFormData = {
+    const initialFormData = {
         name: "",
         email: "",
         phonenumber: "",
@@ -16,9 +16,38 @@ const Kontakt = () => {
     }
 
     const [form, setForm] = useState(initialFormData);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
 
     const handleChange = (e) => {
+        console.log(e.target);
+        const { name, value, type, checked } = e.target;
+        setForm((previous) => ({
+            ...previous,
+            [name]: type === "checkbox" ? checked : value
+        }))
+    }
 
+    const handleSave = async () => {
+        try{
+            console.log(form);
+            const request = await fetch('/api/customerRequest/createCustomerRequest', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(form)
+            })
+            const res = await request.json();
+            if(res.status === 200){
+                setErrorMessage("");
+                setSuccessMessage(res.message);
+            }else{
+                setErrorMessage(res.message);
+            }
+        }catch(err){
+            console.log(err);
+        }
     }
 
     return (
@@ -41,7 +70,9 @@ const Kontakt = () => {
             <h3>Melden Sie sich bei uns!</h3>
 
             <KontaktForm form={form} handleChange={handleChange}></KontaktForm>
-
+            <button type="button" onClick={handleSave}>Speichern</button>
+            {successMessage && <p>{successMessage}</p>}
+            {errorMessage && <p>{errorMessage}</p>}
             <Ansprechpartner></Ansprechpartner>
 
             <Footer></Footer>

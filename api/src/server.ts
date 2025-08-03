@@ -4,9 +4,11 @@ import express, { NextFunction, Request, Response } from "express";
 import immoRouter from "./routes/immo";
 import authRouter from "./routes/auth";
 import kpiRouter from "./routes/kpi";
+import customerRequestRouter from "./routes/customerRequest";
 import sequelize from "./database/util/database";
 import { User } from "./database/models/users.model";
 import { hashPassword } from './miniscripts/hash';
+
 dotenv.config();
 
 const app = express();
@@ -21,7 +23,7 @@ const dev: boolean = true;
 
 const startDBConnection = async () =>{
     try{
-        await sequelize.sync({ force: false });
+        await sequelize.sync({ force: false, alter: true });
         console.log("DB synced");
 
         const user = await User.create({
@@ -47,3 +49,5 @@ app.use('/api/immo', immoRouter);
 app.use('/api/auth', authRouter);
 
 app.use('/api/kpi', kpiRouter);
+
+app.use('/api/customerRequest', customerRequestRouter);
