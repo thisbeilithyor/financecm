@@ -10,6 +10,8 @@ import AdminNavBar from "./admin/AdminNavBar.js";
 import EditImmo from "./admin/immobiliencenter/EditImmo.js";
 import Immobilien from "./nonadmin/immobilien/Immobilien.js";
 import ImmoElement from "./nonadmin/immobilien/specific_item/ImmoElement.js";
+import Kontakt from "./nonadmin/kontakt/Kontakt.js";
+
 
 import useWebsiteVisitTracker from "./util/useWebsiteVisitTracker.js";
 
@@ -22,6 +24,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/immobilien" element={<Immobilien />}></Route>
         <Route path="/immobilien/:objectnr" element={<ImmoElement />}></Route>
+        <Route path="/kontakt" element={<Kontakt />}></Route>
         <Route element={<ProtectedRoutes/>}>
           <Route element={<AdminNavBar />}>
             <Route path="admin/panel" element={<AdminPanel />}></Route>

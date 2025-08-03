@@ -22,7 +22,7 @@ const Navbar = () => {
                         <Link className="linkEl" to="/admin/kpi">MEDIATHEK</Link>
                     </li>
                     <li>
-                        <Link className="linkEl" to="/admin/kpi">KONTAKT</Link>
+                        <Link className="linkEl" to="/kontakt">KONTAKT</Link>
                     </li>
                     </ul>
                 </nav>
