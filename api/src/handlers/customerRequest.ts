@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { saveCustomerRequest } from "../database/operations/customerRequest";
+import { CustomerRequest } from "../database/models/customerRequest.model";
 
 type ReqContent = {
     name: string
@@ -15,4 +16,11 @@ export const createCustomerRequest = async (req: Request<{}, {}, ReqContent>, re
         return res.status(200).json({ message: "Anfrage erfolgreich gespeichert!" });
     }
     return res.status(401).json({ message: "Fehler" });
+}
+
+export const getCustomerRequests = async (req: Request, res: Response, next: NextFunction) => {
+    const queryResult: CustomerRequest[] = await CustomerRequest.findAll({
+        raw: true
+    })
+    return res.json(queryResult);
 }
