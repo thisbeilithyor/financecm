@@ -2,11 +2,13 @@ import Navbar from "../components/Navbar.js";
 import Footer from "../components/Footer.js";
 import ImmobilieItem from "../../general-components/ImmobilieItem.js";
 import IslandGraphic from "../components/IslandGraphic.js";
+import VorteileEinerImmobilie from "../components/VorteileEinerImmobilie.js";
+import ImmobilieAufZypernKaufen from "../components/ImmobilieAufZypernKaufen.js";
+import HaeufigeFragen from "./HaeufigeFragen.js";
 
 import useGetImmos from "../../util/useGetImmos.js";
 import { useState } from "react";
 import RelevanteThemen from "../components/RelevanteThemen.js";
-
 import { useNavigate } from "react-router-dom";
 
 const Immobilien = () =>{
@@ -42,6 +44,16 @@ const Immobilien = () =>{
             )
         })}
         <IslandGraphic></IslandGraphic>
+        <VorteileEinerImmobilie></VorteileEinerImmobilie>
+
+        <IslandGraphic></IslandGraphic>
+
+        <ImmobilieAufZypernKaufen></ImmobilieAufZypernKaufen>
+
+        <HaeufigeFragen></HaeufigeFragen>
+
+        <IslandGraphic></IslandGraphic>
+
         <RelevanteThemen></RelevanteThemen>
         <Footer></Footer>
     </>
