@@ -13,8 +13,21 @@ const Immobilien = () =>{
     const [immosData, setImmosData] = useState([]);
     const navigate = useNavigate();
 
+
+    let weitereImmos = [];
+    let counter = 0;
+    for(const immo of immosData){
+        weitereImmos.push(immo);
+        counter++;
+        if(counter >= 3) {
+            break;
+        }
+    }
+
+    console.log(weitereImmos);
+
     const handleClick = (e, objectnr) => {
-        navigate('/immobilien/'+objectnr);
+        navigate('/immobilien/'+objectnr, { state: {weitereImmos} });
     }
     
     return(

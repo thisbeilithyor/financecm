@@ -5,6 +5,9 @@ import Footer from "../../components/Footer.js";
 import IslandGraphic from "../../components/IslandGraphic.js";
 import UntereInfos from "./UntereInfos.js";
 import Ansprechpartner2 from "../../components/Ansprechpartner2.js";
+import Zahlungsinformationen from "./Zahlungsinformationen.js";
+import Weitere from "./Weitere.js";
+import { useLocation } from "react-router-dom";
 
 const ImageElement = () => {
     const { objectnr } = useParams();
@@ -12,6 +15,9 @@ const ImageElement = () => {
     const [message, setMessage] = useState('');
     const [data, setData] = useState([]);
     const [furtherImages, setFurtherImages] = useState([]);
+
+    const location = useLocation();
+    const {weitereImmos} = location.state || {};
     
     useEffect(() => {
         const reqData = async () => {
@@ -99,7 +105,9 @@ const ImageElement = () => {
             <h2>Über den Standort</h2>
             <p>{data.uberStandort}</p>
 
-            
+            <Zahlungsinformationen price={data.price}></Zahlungsinformationen>
+
+            <Weitere immos={weitereImmos}></Weitere>
 
             <Footer></Footer>
         </>
