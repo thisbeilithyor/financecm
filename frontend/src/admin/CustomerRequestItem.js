@@ -5,6 +5,7 @@ const CustomerRequestItem = ({requestItem}) => {
             <p>E-Mail: {requestItem.email}</p>
             <p>Telefonnummer: {requestItem.phonenumber}</p>
             <p>Nachricht: {requestItem.message}</p>
+            <p>Anfrage-Zeitpunkt: {requestItem.timestamp}</p>
         </>
     )
 }
