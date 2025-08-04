@@ -13,6 +13,7 @@ import ImmoElement from "./nonadmin/immobilien/specific_item/ImmoElement.js";
 import Kontakt from "./nonadmin/kontakt/Kontakt.js";
 import Impressum from "./nonadmin/impressum/Impressum.js";
 import UeberZypern from "./nonadmin/ueberzypern/UeberZypern.js";
+import Vermittlung from "./nonadmin/vermittlung/Vermittlung.js";
 
 import useWebsiteVisitTracker from "./util/useWebsiteVisitTracker.js";
 import Datenschutzerklarung from "./nonadmin/datenschutzerklarung/Datenschutzerklarung.js";
@@ -31,6 +32,7 @@ function App() {
         <Route path="/uberzypern" element={<UeberZypern />}></Route>
         <Route path="/datenschutzerklarung" element={<Datenschutzerklarung />}></Route>
         <Route path="/checklist" element={<Checklist />}></Route>
+        <Route path="/vermittlung" element={<Vermittlung />}></Route>
         <Route element={<ProtectedRoutes/>}>
           <Route element={<AdminNavBar />}>
             <Route path="admin/panel" element={<AdminPanel />}></Route>

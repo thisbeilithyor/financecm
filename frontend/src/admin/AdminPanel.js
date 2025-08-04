@@ -39,7 +39,6 @@ const AdminPanel = () => {
                 }
             })
             const res = await result.json();
-            console.log(res);
             setChecklistEntrys(res);
         }
         reqChecklistEntrys();

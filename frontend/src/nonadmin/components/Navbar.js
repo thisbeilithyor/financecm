@@ -24,6 +24,9 @@ const Navbar = () => {
                     <li>
                         <Link className="linkEl" to="/kontakt">KONTAKT</Link>
                     </li>
+                    <li>
+                        <Link className="linkEl" to="/vermittlung">VERMITTLUNG</Link>
+                    </li>
                     </ul>
                 </nav>
             </div>
