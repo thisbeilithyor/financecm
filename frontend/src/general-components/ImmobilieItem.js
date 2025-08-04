@@ -10,7 +10,7 @@ const ImmobilieItem = ({immo, handleClick}) => {
                 <h2>Objektnummer: {immo.objectnr}</h2>
                 <p>Stadt: {immo.city}</p>
                 <p>Preis: {immo.price}</p>
-                <p>Views: </p>
+                <p>Views: {immo.views}</p>
             </div>
         </div>
         </>

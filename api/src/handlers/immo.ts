@@ -68,6 +68,13 @@ export const getImmoItem = async (req: Request, res: Response, next: NextFunctio
         raw: true
     })
 
-    if(queryResult) return res.status(200).json(queryResult);
+    if(queryResult) {
+        res.status(200).json(queryResult);
+        await Immobilie.increment('views', {
+            by: 1,
+            where: { objectnr: objectnr }
+        });
+        return;
+    };
     return res.status(404).json({message: "Dieses Objekt ist nicht vorhanden!"});
 }
