@@ -6,6 +6,7 @@ import EntdeckenShowcase from "./EntdeckenShowcase.js";
 import RelevanteThemen from "../components/RelevanteThemen.js";
 import Einstieg from "./Einstieg.js";
 import ZweiBilder from "./ZweiBilder.js";
+import Checkliste from "../components/Checkliste.js";
 
 import "../index.css";
 
@@ -21,6 +22,7 @@ const Home = () => {
         <ZweiBilder></ZweiBilder>
 
         <Ansprechpartner></Ansprechpartner>
+        <Checkliste></Checkliste>
 
         <Footer></Footer> 
         </>

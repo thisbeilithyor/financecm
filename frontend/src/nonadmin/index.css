@@ -411,3 +411,11 @@ hr {
     border-radius: 15pt;
     padding-bottom: 4em;
 }
+
+
+/*Checklist*/
+.checklistDiv{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}

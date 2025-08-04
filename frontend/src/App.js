@@ -16,7 +16,7 @@ import UeberZypern from "./nonadmin/ueberzypern/UeberZypern.js";
 
 import useWebsiteVisitTracker from "./util/useWebsiteVisitTracker.js";
 import Datenschutzerklarung from "./nonadmin/datenschutzerklarung/Datenschutzerklarung.js";
-
+import Checklist from "./nonadmin/checklist/Checklist.js";
 
 function App() {
   useWebsiteVisitTracker();
@@ -30,6 +30,7 @@ function App() {
         <Route path="/impressum" element={<Impressum />}></Route>
         <Route path="/uberzypern" element={<UeberZypern />}></Route>
         <Route path="/datenschutzerklarung" element={<Datenschutzerklarung />}></Route>
+        <Route path="/checklist" element={<Checklist />}></Route>
         <Route element={<ProtectedRoutes/>}>
           <Route element={<AdminNavBar />}>
             <Route path="admin/panel" element={<AdminPanel />}></Route>

@@ -5,6 +5,7 @@ import immoRouter from "./routes/immo";
 import authRouter from "./routes/auth";
 import kpiRouter from "./routes/kpi";
 import customerRequestRouter from "./routes/customerRequest";
+import checklistRouter from "./routes/checklist";
 import sequelize from "./database/util/database";
 import { User } from "./database/models/users.model";
 import { hashPassword } from './miniscripts/hash';
@@ -51,3 +52,5 @@ app.use('/api/auth', authRouter);
 app.use('/api/kpi', kpiRouter);
 
 app.use('/api/customerRequest', customerRequestRouter);
+
+app.use('/api/checklist', checklistRouter);

@@ -8,7 +8,7 @@ export const saveCustomerRequest = async (name: string, email: string, phonenumb
             email: email,
             phonenumber: phonenumber,
             message: message
-        })
+        } as CustomerRequest)
 
         if(save){
             return true;

@@ -1,7 +1,7 @@
 import { AutoIncrement, DataType, Model, PrimaryKey, Table, AllowNull, Column, Default } from "sequelize-typescript";
 
 @Table({ tableName: "CustomerRequest" })
-export class CustomerRequest extends Model {
+export class CustomerRequest extends Model<CustomerRequest> {
     @PrimaryKey
     @AutoIncrement
     @AllowNull(false)

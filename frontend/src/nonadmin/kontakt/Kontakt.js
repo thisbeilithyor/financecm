@@ -20,7 +20,6 @@ const Kontakt = () => {
     const [successMessage, setSuccessMessage] = useState("");
 
     const handleChange = (e) => {
-        console.log(e.target);
         const { name, value, type, checked } = e.target;
         setForm((previous) => ({
             ...previous,
