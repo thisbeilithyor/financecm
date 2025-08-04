@@ -19,7 +19,7 @@ const Navbar = () => {
                         <Link className="linkEl" to="/uberzypern">ÜBER ZYPERN</Link>
                     </li>
                     <li>
-                        <Link className="linkEl" to="/admin/kpi">MEDIATHEK</Link>
+                        <Link className="linkEl" to="/mediathek">MEDIATHEK</Link>
                     </li>
                     <li>
                         <Link className="linkEl" to="/kontakt">KONTAKT</Link>

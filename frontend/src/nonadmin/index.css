@@ -489,3 +489,33 @@ hr {
     right: 0;
     top: 400px;
 }
+
+.video-section {
+  padding: 40px;
+  text-align: center;
+}
+
+.video-section-title {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* zentriert Zeile */
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto; /* zentriert Gesamt-Grid */
+}
+
+.video-card {
+  flex: 0 1 320px; /* Breite pro Karte */
+}
+
+.video-card video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
