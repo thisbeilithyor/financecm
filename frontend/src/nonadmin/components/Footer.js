@@ -9,7 +9,7 @@ const Footer = () => {
         <div id="links">
             <Link className="linkComp" to="/impressum">Impressum</Link>          
             <Link className="linkComp" to="/kontakt">Kontakt</Link>
-            <Link className="linkComp" to="/datenschutz">Datenschutz</Link>
+            <Link className="linkComp" to="/datenschutzerklarung">Datenschutz</Link>
         </div>
         <img id="logo" src='/logo-hell.webp'></img>
         <div id="socialmedia">

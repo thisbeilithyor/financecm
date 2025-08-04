@@ -15,6 +15,7 @@ import Impressum from "./nonadmin/impressum/Impressum.js";
 import UeberZypern from "./nonadmin/ueberzypern/UeberZypern.js";
 
 import useWebsiteVisitTracker from "./util/useWebsiteVisitTracker.js";
+import Datenschutzerklarung from "./nonadmin/datenschutzerklarung/Datenschutzerklarung.js";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/kontakt" element={<Kontakt />}></Route>
         <Route path="/impressum" element={<Impressum />}></Route>
         <Route path="/uberzypern" element={<UeberZypern />}></Route>
+        <Route path="/datenschutzerklarung" element={<Datenschutzerklarung />}></Route>
         <Route element={<ProtectedRoutes/>}>
           <Route element={<AdminNavBar />}>
             <Route path="admin/panel" element={<AdminPanel />}></Route>
