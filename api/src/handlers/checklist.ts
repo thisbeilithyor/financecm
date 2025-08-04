@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { saveChecklistToDB } from "../database/operations/checklist";
-
+import { Checklist } from "../database/models/checklist.model";
 
 type ReqType = {
     name: string
@@ -14,16 +14,19 @@ type ReqType = {
 export const saveChecklist = async (req: Request<{}, {}, ReqType>, res: Response, next: NextFunction) => {
     const { name, phonenumber, email, immobilientyp, kaufzeitraum } = req.body;
 
-    console.log(name);
-    console.log(phonenumber);
-    console.log(email);
-    console.log(immobilientyp);
-    console.log(kaufzeitraum);
-
     if(await saveChecklistToDB(name, phonenumber, email, immobilientyp, kaufzeitraum)) {
         return res.status(200).json({ message: "Erfolgreich gespeichert!" });
     }
     return res.status(401).json({ message: "Error!" });
-}   
+}  
+
+
+export const getAll = async (req: Request, res: Response, next: NextFunction) => {
+    const queryResult: Checklist[] = await Checklist.findAll({
+        raw: true
+    })
+
+    return res.status(200).json(queryResult);
+}
 
     

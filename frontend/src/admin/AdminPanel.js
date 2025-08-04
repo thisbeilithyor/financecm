@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import CustomerRequestItem from "./CustomerRequestItem.js";
-
+import ChecklistEntry from "./ChecklistEntry.js";
 
 const AdminPanel = () => {
     const [homeRedirect, setHomeRedirect] = useState(false);
     const [customerRequests, setCustomerRequests] = useState([]);
+    const [checklistEntrys, setChecklistEntrys] = useState([]);
 
     const logout = () => {
         window.localStorage.removeItem("token");
@@ -27,6 +28,21 @@ const AdminPanel = () => {
             setCustomerRequests(res);
         }
         reqCustomerRequests();
+
+        const reqChecklistEntrys = async () => {
+            const result = await fetch('/api/checklist/getAll', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+            const res = await result.json();
+            console.log(res);
+            setChecklistEntrys(res);
+        }
+        reqChecklistEntrys();
     }, [])
 
     if(homeRedirect){
@@ -38,9 +54,14 @@ const AdminPanel = () => {
             <h1>hier ist adminpanel</h1>
             <button onClick={logout}>Logout</button>
 
-            <h2>Kundenanfragen</h2>
+            <h2>Kundenanfragen aus /kontakt</h2>
             {customerRequests && customerRequests.map((item) => {
                 return <CustomerRequestItem requestItem={item}></CustomerRequestItem>
+            })}
+
+            <h2>Checklistanfragen aus /checklist</h2>
+            {checklistEntrys && checklistEntrys.map((item) => {
+                return <ChecklistEntry item={item}></ChecklistEntry>
             })}
         </>
     )
