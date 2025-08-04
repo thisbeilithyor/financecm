@@ -9,7 +9,7 @@ import Zahlungsinformationen from "./Zahlungsinformationen.js";
 import Weitere from "./Weitere.js";
 import { useLocation } from "react-router-dom";
 
-const ImageElement = () => {
+const ImmoElement = () => {
     const { objectnr } = useParams();
 
     const [message, setMessage] = useState('');
@@ -114,4 +114,4 @@ const ImageElement = () => {
     )
 }
 
-export default ImageElement;
+export default ImmoElement;

@@ -1,4 +1,4 @@
-import { Table, Column, Model, PrimaryKey, DataType, AllowNull } from "sequelize-typescript";
+import { Table, Column, Model, PrimaryKey, DataType, AllowNull, Default } from "sequelize-typescript";
 
 @Table({ tableName: "Immobilie" })
 export class Immobilie extends Model<Immobilie> {
@@ -82,4 +82,8 @@ export class Immobilie extends Model<Immobilie> {
     @AllowNull(true)
     @Column(DataType.BOOLEAN)
     carouselObject?: boolean;
+
+    @Default(0)
+    @Column(DataType.INTEGER)
+    views?: number;
 }
