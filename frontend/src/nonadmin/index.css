@@ -482,3 +482,10 @@ hr {
 .bewertung-meta {
   font-weight: bold;
 }
+
+/* SocialMedia */
+.socialmedia {
+    position: fixed;
+    right: 0;
+    top: 400px;
+}

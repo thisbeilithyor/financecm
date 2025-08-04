@@ -10,6 +10,7 @@ import Checkliste from "../components/Checkliste.js";
 import Bewertungen from "./Bewertungen.js"
 
 import "../index.css";
+import SocialMediaAnbindung from "../components/SocialMediaAnbindung.js";
 
 const Home = () => {
     return(
@@ -25,6 +26,7 @@ const Home = () => {
 
         <Ansprechpartner></Ansprechpartner>
         <Checkliste></Checkliste>
+        <SocialMediaAnbindung></SocialMediaAnbindung>
 
         <Footer></Footer> 
         </>

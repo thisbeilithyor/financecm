@@ -5,7 +5,7 @@ const reviews = [
   {
     id: 1,
     name: "Max",
-    date: "23.09.2024",
+    date: "01.10.2024",
     rating: 5,
     text: `Wir sind überaus zufrieden mit dem Service des Finance Centers beim Kauf einer Immobilie in der Iskele Bahçeler-Region in Nordzypern. Von Anfang an wurden wir professionell und freundlich betreut. Besonders hervorheben möchten wir die informative Tour, die für meine Frau und mich organisiert wurde. Dadurch konnten wir nicht nur die Region besser kennenlernen, sondern auch alle relevanten Informationen rund um den Immobilienkauf erhalten. Der gesamte Prozess verlief reibungslos und transparent. Wir fühlen uns sehr gut beraten und können das Finance Center uneingeschränkt weiterempfehlen!`,
   },
