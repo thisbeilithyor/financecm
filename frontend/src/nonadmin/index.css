@@ -382,8 +382,7 @@ hr {
     display: block;
 }
 
-.infoTxt{
-}
+/*Hier stand mal .infoTxt*/
 
 .infoContainer {
     max-width:max-content;
@@ -418,4 +417,68 @@ hr {
     position: fixed;
     bottom: 0;
     left: 0;
+}
+
+/* Gesamter Seitenbereich */
+.kundenbewertungen-seite {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Überschrift */
+.kundenbewertungen-titel {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #002c2c;
+}
+
+/* Durchschnittlicher Bewertungstext */
+.kundenbewertungen-durchschnitt {
+  margin: 1rem 0 2rem;
+  color: #333;
+}
+
+/* Sterneanzeige allgemein */
+.kundenbewertungen-sterne {
+  font-size: 2rem;
+  color: #004242;
+}
+
+/* Einzelne Sterne */
+.stern-leer {
+  color: #ccc;
+}
+
+.stern-ausgefuellt {
+  color: #004242;
+}
+
+/* Bereich für alle Bewertungen */
+.bewertungen-liste {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Einzelne Bewertung */
+.bewertung-box {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Bewertungstext */
+.bewertung-text {
+  margin: 1rem 0;
+}
+
+/* Name und Datum */
+.bewertung-meta {
+  font-weight: bold;
 }

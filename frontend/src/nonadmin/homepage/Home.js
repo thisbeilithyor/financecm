@@ -7,6 +7,7 @@ import RelevanteThemen from "../components/RelevanteThemen.js";
 import Einstieg from "./Einstieg.js";
 import ZweiBilder from "./ZweiBilder.js";
 import Checkliste from "../components/Checkliste.js";
+import Bewertungen from "./Bewertungen.js"
 
 import "../index.css";
 
@@ -17,6 +18,7 @@ const Home = () => {
         <Einstieg></Einstieg>
         <EntdeckenShowcase></EntdeckenShowcase>
         <RelevanteThemen></RelevanteThemen>
+        <Bewertungen></Bewertungen>
         <IslandGraphic></IslandGraphic>
 
         <ZweiBilder></ZweiBilder>
