@@ -187,6 +187,8 @@ hr {
 
 /*ImageCarousel*/
 .carouselContainer{
+    max-width: 500px;
+    max-height: 1000px;
     width: 60%;
     margin: auto;
     padding: 2em;

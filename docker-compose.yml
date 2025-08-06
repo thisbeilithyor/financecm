@@ -42,7 +42,7 @@ services:
       - fcm_images_data:/upload_images
 
   fcm_webserver:
-    build: ./frontend
+    build: ./frontendVite
     container_name: fcm_webserver
 #    image: ilithyor/myrepo-webserver:1.0
     ports:
