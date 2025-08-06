@@ -1,0 +1,14 @@
+const Aktivitaet = () => {
+    return ( 
+        <>
+            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:mb-10 md:mt-10">Aktivitäten für Abenteuerlustige</h2>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Zypern ist ein Traumziel für alle, die das Abenteuer suchen. Die Insel bietet eine Vielzahl an Outdoor-Aktivitäten wie Tauchen, Fischen, Radfahren, Bergwandern und Gleitschirmfliegen. Die abwechslungsreiche Landschaft macht jede Aktivität zu einem besonderen Erlebnis. Auch Wassersportler kommen voll auf ihre Kosten: Segeln, Windsurfen und Jet-Ski-Fahren sind hier besonders beliebt. Für kulturelle Erlebnisse sorgen die vielen historischen Stätten und archäologischen Ausgrabungen, die die reiche Geschichte Zyperns widerspiegeln.</p>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Tauchen Sie in die faszinierende Unterwasserwelt Zyperns ein und entdecken Sie beeindruckende Riffe, Wracks und eine reiche Meeresfauna. Die klaren Gewässer bieten hervorragende Sichtverhältnisse, die das Taucherlebnis unvergesslich machen. Beim Fischen entlang der Küste oder auf einem Bootsausflug können Sie sich in Ruhe entspannen und die maritime Umgebung genießen.</p>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Für Radfahrer und Wanderer bietet die Insel zahlreiche gut markierte Routen durch idyllische Landschaften und traditionelle Dörfer. Die Troodos-Berge sind besonders beliebt für anspruchsvolle Bergwanderungen und Mountainbike-Touren. Hier können Sie die frische Bergluft einatmen und atemberaubende Ausblicke genießen.</p>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Gleitschirmfliegen ist eine der aufregendsten Aktivitäten auf Zypern. Vom Himmel aus haben Sie einen spektakulären Blick auf die Küste und das Landesinnere. Die thermischen Bedingungen sind ideal, sodass sowohl Anfänger als auch erfahrene Gleitschirmflieger auf ihre Kosten kommen.</p>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Neben den Outdoor-Aktivitäten bietet Zypern auch ein reiches kulturelles Erbe. Besuchen Sie antike Stätten wie die Stadt Kourion, das Schloss Kolossi oder das Kloster Kykkos. Diese historischen Orte bieten faszinierende Einblicke in die Vergangenheit der Insel und sind ein Muss für jeden Geschichtsinteressierten. Tauchen Sie ein in die vielfältige und spannende Geschichte Zyperns und erleben Sie die kulturellen Schätze, die diese wunderschöne Insel zu bieten hat.</p>
+        </>
+    )
+}
+
+export default Aktivitaet;

@@ -1,6 +1,5 @@
 import Navbar from "../components/Navbar.jsx";
 import IslandGraphic from "../components/IslandGraphic.jsx";
-import "../index.css";
 
 const videos = [
   { id: 1, src: "beeindruckende_historische_gebaeude.mp4", subtitle: "Beeindruckende historische Gebäude in Zypern" },

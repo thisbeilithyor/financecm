@@ -1,0 +1,15 @@
+const Immobilieninvestitionen = () => {
+    return (
+        <>
+            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:mb-10 md:mt-10">Einfache Immobilieninvestitionen</h2>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Der Kauf von Immobilien in Zypern ist ein unkomplizierter Prozess, insbesondere für EU-Bürger, die keine Beschränkungen beim Immobilienerwerb haben. Der Immobilienmarkt bietet vielfältige Investitionsmöglichkeiten, von luxuriösen Villen bis hin zu modernen Apartments. Eine rechtliche Beratung durch zugelassene Anwälte ist empfehlenswert, um einen reibungslosen Kaufprozess zu gewährleisten. Mit einer steigenden Nachfrage nach Immobilien und einer stabilen Wirtschaft bietet Zypern attraktive Renditen für Investoren. Dank der modernen Infrastruktur sind alle Immobilien gut an das Strom- und Wassernetz angeschlossen, was zusätzlichen Komfort garantiert.</p>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Die rechtlichen Rahmenbedingungen in Zypern sind klar und transparent, was den Immobilienkauf sicher und nachvollziehbar macht. Käufer sollten dennoch darauf achten, alle notwendigen Dokumente und Genehmigungen sorgfältig zu prüfen. Eine erfahrene Anwaltskanzlei kann dabei helfen, mögliche Fallstricke zu vermeiden und den gesamten Prozess reibungslos zu gestalten.</p>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Neben den luxuriösen Villen und modernen Apartments gibt es auch zahlreiche kommerzielle Immobilien und Grundstücke, die attraktive Investitionsmöglichkeiten darstellen. Ob Sie nach einem Ferienhaus, einem dauerhaften Wohnsitz oder einer gewerblichen Investition suchen – Zypern bietet für jeden Bedarf das passende Objekt.</p>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Zudem profitieren Immobilienkäufer in Zypern von den vergleichsweise niedrigen Lebenshaltungskosten und dem angenehmen Mittelmeerklima, was die Insel zu einem begehrten Standort macht. Mit einer florierenden Tourismusbranche und einer wachsenden internationalen Gemeinschaft bleibt die Nachfrage nach hochwertigen Immobilien hoch.</p>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Insgesamt macht die Kombination aus wirtschaftlicher Stabilität, moderner Infrastruktur und klaren rechtlichen Rahmenbedingungen Zypern zu einem idealen Ort für Immobilieninvestitionen. Ob als privater Käufer oder als Investor – die Chancen auf dem zyprischen Immobilienmarkt sind vielversprechend und lohnend.</p>
+        
+        </>
+    )
+}
+
+export default Immobilieninvestitionen;

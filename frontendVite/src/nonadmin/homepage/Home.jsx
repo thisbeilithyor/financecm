@@ -9,7 +9,6 @@ import ZweiBilder from "./ZweiBilder.jsx";
 import Checkliste from "../components/Checkliste.jsx";
 import Bewertungen from "./Bewertungen.jsx";
 
-import "../index.css";
 import SocialMediaAnbindung from "../components/SocialMediaAnbindung.jsx";
 
 const Home = () => {

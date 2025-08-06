@@ -1,11 +1,12 @@
 FROM node:22-alpine AS build
 
-WORKDIR /
+WORKDIR /myApp
 
-COPY package*.json .
+
+COPY package*.json ./
 RUN npm install --frozen-lockfile
 
-COPY . .
+COPY . ./
 RUN npm run build
 
 #Stage 2: dev env
@@ -17,7 +18,7 @@ COPY nginx-certs/nginx-selfsigned.crt /etc/nginx
 COPY nginx-certs/nginx-selfsigned.key /etc/nginx
 
 COPY nginx.conf /etc/nginx
-COPY --from=build /dist /usr/share/nginx/html
+COPY --from=build /myApp/dist /usr/share/nginx/html
 
 EXPOSE 80
 

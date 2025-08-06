@@ -1,0 +1,15 @@
+const Nachleben = () => {
+    return (
+        <>
+            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:mb-10 md:mt-10">Lebendiges Nachtleben und Unterhaltung</h2>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Das Nachtleben in Zypern ist ebenso vielfältig wie die Insel selbst. Von pulsierenden Nachtclubs und eleganten Bars bis hin zu Open-Air-Tanzpalästen – hier ist für jeden Geschmack etwas dabei. In den Kasinos können Sie Ihr Glück versuchen und eine aufregende Nacht erleben. Für diejenigen, die es ruhiger mögen, bieten zahlreiche Restaurants und Tavernen die Möglichkeit, die lokale Küche und die Gastfreundschaft der Zyprioten zu genießen.</p>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Die Städte Ayia Napa und Limassol sind besonders bekannt für ihr lebhaftes Nachtleben. Ayia Napa, oft als das „Ibiza des Ostens“ bezeichnet, bietet eine beeindruckende Auswahl an Clubs, die bis in die frühen Morgenstunden geöffnet sind. Hier können Sie zu internationalen DJs tanzen und eine unvergessliche Nacht erleben. Limassol hingegen bietet eine Mischung aus modernen Bars und traditionellen Tavernen, die eine entspannte Atmosphäre schaffen, in der Sie bei einem Glas Wein oder einem Cocktail den Abend genießen können.</p>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Für eine etwas andere Unterhaltung können Sie in einem der zahlreichen Kasinos auf der Insel Ihr Glück versuchen. Diese eleganten Einrichtungen bieten eine Vielzahl von Spielen wie Roulette, Blackjack und Poker sowie eine erstklassige Gastronomie und Unterhaltung.</p>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Wenn Sie ein entspannteres Erlebnis bevorzugen, sind die vielen Restaurants und Tavernen auf Zypern ideal, um die lokale Küche zu genießen. Probieren Sie traditionelle Gerichte wie Meze, eine Auswahl kleiner zypriotischer Speisen, oder frischen Fisch und Meeresfrüchte. Die warme Gastfreundschaft der Zyprioten sorgt dafür, dass Sie sich sofort wohl und willkommen fühlen.</p>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Auch kulturelle Veranstaltungen bereichern das Nachtleben in Zypern. Im Sommer finden häufig Open-Air-Konzerte, Theateraufführungen und traditionelle Tanzveranstaltungen statt, die Ihnen einen Einblick in die reiche Kultur der Insel geben. Diese Events bieten eine wunderbare Gelegenheit, die zypriotische Lebensart hautnah zu erleben und unvergessliche Erinnerungen zu sammeln.</p>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">Ob Sie nun die Nacht durchtanzen, Ihr Glück im Kasino versuchen oder bei einem gemütlichen Abendessen die lokale Küche genießen möchten – das Nachtleben auf Zypern hält für jeden etwas bereit und macht Ihren Aufenthalt auf der Insel zu einem rundum gelungenen Erlebnis.</p>
+        </>
+    )
+}
+
+export default Nachleben;
