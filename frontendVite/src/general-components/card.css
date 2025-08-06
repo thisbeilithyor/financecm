@@ -1,0 +1,30 @@
+.card {
+    color:#042325;
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 10px;
+    box-shadow: 5px 5px hsla(0, 0%, 0%, 0.1);
+    margin-top: 10px;
+    width: 66%;
+    margin: auto;
+    display: flex;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 1em;
+}
+
+.card img{
+    margin-top: 0;
+    height: 14em;
+    width: auto;
+}
+
+#asdf{
+    margin-left: 5px;
+}
+
+
+.firstHeading{
+    margin-top: 5em;
+    margin-bottom: 2em;
+    color:#042325;
+}
