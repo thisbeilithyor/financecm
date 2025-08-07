@@ -2,7 +2,7 @@ const KontaktForm = ({form, handleChange}) => {
     return ( 
         <>
             <div className="bg-[#093B3F] mt-0">
-            <form className="space-y-4 w-[50vw] m-auto">
+            <form className="space-y-4 w-[60vw] m-auto">
                 <label className="block text-white mb-1">Name</label>
                 <input type="text" name="name" value={form.name} onChange={handleChange}
                 className="w-full border border-white rounded-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white bg-white"></input>
@@ -18,8 +18,6 @@ const KontaktForm = ({form, handleChange}) => {
                 <label className="block text-white mb-1">Nachricht</label>
                 <textarea type="" name="message" value={form.message} onChange={handleChange}
                 className="w-full h-40 border border-white rounded-[2vw] px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white bg-white"></textarea>
-
-                
             </form>
             </div>
         </>
