@@ -7,15 +7,15 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="bg-gray-100 shadow sticky top-0 z-50">
-        <div className="flex items-center justify-between px-6 py-4 w-full">
+      <header className="bg-gray-100 shadow sticky top-0 z-50 h-20">
+        <div className="flex items-center justify-between px-6 w-full h-full">
           
           {/* Logo (responsive) */}
-         <div className="h-auto max-h-24">
+         <div className="!min-h-full flex items-center">
             <img
                 src="/logo-dunkel.webp"
                 alt="Logo"
-                className="h-auto max-h-24 w-auto object-contain"
+                className="!border-none h-20 !w-auto object-contain !mt-0 !mb-0 !mr-0"
             />
         </div>
 
