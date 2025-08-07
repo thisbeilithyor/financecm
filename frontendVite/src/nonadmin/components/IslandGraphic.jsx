@@ -1,13 +1,18 @@
 
 
-const IslandGraphic = () => {
+const IslandGraphic = ({ isWhite=false }) => {
     return (
-        <>
-            <div className="islandContainer">
+        <>            
+            <div className={`${isWhite ? "bg-[#093B3F]" : "bg-[#f1f1f1]"} !border-none`}>
+            
             <div className="hrContainer">
             <hr></hr>
             </div>
-            <img src='/island.svg'></img>
+            {!isWhite ? 
+                <img className="!border-none" src='island.svg'></img>
+                :
+                <img className="!border-none" src='island-white.svg'></img>
+            }
             <div className="hrContainer">
             <hr></hr>
             </div>

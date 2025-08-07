@@ -52,23 +52,41 @@ const Kontakt = () => {
     return (
         <>
             <Navbar></Navbar>
-            <img src="bgkontakt.webp"></img>
-            <h1>Wir freuen uns von Ihnen zu hören</h1>
-            <h3>Kontakt für Immobilien in Nordzypern</h3>
 
-            <img src="phone.svg"></img>
-            <p>+49 172 77 45656</p>
-            <img src="location.svg"></img>
-            <p>Manchingerstr. 10, 85053 Ingolstadt</p>
-            <img src="mail.svg"></img>   
-            <p>meier-finanz@gmx.de</p>
+            <div
+                className="fixed inset-0 bg-no-repeat bg-center bg-cover z-[-1]"
+                style={{ backgroundImage: "url('bgkontakt.webp')" }}
+            ></div>
+            <div className="relative flex flex-col items-center justify-center h-100 row bg-[rgba(0,0,0,0.4)]">
+                <h1 className="text-white text-4xl md:text-5xl font-bold text-center drop-shadow-lg">Wir freuen uns von Ihnen zu hören</h1>
+                <h3 className="text-2xl text-center text-white font-bold mt-3">Kontakt für Immobilien in Nordzypern</h3>
+            </div>
 
-            <IslandGraphic></IslandGraphic>
+            <div className="flex justify-center bg-[#093B3F] pt-40 space-x-8">
+                <div className="flex flex-col w-[10vw]">
+                    <center><img className="!border-none" src="phone.svg"></img></center>
+                    <center><p className="text-white text-lg">+49 172 77 45656</p></center>
+                </div>
+                <div className="flex flex-col w-[10vw]">
+                    <center><img className="!border-none" src="location.svg"></img></center>
+                    <center><p className="text-white text-lg">Manchingerstr. 10, 85053 Ingolstadt</p></center>
+                </div>
+                <div className="flex flex-col w-[10vw]">
+                    <center><img className="!border-none" src="mail.svg"></img></center> 
+                    <center><p className="text-white text-lg">meier-finanz@gmx.de</p></center>
+                </div>
+            </div>
+            
 
-            <h2>Interesse geweckt?</h2>
-            <h3>Melden Sie sich bei uns!</h3>
+            <IslandGraphic isWhite={true}></IslandGraphic>
 
+            <div className="bg-[#093B3F]">
+                <h2 className="text-white text-4xl md:text-5xl font-bold text-center drop-shadow-lg">Interesse geweckt?</h2>
+                <h3 className="text-2xl text-center text-white font-bold mt-3">Melden Sie sich bei uns!</h3>
+            </div>
+        
             <KontaktForm form={form} handleChange={handleChange}></KontaktForm>
+
             <button type="button" onClick={handleSave}>Speichern</button>
             {successMessage && <p>{successMessage}</p>}
             {errorMessage && <p>{errorMessage}</p>}
