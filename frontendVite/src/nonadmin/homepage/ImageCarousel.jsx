@@ -14,14 +14,13 @@ const ImageCarousel = ({images}) => {
 
     return (
         <>
-        <div className="carouselContainer">
+        <div className="carouselContainer w-[80vw] m-auto">
             <Slider {...settings}>
                 {images.map((url, index) => {
-                    console.log(url);
                     return (
                         
                         <div key={index}>
-                            <img style={{ width: '100% !important'}} src={'/api/images/'+url}></img>
+                            <img className="w-[30vw] m-auto rounded-2xl" src={'/api/images/'+url}></img>
                         </div>
                     )})}
             </Slider>
