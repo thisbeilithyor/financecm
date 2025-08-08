@@ -28,7 +28,7 @@ const EntdeckenShowcase = () => {
 
 
     return (
-        <section class="bg-[#f1f1f1] pt-15 pb-15">
+        <section className="bg-[#f1f1f1] pt-15 pb-15">
             <center><h2 className="text-[#093B3F] font-bold text-4xl pb-10">Entdecke aktuelle Projekte</h2></center>
             <ImageCarousel images={images}></ImageCarousel>
 
