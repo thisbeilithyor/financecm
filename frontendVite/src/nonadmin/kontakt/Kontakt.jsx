@@ -85,11 +85,12 @@ const Kontakt = () => {
                 <h3 className="text-2xl text-center text-white font-bold mt-3">Melden Sie sich bei uns!</h3>
             </div>
         
-            <KontaktForm form={form} handleChange={handleChange}></KontaktForm>
+            <KontaktForm form={form} handleChange={handleChange} handleSave={handleSave}></KontaktForm>
 
-            <button type="button" onClick={handleSave}>Speichern</button>
-            {successMessage && <p>{successMessage}</p>}
-            {errorMessage && <p>{errorMessage}</p>}
+            <div className="bg-[#093B3F]">
+                {successMessage && <p className="text-white">{successMessage}</p>}
+                {errorMessage && <p className="text-white">{errorMessage}</p>}
+            </div>
             <Ansprechpartner></Ansprechpartner>
 
             <Footer></Footer>

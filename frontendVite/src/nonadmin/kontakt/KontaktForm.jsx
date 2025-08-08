@@ -1,4 +1,4 @@
-const KontaktForm = ({form, handleChange}) => {
+const KontaktForm = ({form, handleChange, handleSave}) => {
     return ( 
         <>
             <div className="bg-[#093B3F] mt-0">
@@ -18,7 +18,11 @@ const KontaktForm = ({form, handleChange}) => {
                 <label className="block text-white mb-1">Nachricht</label>
                 <textarea type="" name="message" value={form.message} onChange={handleChange}
                 className="w-full h-40 border border-white rounded-[2vw] px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white bg-white"></textarea>
+
+                <button className="w-full border border-white rounded-full px-3 py-2 text-[#093B3F] bg-white text-lg" type="button" onClick={handleSave}>Absenden</button>
             </form>
+
+           
             </div>
         </>
     )
