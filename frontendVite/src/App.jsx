@@ -19,7 +19,7 @@ import Mediathek from "./nonadmin/mediathek/Mediathek.jsx";
 import useWebsiteVisitTracker from "./util/useWebsiteVisitTracker.js";
 import Datenschutzerklarung from "./nonadmin/datenschutzerklarung/Datenschutzerklarung.jsx";
 import Checklist from "./nonadmin/checklist/Checklist.jsx";
-
+import Nonadmin from "./nonadmin/components/Nonadmin.jsx";
 
 function App() {
 
@@ -27,16 +27,18 @@ function App() {
 
   return(
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/immobilien" element={<Immobilien />}></Route>
-        <Route path="/immobilien/:objectnr" element={<ImmoElement />}></Route>
-        <Route path="/kontakt" element={<Kontakt />}></Route>
-        <Route path="/impressum" element={<Impressum />}></Route>
-        <Route path="/uberzypern" element={<UeberZypern />}></Route>
-        <Route path="/datenschutzerklarung" element={<Datenschutzerklarung />}></Route>
-        <Route path="/checklist" element={<Checklist />}></Route>
-        <Route path="/vermittlung" element={<Vermittlung />}></Route>
-        <Route path="/mediathek" element={<Mediathek />}></Route>
+        <Route element={<Nonadmin />}>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/immobilien" element={<Immobilien />}></Route>
+          <Route path="/immobilien/:objectnr" element={<ImmoElement />}></Route>
+          <Route path="/kontakt" element={<Kontakt />}></Route>
+          <Route path="/impressum" element={<Impressum />}></Route>
+          <Route path="/uberzypern" element={<UeberZypern />}></Route>
+          <Route path="/datenschutzerklarung" element={<Datenschutzerklarung />}></Route>
+          <Route path="/checklist" element={<Checklist />}></Route>
+          <Route path="/vermittlung" element={<Vermittlung />}></Route>
+          <Route path="/mediathek" element={<Mediathek />}></Route>
+        </Route>
         <Route element={<ProtectedRoutes/>}>
           <Route element={<AdminNavBar />}>
             <Route path="admin/panel" element={<AdminPanel />}></Route>

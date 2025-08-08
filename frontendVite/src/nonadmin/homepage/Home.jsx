@@ -6,10 +6,8 @@ import EntdeckenShowcase from "./EntdeckenShowcase.jsx";
 import RelevanteThemen from "../components/RelevanteThemen.jsx";
 import Einstieg from "./Einstieg.jsx";
 import ZweiBilder from "./ZweiBilder.jsx";
-import Checkliste from "../components/Checkliste.jsx";
 import Bewertungen from "./Bewertungen.jsx";
 
-import SocialMediaAnbindung from "../components/SocialMediaAnbindung.jsx";
 
 const Home = () => {
     return(
@@ -24,8 +22,6 @@ const Home = () => {
         <ZweiBilder></ZweiBilder>
 
         <Ansprechpartner></Ansprechpartner>
-        <Checkliste></Checkliste>
-        <SocialMediaAnbindung></SocialMediaAnbindung>
 
         <Footer></Footer> 
         </>
