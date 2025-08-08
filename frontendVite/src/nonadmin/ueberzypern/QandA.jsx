@@ -38,7 +38,7 @@ const QandA = () => {
                 <summary className="font-bold text-2xl">Wie sind die Bildungsmöglichkeiten auf Zypern?</summary>
                 <p className="text-black text-lg mt-5">Zypern bietet ausgezeichnete Bildungsmöglichkeiten, darunter internationale Schulen und Universitäten wie die Near East University und die Girne American University.</p>
             </details>
-            <details className="ml-50 mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] md:mb-5">
+            <details className="ml-50 mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] pb-5">
                 <summary className="font-bold text-2xl">Welche Outdoor-Aktivitäten kann man auf Zypern unternehmen?</summary>
                 <p className="text-black text-lg mt-5">Zypern ist ideal für Outdoor-Aktivitäten wie Tauchen, Wandern, Radfahren, Gleitschirmfliegen und Segeln. Die vielfältige Landschaft bietet für jeden etwas.</p>
             </details>
