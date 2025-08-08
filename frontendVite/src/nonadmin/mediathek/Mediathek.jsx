@@ -1,5 +1,7 @@
 import Navbar from "../components/Navbar.jsx";
 import IslandGraphic from "../components/IslandGraphic.jsx";
+import Ansprechpartner from "../components/Ansprechpartner.jsx";
+import Footer from "../components/Footer.jsx";
 
 const videos = [
   { id: 1, src: "beeindruckende_historische_gebaeude.mp4", subtitle: "Beeindruckende historische Gebäude in Zypern" },
@@ -20,23 +22,27 @@ const VideoGallery = () => {
   return (
     <>
         <Navbar></Navbar>
-        <div className="video-section">
-        <h1 className="video-section-title">
+        <div className="bg-[#f1f1f1]">
+        <center><h1 className="text-[#093B3F] font-bold text-4xl pt-10 pb-2">
             Machen Sie sich ein Bild von Zypern & Immobilien vor Ort
         </h1>
-        <div className="video-grid">
+        <h3 className="text-[#093B3F] font-bold text-2xl pb-10" >Jetzt unsere Mediathek erforschen</h3></center>
+        <div className="flex flex-wrap justify-center gap-4">
             {sortedVideos.map((video) => (
-            <div key={video.id} className="video-card">
-                <video controls width="100%">
+            <div key={video.id} className="rounded-[12px] w-[50%] md:w-[20%]">
+                <video controls>
                 <source src={`/media/${video.src}`} type="video/mp4" />
                 Ihr Browser unterstützt das Video-Tag nicht.
                 </video>
-                <p className="video-subtitle">{video.subtitle}</p>
+                <p className="text-[#093B3F] font-bold">{video.subtitle}</p>
             </div>
             ))}
         </div>
         </div>
          <IslandGraphic></IslandGraphic>
+
+         <Ansprechpartner/>
+         <Footer/>
     </>
   );
 };

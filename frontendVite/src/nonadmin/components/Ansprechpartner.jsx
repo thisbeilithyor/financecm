@@ -2,7 +2,7 @@ const Ansprechpartner = () => {
     return (
         <>
             <div className="bg-[#093B3F] lg:flex pt-10 pb-5">
-                <div className="flex flex-col pr-20 pl-5 lg:w-[50vw]">
+                <div className="flex flex-col max-md:pr-5 max-md:pb-3 md:pr-20 pl-5 lg:w-[50vw]">
                 <h2 className="text-white text-3xl font-bold mb-8">Ihr Ansprechpartner</h2>
                 <p className="text-white text-lg text-justify">Alexander Meier und sein Team sind seit Jahren im Immobilienhandel in Zypern 
                     tätig und bieten umfassende Expertise und lokales Wissen. Sie sind Ihr idealer 

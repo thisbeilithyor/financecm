@@ -15,7 +15,7 @@ const Navbar = () => {
             <img
                 src="/logo-dunkel.webp"
                 alt="Logo"
-                className="!border-none h-20 !w-auto object-contain !mt-0 !mb-0 !mr-0"
+                className="!border-none h-18 !w-auto object-contain !mt-0 !mb-0 !mr-0"
             />
         </div>
 
