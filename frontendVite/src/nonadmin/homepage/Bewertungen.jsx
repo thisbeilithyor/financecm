@@ -19,9 +19,9 @@ const reviews = [
 
 const StarRating = ({ rating }) => {
   return (
-    <div className="kundenbewertungen-sterne">
+    <div className="text-[2rem] text-[#004242]">
       {[1, 2, 3, 4, 5].map((i) => (
-        <span key={i} className={i <= rating ? "stern-ausgefuellt" : "stern-leer"}>
+        <span key={i} className={i <= rating ? "text-[#004242]" : "text-[#ccc]"}>
           ★
         </span>
       ))}
@@ -34,19 +34,19 @@ const Bewertungen = () => {
     reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
 
   return (
-    <div className="kundenbewertungen-seite">
-      <h1 className="kundenbewertungen-titel">Das sagen unsere Kunden</h1>
-      <StarRating rating={averageRating} />
-      <p className="kundenbewertungen-durchschnitt">
+    <div className="bg-[#f1f1f1] pb-10 pt-5">
+      <center><h1 className="text-[#093B3F] font-bold text-4xl pb-10 max-md:text-xl max-md:pl-1 max-md:pr-1">Das sagen unsere Kunden</h1></center>
+      <center><StarRating rating={averageRating} /></center>
+      <center><p className="text-black">
         Basierend auf {reviews.length} Bewertungen durch unsere Kunden erhalten wir eine Bewertung von <strong>{averageRating.toFixed(2)}</strong> Sternen.
-      </p>
+      </p></center>
 
-      <div className="bewertungen-liste">
+      <div className="flex gap-x-5 m-auto w-[80vw] mt-10">
         {reviews.map((review) => (
-          <div key={review.id} className="bewertung-box">
+          <div key={review.id} className="w-[33%]">
             <StarRating rating={review.rating} />
-            <p className="bewertung-text">{review.text}</p>
-            <div className="bewertung-meta">
+            <p className="text-justify">{review.text}</p>
+            <div className="font-bold mt-2">
               {review.name} {review.date}
             </div>
           </div>

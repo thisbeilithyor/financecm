@@ -16,10 +16,12 @@ const Home = () => {
         <Einstieg></Einstieg>
         <EntdeckenShowcase></EntdeckenShowcase>
         <RelevanteThemen></RelevanteThemen>
-        <Bewertungen></Bewertungen>
         <IslandGraphic></IslandGraphic>
 
+
         <ZweiBilder></ZweiBilder>
+        <Bewertungen></Bewertungen>
+        
 
         <Ansprechpartner></Ansprechpartner>
 
