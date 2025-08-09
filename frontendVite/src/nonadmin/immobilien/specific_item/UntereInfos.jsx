@@ -36,12 +36,14 @@ const UntereInfos = ({ immo }) => {
     }
     return(
         <>
-            <div class="allInfosWrapper">
+            <div className="w-[60vw]">
+            <h2 className="bg-[#f1f1f1] text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">Zahlen & Fakten</h2>
+            <div className="flex gap-8 flex-wrap justify-center">
             {sources.map((item) => {
                 return (
                     <>
                     {item[1] && (
-                        <div className="infoContainer">
+                        <div className="w-[10%]">
                             <img className="infoImg" src={item[0]}></img>
                             <p className="infoTxt" style={{ color: "black", display: "inline"}}>{item[2]}</p>
                         </div>
@@ -50,6 +52,7 @@ const UntereInfos = ({ immo }) => {
                     
                 )
             })}
+            </div>
             </div>
         </>
     )

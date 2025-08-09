@@ -59,42 +59,43 @@ const ImmoElement = () => {
     return (
         <>
             <Navbar></Navbar>
+            <div className="bg-[#f1f1f1]">
+
             {data && (
                 <>
-                    <img class="mapImage" src={`/api/images/${data.mapImagePath}`}></img>
-                    <div className="immoItemWrapper">
-                        <div className="titleImgWrapper">
-                            <img className="titleImage" src={`/api/images/${data.titleImagePath}`}></img>
-                        </div>
-                        <div className="txtWrapper">
-                            <p>{data.city}</p>
-                            <p>Objekt Nr.: {data.objectnr}</p>
-                            <p>{data.description}</p>
-                            <p>+49 (0) 172 - 77 45 656</p>
-                            <p>meiner-finanz@gmx.de</p>
-                        </div>
+                <img className="relative w-[100vw] z-5" src={`/api/images/${data.mapImagePath}`}></img>
+
+                <div className="relative w-[65vw] m-auto flex rounded-3xl bg-[#010101] mt-[-20px] z-10">
+                    <div className="w-[50%]">
+                        <img className="rounded-3xl" src={`/api/images/${data.titleImagePath}`}></img>
                     </div>
+                    <div className="flex flex-col justify-between pt-3 pb-3 pl-3">
+                        <p className="text-white text-lg">{data.city}</p>
+                        <p className="text-white text-lg">Objekt Nr.: {data.objectnr}</p>
+                        <p className="text-white text-lg">{data.description}</p>
+                        <p className="text-white text-lg">+49 (0) 172 - 77 45 656</p>
+                        <p className="text-white text-lg">meiner-finanz@gmx.de</p>
+                    </div>
+                </div>
                 </>
                 ) 
             }
-            <center><h2 className="darkText immoSecHeading">Entdecken Sie Wohnungen mit Garten: Ihre Wohnung direkt am Meer</h2></center>
-            <center><h4 className="darkText">Ihre Wohnung in Zypern!</h4></center>
+            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">Entdecken Sie Wohnungen mit Garten: Ihre Wohnung direkt am Meer</h2>
+            <h4 className="text-2xl text-center text-[#093B3F] font-bold">Ihre Wohnung in Zypern!</h4>
             <IslandGraphic></IslandGraphic>
-            <div className="furtherImagesWrapper">
+            <div className="flex flex-wrap w-[80vw] m-auto gap-5">
                 {data && (
                     <>
                         {furtherImages.map((item, index) => {
                             return (
-                                <img key={index} src={`/api/images/${item.imagePath}`}></img>
+                                <img className="rounded-xl w-[30%]" key={index} src={`/api/images/${item.imagePath}`}></img>
                             )
                         })}
                     </>
                 )}
             </div>
             
-            <center><h2 class="darkText">Zahlen & Fakten</h2></center>
-
-            <div style={{display: "flex"}}>
+            <div className="flex w-[80vw] m-auto">
                 <UntereInfos immo={data}></UntereInfos>
                 <Ansprechpartner2></Ansprechpartner2>
             </div>
@@ -105,6 +106,7 @@ const ImmoElement = () => {
             <h2>Über den Standort</h2>
             <p>{data.uberStandort}</p>
 
+            </div>
             <Zahlungsinformationen price={data.price}></Zahlungsinformationen>
 
             <Weitere immos={weitereImmos}></Weitere>
