@@ -8,6 +8,7 @@ import Ansprechpartner2 from "../../components/Ansprechpartner2.jsx";
 import Zahlungsinformationen from "./Zahlungsinformationen.jsx";
 import Weitere from "./Weitere.jsx";
 import { useLocation } from "react-router-dom";
+import Ansprechpartner from "../../components/Ansprechpartner.jsx";
 
 const ImmoElement = () => {
     const { objectnr } = useParams();
@@ -82,7 +83,7 @@ const ImmoElement = () => {
             }
             <h2 className="text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">Entdecken Sie Wohnungen mit Garten: Ihre Wohnung direkt am Meer</h2>
             <h4 className="text-2xl text-center text-[#093B3F] font-bold">Ihre Wohnung in Zypern!</h4>
-            <IslandGraphic></IslandGraphic>
+            <IslandGraphic prefix="../"></IslandGraphic>
             <div className="flex flex-wrap w-[80vw] m-auto gap-5">
                 {data && (
                     <>
@@ -100,17 +101,16 @@ const ImmoElement = () => {
                 <Ansprechpartner2></Ansprechpartner2>
             </div>
 
-            <h2>Über das Projekt</h2>
-            <p>{data.uberDasProjekt}</p>
+            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">Über das Projekt</h2>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">{data.uberDasProjekt}</p>
 
-            <h2>Über den Standort</h2>
-            <p>{data.uberStandort}</p>
+            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">Über den Standort</h2>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">{data.uberStandort}</p>
 
-            </div>
+            
             <Zahlungsinformationen price={data.price}></Zahlungsinformationen>
-
-            <Weitere immos={weitereImmos}></Weitere>
-
+            </div>
+            <Ansprechpartner />
             <Footer></Footer>
         </>
     )

@@ -1,4 +1,4 @@
-const Zahlungsinformationen = ({ price }) => {
+const Zahlungsinformationen = ({ price=1000 }) => {
 
     const mwst = Math.round(price * 0.05);
     const stSt = Math.round(price * 0.005);
@@ -6,36 +6,18 @@ const Zahlungsinformationen = ({ price }) => {
 
     return (
         <>
-            <h2>Zahlungsinformationen</h2>
-            <tabel>
-                <tr>
-                    <td>
-                        { price }£ Immobilienpreis
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        { mwst }£ MwSt (5%)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        { stSt }£ Stempelsteuer (0,5%)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        { urkunde }£ Übertragung der Eigentumsurkunde
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        1500£ Anwaltskosten (optional)
-                    </td>
-                </tr>
-            </tabel>
+            <div className="bg-[#093B3F] rounded-4xl w-[80vw] m-auto mb-10">
+            <h2 className="text-4xl text-center text-white font-bold md:pb-10 md:pt-10">Zahlungsinformationen</h2>
+                <div className="flex flex-col m-auto w-[30vw] gap-y-3 text-white text-lg">
+                    <p>{ price }£ Immobilienpreis</p>
+                    <p>{ mwst }£ MwSt (5%)</p>
+                    <p>{ stSt }£ Stempelsteuer (0,5%)</p>
+                    <p>{ urkunde }£ Übertragung der Eigentumsurkunde</p>
+                    <p>1500£ Anwaltskosten (optional)</p>
 
-            <p>{ price + mwst + stSt }£ Gesamtmenge</p>
+                    <p className="text-white text-2xl font-bold mt-5 pb-10">{ price + mwst + stSt }£ Gesamtmenge</p>
+                </div>
+            </div>
         </>
     )
 }
