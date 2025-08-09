@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const RelevanteThemen = () => {
     return (
         <>
@@ -8,17 +10,17 @@ const RelevanteThemen = () => {
 
             
             <div className="md:flex w-[80vw] m-auto gap-x-5 md:justify-center">
-                <div className="md:w-[40vw] max-md:m-auto max-md:pb-5">
-                    <img src='relImg1.webp'></img>
-                    <strong className="m-auto">Warum Immobilien im Norden Zyperns kaufen?</strong>
-                </div>
-                <div className="md:w-[40vw] max-md:m-auto max-md:pb-5">
+                <Link to="weitere/immobilie-nordzypern" className="md:w-[40vw] max-md:m-auto max-md:pb-5 text-center">
+                    <img className="rounded-xl" src='relImg1.webp'></img>
+                    <p className="m-auto font-bold text-lg mt-1">Warum Immobilien im Norden Zyperns kaufen?</p>
+                </Link>
+                <div className="md:w-[40vw] max-md:m-auto max-md:pb-5 text-center">
                     <img src='relImg2.webp'></img>
-                    <strong className="m-auto">Wie kann man eine Wohnung auf Zypern kaufen?</strong>
+                    <p className="m-auto font-bold text-lg mt-1">Wie kann man eine Wohnung auf Zypern kaufen?</p>
                 </div>
-                <div className="md:w-[40vw] max-md:m-auto max-md:pb-5">
+                <div className="md:w-[40vw] max-md:m-auto max-md:pb-5 text-center">
                     <img src='relImg3.webp'></img>
-                    <strong className="m-auto">Hilfreiche Tipps für den Hauskauf auf Zypern</strong>
+                    <p className="m-auto font-bold text-lg mt-1">Hilfreiche Tipps für den Hauskauf auf Zypern</p>
                 </div>
             </div>
             

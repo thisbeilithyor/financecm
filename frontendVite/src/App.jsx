@@ -15,11 +15,12 @@ import UeberZypern from "./nonadmin/ueberzypern/UeberZypern.jsx";
 import Vermittlung from "./nonadmin/vermittlung/Vermittlung.jsx";
 import Mediathek from "./nonadmin/mediathek/Mediathek.jsx";
 
-
 import useWebsiteVisitTracker from "./util/useWebsiteVisitTracker.js";
 import Datenschutzerklarung from "./nonadmin/datenschutzerklarung/Datenschutzerklarung.jsx";
 import Checklist from "./nonadmin/checklist/Checklist.jsx";
 import Nonadmin from "./nonadmin/components/Nonadmin.jsx";
+
+import ImmobilienInNordzypern from "./nonadmin/relevantethemen/ImmobilienInNordzypern.jsx";
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/checklist" element={<Checklist />}></Route>
           <Route path="/vermittlung" element={<Vermittlung />}></Route>
           <Route path="/mediathek" element={<Mediathek />}></Route>
+          <Route path="/weitere/immobilie-nordzypern" element={<ImmobilienInNordzypern />}></Route>
         </Route>
         <Route element={<ProtectedRoutes/>}>
           <Route element={<AdminNavBar />}>
