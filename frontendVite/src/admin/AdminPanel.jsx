@@ -50,15 +50,15 @@ const AdminPanel = () => {
 
     return (
         <>
-            <h1>hier ist adminpanel</h1>
-            <button onClick={logout}>Logout</button>
+            <h1 className="text-2xl text-center text-[#093B3F] font-bold md:mb-5">Kundenanfragen</h1>
+            <center><button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={logout}>Logout</button></center>
 
-            <h2>Kundenanfragen aus /kontakt</h2>
+            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:mb-5">Kundenanfragen aus /kontakt</h2>
             {customerRequests && customerRequests.map((item) => {
                 return <CustomerRequestItem requestItem={item}></CustomerRequestItem>
             })}
 
-            <h2>Checklistanfragen aus /checklist</h2>
+            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:mb-5">Checklistanfragen aus /checklist</h2>
             {checklistEntrys && checklistEntrys.map((item) => {
                 return <ChecklistEntry item={item}></ChecklistEntry>
             })}

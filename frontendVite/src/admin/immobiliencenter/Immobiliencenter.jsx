@@ -119,7 +119,7 @@ const Immobiliencenter = () => {
 
                 <AddImmoForm formData={formData} handleChange={handleChange} handleImageChange={handleImageChange} imageUploadData={imageUploadData}/>
 
-                <div id="flex justify-center gap-x-4 w-[60vw] m-auto pt-3">
+                <div className="flex justify-center gap-x-4 w-[60vw] m-auto pt-3">
                     <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={handleSave}>Speichern</button>
                     <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => setFormActive(false)}>Abbruch</button>
                     <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => {setFormData(inital_admin_newImmoFormData); setImageUploadData(initial_admin_newImmoFormImages)}}>Reset Formulareingaben</button>

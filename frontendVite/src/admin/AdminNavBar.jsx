@@ -10,6 +10,9 @@ const AdminNavBar = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to="/admin/panel">Kundenanfragen</Link>
+          </li>
+          <li>
             <Link to="/admin/immobiliencenter">Immo-Center</Link>
           </li>
           <li>
