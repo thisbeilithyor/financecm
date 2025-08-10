@@ -14,14 +14,14 @@ const RelevanteThemen = () => {
                     <img className="rounded-xl" src='relImg1.webp'></img>
                     <p className="m-auto font-bold text-lg mt-1">Warum Immobilien im Norden Zyperns kaufen?</p>
                 </Link>
-                <div className="md:w-[40vw] max-md:m-auto max-md:pb-5 text-center">
-                    <img src='relImg2.webp'></img>
+                <Link to="weitere/wohnungen-nordzypern" className="md:w-[40vw] max-md:m-auto max-md:pb-5 text-center">
+                    <img className="rounded-xl" src='relImg2.webp'></img>
                     <p className="m-auto font-bold text-lg mt-1">Wie kann man eine Wohnung auf Zypern kaufen?</p>
-                </div>
-                <div className="md:w-[40vw] max-md:m-auto max-md:pb-5 text-center">
-                    <img src='relImg3.webp'></img>
+                </Link>
+                <Link to="/weitere/haus-nordzypern" className="md:w-[40vw] max-md:m-auto max-md:pb-5 text-center">
+                    <img className="rounded-xl" src='relImg3.webp'></img>
                     <p className="m-auto font-bold text-lg mt-1">Hilfreiche Tipps für den Hauskauf auf Zypern</p>
-                </div>
+                </Link>
             </div>
             
             </section>

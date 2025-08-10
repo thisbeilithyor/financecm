@@ -52,50 +52,87 @@ const Checklist = () => {
     return ( 
         <>
             <Navbar></Navbar>
-            <h1>Immobilie Checklist</h1>
+            
+            <div className="bg-[#093B3F] mt-0 py-8">
+            <h1 className="text-white text-3xl font-bold text-center mb-8">Immobilie Checklist</h1>
 
-            <form>
-                <h2>1. Persönliche Daten</h2>
-                <label>Vor- und Nachname</label>
-                <input type="text" name="name" value={form.name} onChange={handleChange}></input>
+            <form className="space-y-6 w-[60vw] m-auto">
+                {/* 1. Persönliche Daten */}
+                <h2 className="text-white text-xl font-semibold">1. Persönliche Daten</h2>
 
-                <label>Telefonnummer</label>
-                <input type="text" name="phonenumber" value={form.phonenumber} onChange={handleChange}></input>
+                <label className="block text-white mb-1">Vor- und Nachname</label>
+                <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                className="w-full border border-white rounded-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white bg-white"
+                />
 
-                <label>E-Mail-Adresse</label>
-                <input type="text" name="email" value={form.email} onChange={handleChange}></input>
+                <label className="block text-white mb-1">Telefonnummer</label>
+                <input
+                type="text"
+                name="phonenumber"
+                value={form.phonenumber}
+                onChange={handleChange}
+                className="w-full border border-white rounded-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white bg-white"
+                />
 
-                <h2>2. Angaben zur Immobilie</h2>
+                <label className="block text-white mb-1">E-Mail-Adresse</label>
+                <input
+                type="text"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                className="w-full border border-white rounded-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white bg-white"
+                />
+
+                {/* 2. Angaben zur Immobilie */}
+                <h2 className="text-white text-xl font-semibold">2. Angaben zur Immobilie</h2>
+                <div className="space-y-2">
                 {immo_options.map((option) => (
-                    <label key={option} style={{ display: "block", margin: "8px 0" }}>
+                    <label key={option} className="flex items-center space-x-2 text-white">
                     <input
                         type="radio"
                         name="immobilientyp"
                         value={option}
                         checked={form.immobilientyp === option}
                         onChange={handleChange}
+                        className="accent-[#093B3F] w-5 h-5"
                     />
-                    {option}
+                    <span>{option}</span>
                     </label>
                 ))}
+                </div>
 
-
-                <h2>3. Geplanter Kaufzeitraum</h2>
+                {/* 3. Geplanter Kaufzeitraum */}
+                <h2 className="text-white text-xl font-semibold">3. Geplanter Kaufzeitraum</h2>
+                <div className="space-y-2">
                 {kaufzeitraum_options.map((option) => (
-                    <label key={option} style={{ display: "block", margin: "8px 0" }}>
+                    <label key={option} className="flex items-center space-x-2 text-white">
                     <input
                         type="radio"
                         name="kaufzeitraum"
                         value={option}
                         checked={form.kaufzeitraum === option}
                         onChange={handleChange}
+                        className="accent-[#093B3F] w-5 h-5"
                     />
-                    {option}
+                    <span>{option}</span>
                     </label>
                 ))}
+                </div>
 
-                <button type="button" onClick={handleSave}>Anfrage Absenden</button>
+                <button
+                type="button"
+                onClick={handleSave}
+                className="w-full border border-white rounded-full px-3 py-2 text-[#093B3F] bg-white text-lg font-semibold hover:bg-gray-100 transition"
+                >
+                Anfrage Absenden
+                </button>
             </form>
+            </div>
+
         </>
     )
 }

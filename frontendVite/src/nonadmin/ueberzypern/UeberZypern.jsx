@@ -15,7 +15,7 @@ const UeberZypern = () => {
     return (
         <>
             <Navbar></Navbar>
-            <HeaderRelevanteThemen head1='Ist Zypern Ihr neues Zuhause?' head2='... oder möchten Sie hier nur investieren?'></HeaderRelevanteThemen>
+            <HeaderRelevanteThemen url="./bgueberzypern.webp" head1='Ist Zypern Ihr neues Zuhause?' head2='... oder möchten Sie hier nur investieren?'></HeaderRelevanteThemen>
 
             <div className="relative bg-[#f1f1f1] md:mt-10 md:pt-10">            
 

@@ -3,12 +3,15 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Ansprechpartner from "../components/Ansprechpartner";
 import Zitat from "./Zitat";
+import { useNavigate } from "react-router-dom";
 
 const ImmobilienInNordzypern = () => {
+    const navigate = useNavigate();
+
     return (
         <>
             <Navbar></Navbar>
-            <HeaderRelevanteThemen prefix='../' head1='IMMOBILIEN IN NORDZYPERN' head2='Mit uns investierst Du sicher und gewinnbringend'></HeaderRelevanteThemen>
+            <HeaderRelevanteThemen url='../bgueberzypern.webp' head1='IMMOBILIEN IN NORDZYPERN' head2='Mit uns investierst Du sicher und gewinnbringend'></HeaderRelevanteThemen>
 
             <div className="bg-[#f1f1f1] pt-20">
                 <h2 className="text-4xl text-center text-[#093B3F] font-bold md:mb-5">DU MÖCHTEST IN NORDZYPERN IMMOBILIEN KAUFEN?</h2>

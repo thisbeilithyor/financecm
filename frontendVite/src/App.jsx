@@ -21,6 +21,8 @@ import Checklist from "./nonadmin/checklist/Checklist.jsx";
 import Nonadmin from "./nonadmin/components/Nonadmin.jsx";
 
 import ImmobilienInNordzypern from "./nonadmin/relevantethemen/ImmobilienInNordzypern.jsx";
+import WohnungenNordzypern from "./nonadmin/relevantethemen/WohnungenNordzypern.jsx";
+import HausNordzypern from "./nonadmin/relevantethemen/HausNordzypern.jsx";
 
 function App() {
 
@@ -40,6 +42,8 @@ function App() {
           <Route path="/vermittlung" element={<Vermittlung />}></Route>
           <Route path="/mediathek" element={<Mediathek />}></Route>
           <Route path="/weitere/immobilie-nordzypern" element={<ImmobilienInNordzypern />}></Route>
+          <Route path="/weitere/wohnungen-nordzypern" element={<WohnungenNordzypern />}></Route>
+          <Route path="/weitere/haus-nordzypern" element={<HausNordzypern />}></Route>
         </Route>
         <Route element={<ProtectedRoutes/>}>
           <Route element={<AdminNavBar />}>
