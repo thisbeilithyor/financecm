@@ -22,7 +22,7 @@ const Einstieg = () => {
                     <div className="text-3xl text-center text-white font-bold mt-3">
                         <h2>Immobilien auf Zypern</h2>
                     </div>
-                    <div className="flex justify-center gap-x-20 pt-15">
+                    <div className="md:flex md:justify-center gap-x-20 pt-15">
                         <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => navigate('/immobilien')}>ALLE IMMOBILIEN</button>
                         <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => navigate('/immobilien')}>WOHNUNGEN</button>
                         <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => navigate('/immobilien')}>HÄUSER</button>

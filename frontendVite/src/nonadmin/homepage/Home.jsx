@@ -13,15 +13,16 @@ const Home = () => {
     return(
         <>
         <Navbar></Navbar>
-        <Einstieg></Einstieg>
-        <EntdeckenShowcase></EntdeckenShowcase>
-        <RelevanteThemen></RelevanteThemen>
-        <IslandGraphic></IslandGraphic>
+        <div className="w-[100vw]">
+            <Einstieg></Einstieg>
+            <EntdeckenShowcase></EntdeckenShowcase>
+            <RelevanteThemen></RelevanteThemen>
+            <IslandGraphic></IslandGraphic>
 
 
-        <ZweiBilder></ZweiBilder>
-        <Bewertungen></Bewertungen>
-        
+            <ZweiBilder></ZweiBilder>
+            <Bewertungen></Bewertungen>
+        </div>
 
         <Ansprechpartner></Ansprechpartner>
 
