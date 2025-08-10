@@ -61,9 +61,9 @@ export const verifyJWT = (req: Request, res: Response, next: NextFunction) => {
             return res.status(401).json( {verified: false} );
         }
         try{
-            if(process.env.JWT_TOKEN){
+            if(process.env.JWT_TOKEN && process.env.ADMIN_NAME){
                 const decoded: JWTPayload = jwt.verify(token, process.env.JWT_TOKEN) as JWTPayload;
-                if(decoded && decoded.id === 1 && decoded.username === 'administrator'){
+                if(decoded && decoded.id === 1 && decoded.username === process.env.ADMIN_NAME){
                     return res.json({ verified: true });
                 }
             }

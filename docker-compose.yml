@@ -8,11 +8,7 @@ services:
 
     container_name: fcm_db
 
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: fcm_db
-      MYSQL_USER: user
-      MYSQL_PASSWORD: user
+    env_file: "db.env"
 
     volumes:
       - fcm_db_data:/var/lib/mysql
@@ -24,6 +20,9 @@ services:
       retries: 5
       start_period: 30s
 
+    networks:
+      - api_db
+
   fcm_api:
     build: ./api
     environment:
@@ -31,8 +30,8 @@ services:
     env_file: "api.env"
     container_name: fcm_api
 #    image: ilithyor/myrepo-api:1.0
-    ports:
-      - "5001:5000"
+#    ports:
+#      - "5001:5000"
     
     depends_on:
       fcm_db:
@@ -40,6 +39,10 @@ services:
 
     volumes:
       - fcm_images_data:/upload_images
+
+    networks:
+      - web_api
+      - api_db
 
   fcm_webserver:
     build: ./frontendVite
@@ -49,7 +52,13 @@ services:
       - "443:443"
     depends_on:
       - fcm_api
+    networks:
+      - web_api
 
 volumes:
   fcm_db_data:
   fcm_images_data:
+
+networks:
+  api_db:
+  web_api:

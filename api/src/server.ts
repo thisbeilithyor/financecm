@@ -26,11 +26,11 @@ const startDBConnection = async () =>{
     try{
         await sequelize.sync({ force: false, alter: true });
         console.log("DB synced");
-
+        if(!process.env.ADMIN_PASS || !process.env.ADMIN_NAME) return;
         const user = await User.create({
-            username: "administrator", 
+            username: process.env.ADMIN_NAME,
             admin: true, 
-            password: await hashPassword("1111")
+            password: await hashPassword(process.env.ADMIN_PASS)
         } as User)
     }catch(err){
         console.log(err);

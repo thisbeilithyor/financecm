@@ -24,8 +24,14 @@ const AdminPanel = () => {
                     'Accept': 'application/json'
                 }
             })
+            if (!result.ok) {
+                throw new Error(`HTTP error! Status: ${result.status}`);
+            }
+
             const res = await result.json();
-            setCustomerRequests(res);
+
+            
+            setCustomerRequests(Array.isArray(res) ? res : []);
         }
         reqCustomerRequests();
 
@@ -38,8 +44,11 @@ const AdminPanel = () => {
                     'Accept': 'application/json'
                 }
             })
+            if(!result.ok){
+                throw new Error(`HTTP error! Status: ${result.status}`)
+            }
             const res = await result.json();
-            setChecklistEntrys(res);
+            setChecklistEntrys(Array.isArray(res) ? res : []);
         }
         reqChecklistEntrys();
     }, [])
