@@ -73,14 +73,8 @@ const LineChart = () => {
     }, [])
 
     return (
-        <div
-            style={{
-                width: '25vw',
-                height: '25vh',
-                border: '1px solid lightgray'
-            }}
-        >
-        <Line data={data} options={options} />;
+        <div className="w-[30vw] h-[30vh] border border-gray-300">
+            <Line data={data} options={options} />;
         </div>
     )
 }

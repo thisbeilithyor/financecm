@@ -3,158 +3,176 @@ import "./addimmo.css";
 const AddImmoForm = ({ formData, handleChange, handleImageChange, imageUploadData }) => {
 
     return (
-    <form>
-        <label>Objektnr.</label>
-        <input type="number" name="objectnr" value={formData.objectnr} onChange={handleChange}></input>
+    <form className="space-y-6 w-[60vw] m-auto bg-[#093B3F] p-8 rounded-lg text-white">
+        {/* Objektnr */}
+        <label className="block mb-1">Objektnr.</label>
+        <input
+            type="number"
+            name="objectnr"
+            value={formData.objectnr}
+            onChange={handleChange}
+            className="w-full border border-white rounded-full px-3 py-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-white"
+        />
 
-        <label>Stadt</label>
+        {/* Stadt */}
+        <label className="block mb-1">Stadt</label>
         <input
             type="text"
             name="city"
             value={formData.city}
             onChange={handleChange}
+            className="w-full border border-white rounded-full px-3 py-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-white"
         />
 
-        <label>Beschreibung</label>
+        {/* Beschreibung */}
+        <label className="block mb-1">Beschreibung</label>
         <textarea
             name="description"
             value={formData.description}
             onChange={handleChange}
+            className="w-full h-24 border border-white rounded-[2vw] px-3 py-2 bg-white text-black resize-none focus:outline-none focus:ring-2 focus:ring-white"
         />
 
-        <label>Kartenbild</label>
-        <input type="file" accept="image/*" name="mapImage" onChange={handleImageChange}/>
-        <img style={{width: 100}} src={imageUploadData.mapImage}></img>
-
-        <label>Titelbild</label>
-        <input type="file" accept="image/*" name="titleImage" onChange={handleImageChange}/>
-        <img style={{width: 100}} src={imageUploadData.titleImage}></img>
-
-        <label>Weitere Bilder</label>
-        <input type="file" accept="image/*" multiple name="furtherImages" onChange={handleImageChange}/>
-        { imageUploadData.furtherImages && imageUploadData.furtherImages.map((imageURL) => {
-            return <img style={{width: 100}} src={imageURL}></img>
-        })}
-
-        <label>Haus?</label>
+        {/* Kartenbild */}
+        <label className="block mb-1">Kartenbild</label>
         <input
-            type="checkbox"
-            name="house"
-            checked={formData.house}
-            onChange={handleChange}
+            type="file"
+            accept="image/*"
+            name="mapImage"
+            onChange={handleImageChange}
+            className="block mb-2"
         />
+        {imageUploadData.mapImage && (
+            <img
+            src={imageUploadData.mapImage}
+            alt="Kartenbild"
+            className="w-24 rounded-md mb-4 border border-white"
+            />
+        )}
 
-        <label>Preis (€)</label>
+        {/* Titelbild */}
+        <label className="block mb-1">Titelbild</label>
+        <input
+            type="file"
+            accept="image/*"
+            name="titleImage"
+            onChange={handleImageChange}
+            className="block mb-2"
+        />
+        {imageUploadData.titleImage && (
+            <img
+            src={imageUploadData.titleImage}
+            alt="Titelbild"
+            className="w-24 rounded-md mb-4 border border-white"
+            />
+        )}
+
+        {/* Weitere Bilder */}
+        <label className="block mb-1">Weitere Bilder</label>
+        <input
+            type="file"
+            accept="image/*"
+            multiple
+            name="furtherImages"
+            onChange={handleImageChange}
+            className="block mb-2"
+        />
+        <div className="flex flex-wrap gap-3 mb-6">
+            {imageUploadData.furtherImages &&
+            imageUploadData.furtherImages.map((imageURL, idx) => (
+                <img
+                key={idx}
+                src={imageURL}
+                alt={`Weiteres Bild ${idx + 1}`}
+                className="w-24 rounded-md border border-white"
+                />
+            ))}
+        </div>
+
+        {/* Checkboxen */}
+        {[
+            { label: "Haus?", name: "house" },
+            { label: "Bad vorhanden?", name: "bathroom" },
+            { label: "Supermarkt in der Nähe?", name: "supermarket" },
+            { label: "Stromversorgung?", name: "electricity" },
+            { label: "Wasserversorgung?", name: "water" },
+            { label: "Pool?", name: "pool" },
+            { label: "Garten?", name: "garden" },
+            { label: "Direkt am Meer?", name: "atOcean" },
+            { label: "Im Homecarousel anzeigen?", name: "carouselObject" },
+        ].map(({ label, name }) => (
+            <label key={name} className="flex items-center space-x-2">
+            <input
+                type="checkbox"
+                name={name}
+                checked={formData[name]}
+                onChange={handleChange}
+                className="accent-[#093B3F] w-5 h-5"
+            />
+            <span>{label}</span>
+            </label>
+        ))}
+
+        {/* Preis */}
+        <label className="block mb-1">Preis (€)</label>
         <input
             type="number"
             name="price"
             value={formData.price}
             onChange={handleChange}
+            className="w-full border border-white rounded-full px-3 py-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-white"
         />
 
-        <label>Fläche (m²)</label>
+        {/* Fläche */}
+        <label className="block mb-1">Fläche (m²)</label>
         <input
             type="number"
             name="squareMeters"
             value={formData.squareMeters}
             onChange={handleChange}
+            className="w-full border border-white rounded-full px-3 py-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-white"
         />
 
-        <label>Bad vorhanden?</label>
-        <input
-            type="checkbox"
-            name="bathroom"
-            checked={formData.bathroom}
-            onChange={handleChange}
-        />
-
-        <label>Supermarkt in der Nähe?</label>
-        <input
-            type="checkbox"
-            name="supermarket"
-            checked={formData.supermarket}
-            onChange={handleChange}
-        />
-
-        <label>Stromversorgung?</label>
-        <input
-            type="checkbox"
-            name="electricity"
-            checked={formData.electricity}
-            onChange={handleChange}
-        />
-
-        <label>Wasserversorgung?</label>
-        <input
-            type="checkbox"
-            name="water"
-            checked={formData.water}
-            onChange={handleChange}
-        />
-
-        <label>Pool?</label>
-        <input
-            type="checkbox"
-            name="pool"
-            checked={formData.pool}
-            onChange={handleChange}
-        />
-
-        <label>Garten?</label>
-        <input
-            type="checkbox"
-            name="garden"
-            checked={formData.garden}
-            onChange={handleChange}
-        />
-
-        <label>Direkt am Meer?</label>
-        <input
-            type="checkbox"
-            name="atOcean"
-            checked={formData.atOcean}
-            onChange={handleChange}
-        />
-
-        <label>Zahlungsdauer (Monate)</label>
+        {/* Zahlungsdauer */}
+        <label className="block mb-1">Zahlungsdauer (Monate)</label>
         <input
             type="number"
             name="paymentDuration"
             value={formData.paymentDuration}
             onChange={handleChange}
+            className="w-full border border-white rounded-full px-3 py-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-white"
         />
 
-        <label>Baujahr (MM.YYYY)</label>
+        {/* Baujahr */}
+        <label className="block mb-1">Baujahr (MM.YYYY)</label>
         <input
             type="text"
             name="buildingFinished"
             value={formData.buildingFinished}
             onChange={handleChange}
             placeholder="MM.YYYY"
+            className="w-full border border-white rounded-full px-3 py-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-white"
         />
 
-        <label>Über das Projekt</label>
+        {/* Über das Projekt */}
+        <label className="block mb-1">Über das Projekt</label>
         <textarea
             name="uberDasProjekt"
             value={formData.uberDasProjekt}
             onChange={handleChange}
+            className="w-full h-24 border border-white rounded-[2vw] px-3 py-2 bg-white text-black resize-none focus:outline-none focus:ring-2 focus:ring-white"
         />
 
-        <label>Über den Standort</label>
+        {/* Über den Standort */}
+        <label className="block mb-1">Über den Standort</label>
         <textarea
             name="uberStandort"
             value={formData.uberStandort}
             onChange={handleChange}
+            className="w-full h-24 border border-white rounded-[2vw] px-3 py-2 bg-white text-black resize-none focus:outline-none focus:ring-2 focus:ring-white"
         />
+        </form>
 
-        <label>Im Homecarousel anzeigen?</label>
-        <input
-            type="checkbox"
-            name="carouselObject"
-            checked={formData.carouselObject}
-            onChange={handleChange}
-        />
-    </form>
     )
 }
 

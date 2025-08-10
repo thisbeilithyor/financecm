@@ -112,17 +112,17 @@ const Immobiliencenter = () => {
     if(formActive){
         return (
             <>
-                <h1>Immobiliencenter</h1>
+                <h1 className="text-2xl text-center text-[#093B3F] font-bold md:mb-5">Immobiliencenter</h1>
 
-                <h2>Objekte hinzufügen</h2>
+                <h2 className="text-4xl text-center text-[#093B3F] font-bold md:mb-5">Objekte hinzufügen</h2>
                 {errorMessage && <p style={{color: 'red'}}>{errorMessage}</p>}
 
                 <AddImmoForm formData={formData} handleChange={handleChange} handleImageChange={handleImageChange} imageUploadData={imageUploadData}/>
 
-                <div id="buttoncontainer">
-                <button onClick={handleSave}>Speichern</button>
-                <button onClick={() => setFormActive(false)}>Abbruch</button>
-                <button onClick={() => {setFormData(inital_admin_newImmoFormData); setImageUploadData(initial_admin_newImmoFormImages)}}>Reset Formulareingaben</button>
+                <div id="flex justify-center gap-x-4 w-[60vw] m-auto pt-3">
+                    <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={handleSave}>Speichern</button>
+                    <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => setFormActive(false)}>Abbruch</button>
+                    <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => {setFormData(inital_admin_newImmoFormData); setImageUploadData(initial_admin_newImmoFormImages)}}>Reset Formulareingaben</button>
                 </div>
             </>
         )
@@ -132,9 +132,9 @@ const Immobiliencenter = () => {
 //TODO: Löschen einzelner Bilder während Formulareingabe möglich
     return (
         <>
-        <h1>Immobiliencenter</h1>
+        <h1 className="text-2xl text-center text-[#093B3F] font-bold md:mb-5">Immobiliencenter</h1>
 
-        <button onClick={() => setFormActive(true)}>Neues Objekt hinzufügen</button>
+        <center><button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => setFormActive(true)}>Neues Objekt hinzufügen</button></center>
         {successMessage && <p style={{color: 'green'}}>{successMessage}</p>}
 
         {immosData &&
