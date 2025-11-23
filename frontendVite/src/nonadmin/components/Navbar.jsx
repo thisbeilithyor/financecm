@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { Sprachauswahl } from "./Sprachauswahl.jsx";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -70,6 +71,7 @@ const Navbar = () => {
             >
               VERMIETUNG
             </NavLink>
+            <Sprachauswahl></Sprachauswahl>
           </nav>
 
           {/* Mobile: Hamburger Menü Button */}

@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const Einstieg = () => {
-    //no muted in prod build!
+    //not muted in prod build!
     const navigate = useNavigate();
+
+    const { t, i18n } = useTranslation();
 
     const handleClick = (e) => {
         console.log(e);
@@ -17,7 +20,7 @@ const Einstieg = () => {
             </div>
             <div className="relative flex flex-col items-center justify-center h-150 row w-[100vw]">
                     <div className="text-white text-3xl md:text-4xl font-bold text-center drop-shadow-lg">
-                        <h1>IHRE EXPERTEN FÜR IMMOBILIEN UND INVESTITIONEN</h1>
+                        <h1>{t("einstieg.headline")}</h1>
                     </div>
                     <div className="text-3xl text-center text-white font-bold mt-3">
                         <h2>Immobilien auf Zypern</h2>
