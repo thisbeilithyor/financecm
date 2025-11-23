@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar.jsx";
 
-const Vermittlung = () => {
+const Vermietung = () => {
     return (
         <>
             <Navbar />
@@ -8,4 +8,4 @@ const Vermittlung = () => {
     )
 }
 
-export default Vermittlung;
+export default Vermietung;

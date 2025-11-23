@@ -12,7 +12,7 @@ import ImmoElement from "./nonadmin/immobilien/specific_item/ImmoElement.jsx";
 import Kontakt from "./nonadmin/kontakt/Kontakt.jsx";
 import Impressum from "./nonadmin/impressum/Impressum.jsx";
 import UeberZypern from "./nonadmin/ueberzypern/UeberZypern.jsx";
-import Vermittlung from "./nonadmin/vermittlung/Vermittlung.jsx";
+import Vermietung from "./nonadmin/vermietung/Vermietung.jsx";
 import Mediathek from "./nonadmin/mediathek/Mediathek.jsx";
 
 import useWebsiteVisitTracker from "./util/useWebsiteVisitTracker.js";
@@ -39,7 +39,7 @@ function App() {
           <Route path="/uberzypern" element={<UeberZypern />}></Route>
           <Route path="/datenschutzerklarung" element={<Datenschutzerklarung />}></Route>
           <Route path="/checklist" element={<Checklist />}></Route>
-          <Route path="/vermittlung" element={<Vermittlung />}></Route>
+          <Route path="/vermietung" element={<Vermietung />}></Route>
           <Route path="/mediathek" element={<Mediathek />}></Route>
           <Route path="/weitere/immobilie-nordzypern" element={<ImmobilienInNordzypern />}></Route>
           <Route path="/weitere/wohnungen-nordzypern" element={<WohnungenNordzypern />}></Route>

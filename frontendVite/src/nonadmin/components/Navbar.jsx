@@ -63,12 +63,12 @@ const Navbar = () => {
               KONTAKT
             </NavLink>
             <NavLink
-              to="/vermittlung"
+              to="/vermietung"
               className={({ isActive }) =>
                 isActive ? "underline underline-offset-4" : "hover:underline underline-offset-4"
               }
             >
-              VERMITTLUNG
+              VERMIETUNG
             </NavLink>
           </nav>
 
@@ -108,8 +108,8 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/vermittlung" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
-                    VERMITTLUNG
+                  <NavLink to="/vermietung" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
+                    VERMIETUNG
                   </NavLink>
                 </li>
               </ul>
