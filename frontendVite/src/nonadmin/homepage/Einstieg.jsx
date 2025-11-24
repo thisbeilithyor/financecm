@@ -20,15 +20,15 @@ const Einstieg = () => {
             </div>
             <div className="relative flex flex-col items-center justify-center h-150 row w-[100vw]">
                     <div className="text-white text-3xl md:text-4xl font-bold text-center drop-shadow-lg">
-                        <h1>{t("einstieg.headline")}</h1>
+                        <h1>{t("homepage.einstieg.headline")}</h1>
                     </div>
                     <div className="text-3xl text-center text-white font-bold mt-3">
-                        <h2>Immobilien auf Zypern</h2>
+                        <h2>{t("homepage.einstieg.subheadline")}</h2>
                     </div>
                     <div className="md:flex md:justify-center gap-x-20 pt-15">
-                        <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => navigate('/immobilien')}>ALLE IMMOBILIEN</button>
-                        <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => navigate('/immobilien')}>WOHNUNGEN</button>
-                        <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => navigate('/immobilien')}>HÄUSER</button>
+                        <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => navigate('/immobilien')}>{t("homepage.einstieg.buttonLeft")}</button>
+                        <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => navigate('/immobilien')}>{t("homepage.einstieg.buttonMid")}</button>
+                        <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => navigate('/immobilien')}>{t("homepage.einstieg.buttonRight")}</button>
                     </div>
             </div>
         </>

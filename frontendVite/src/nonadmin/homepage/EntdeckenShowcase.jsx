@@ -1,11 +1,13 @@
 import ImageCarousel from "./ImageCarousel.jsx";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 
 const EntdeckenShowcase = () => {
     const [images, setImages] = useState([]);
     const navigate = useNavigate();
+
+    const { t, i18n } = useTranslation();
     
     useEffect(() => {
         const reqRandomImages = async () => {
@@ -29,10 +31,10 @@ const EntdeckenShowcase = () => {
 
     return (
         <section className="bg-[#f1f1f1] pt-15 pb-15 w-[100vw]">
-            <center><h2 className="text-[#093B3F] font-bold text-4xl pb-10">Entdecke aktuelle Projekte</h2></center>
+            <center><h2 className="text-[#093B3F] font-bold text-4xl pb-10">{t("homepage.entdeckenShowcase.headline")}</h2></center>
             <ImageCarousel images={images}></ImageCarousel>
 
-            <center><button className="bg-[#093B3F] text-white w-auto h-10 rounded-full text-lg pl-10 pr-10 mt-10" onClick={() => navigate('/immobilien')}>JETZT WEITERE ENTDECKEN</button></center>
+            <center><button className="bg-[#093B3F] text-white w-auto h-10 rounded-full text-lg pl-10 pr-10 mt-10" onClick={() => navigate('/immobilien')}>{t("homepage.entdeckenShowcase.weitere")}</button></center>
         </section>
     );
 }
