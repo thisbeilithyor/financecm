@@ -24,6 +24,7 @@ import deImmobilieninvestionen from "./de/ueberzypern/Immobilieninvestitionen.js
 import deQandA from "./de/ueberzypern/QandA.json";
 import deKontakt from "./de/contact/Kontakt.json";
 import deKontaktForm from "./de/contact/KontaktForm.json";
+import deChecklist from "./de/checklist/Checklist.json";
 
 
 import enEinstieg from "./en/homepage/Einstieg.json";
@@ -50,6 +51,7 @@ import enImmobilieninvestionen from "./en/ueberzypern/Immobilieninvestitionen.js
 import enQandA from "./en/ueberzypern/QandA.json";
 import enKontakt from "./en/contact/Kontakt.json";
 import enKontaktForm from "./en/contact/KontaktForm.json";
+import enChecklist from "./en/checklist/Checklist.json";
 
 
 i18n.use(initReactI18next).init(
@@ -95,6 +97,9 @@ i18n.use(initReactI18next).init(
                     contact: {
                         kontakt: deKontakt,
                         kontaktForm: deKontaktForm,
+                    },
+                    checklist: {
+                        checklist: deChecklist
                     }
                 }
                 
@@ -136,6 +141,9 @@ i18n.use(initReactI18next).init(
                     contact: {
                         kontakt: enKontakt,
                         kontaktForm: enKontaktForm,
+                    },
+                    checklist: {
+                        checklist: enChecklist
                     }
                 }
             }

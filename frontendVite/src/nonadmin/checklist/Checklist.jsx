@@ -1,8 +1,11 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar.jsx";
-
+import { useTranslation } from "react-i18next";
 
 const Checklist = () => {
+
+    const { t, i18n } = useTranslation();
+
     const initalForm = {
         name: "",
         phonenumber: "",
@@ -10,21 +13,13 @@ const Checklist = () => {
         immobilientyp: "",
         kaufzeitraum: ""
     }
+    const immo_options = Array.from({ length: 6 }, (_, i) =>
+        t(`checklist.checklist.immo_options.${i}`)
+    );
 
-    const immo_options = [
-        "Wohnung",
-        "Villa",
-        "Reihenhaus",
-        "Haus",
-        "Grundstück",
-        "Gewerbeimmobilie (Büro, Geschäft etc.)"
-    ]
-
-    const kaufzeitraum_options = [
-        "Dringend (innerhalb der nächsten 1-3 Monate)",
-        "Innerhalb von 6 Monaten",
-        "Langfristig (1 Jahr oder mehr)"
-    ]
+    const kaufzeitraum_options = Array.from({ length: 3 }, (_, i) => 
+        t(`checklist.checklist.kaufzeitraum_options.${i}`)  
+    );
 
     const [form, setForm] = useState(initalForm);
 
@@ -54,13 +49,13 @@ const Checklist = () => {
             <Navbar></Navbar>
             
             <div className="bg-[#093B3F] mt-0 py-8">
-            <h1 className="text-white text-3xl font-bold text-center mb-8">Immobilie Checklist</h1>
+            <h1 className="text-white text-3xl font-bold text-center mb-8">{t("checklist.checklist.heading")}</h1>
 
             <form className="space-y-6 w-[60vw] m-auto">
                 {/* 1. Persönliche Daten */}
-                <h2 className="text-white text-xl font-semibold">1. Persönliche Daten</h2>
+                <h2 className="text-white text-xl font-semibold">{t("checklist.checklist.sections.0.title")}</h2>
 
-                <label className="block text-white mb-1">Vor- und Nachname</label>
+                <label className="block text-white mb-1">{t("checklist.checklist.sections.0.fields.0.label")}</label>
                 <input
                 type="text"
                 name="name"
@@ -69,7 +64,7 @@ const Checklist = () => {
                 className="w-full border border-white rounded-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white bg-white"
                 />
 
-                <label className="block text-white mb-1">Telefonnummer</label>
+                <label className="block text-white mb-1">{t("checklist.checklist.sections.0.fields.1.label")}</label>
                 <input
                 type="text"
                 name="phonenumber"
@@ -78,7 +73,7 @@ const Checklist = () => {
                 className="w-full border border-white rounded-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white bg-white"
                 />
 
-                <label className="block text-white mb-1">E-Mail-Adresse</label>
+                <label className="block text-white mb-1">{t("checklist.checklist.sections.0.fields.2.label")}</label>
                 <input
                 type="text"
                 name="email"
@@ -88,7 +83,7 @@ const Checklist = () => {
                 />
 
                 {/* 2. Angaben zur Immobilie */}
-                <h2 className="text-white text-xl font-semibold">2. Angaben zur Immobilie</h2>
+                <h2 className="text-white text-xl font-semibold">{t("checklist.checklist.sections.1.title")}</h2>
                 <div className="space-y-2">
                 {immo_options.map((option) => (
                     <label key={option} className="flex items-center space-x-2 text-white">
@@ -106,7 +101,7 @@ const Checklist = () => {
                 </div>
 
                 {/* 3. Geplanter Kaufzeitraum */}
-                <h2 className="text-white text-xl font-semibold">3. Geplanter Kaufzeitraum</h2>
+                <h2 className="text-white text-xl font-semibold">{t("checklist.checklist.sections.2.title")}</h2>
                 <div className="space-y-2">
                 {kaufzeitraum_options.map((option) => (
                     <label key={option} className="flex items-center space-x-2 text-white">
@@ -128,7 +123,7 @@ const Checklist = () => {
                 onClick={handleSave}
                 className="w-full border border-white rounded-full px-3 py-2 text-[#093B3F] bg-white text-lg font-semibold hover:bg-gray-100 transition"
                 >
-                Anfrage Absenden
+                {t("checklist.checklist.button")}
                 </button>
             </form>
             </div>

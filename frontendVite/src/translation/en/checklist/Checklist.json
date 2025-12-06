@@ -1,0 +1,41 @@
+{
+  "heading": "Property Checklist",
+
+  "immo_options": [
+    "Apartment",
+    "Villa",
+    "Terraced House",
+    "House",
+    "Plot",
+    "Commercial Property (Office, Shop, etc.)"
+  ],
+
+  "kaufzeitraum_options": [
+    "Urgent (within the next 1-3 months)",
+    "Within 6 months",
+    "Long-term (1 year or more)"
+  ],
+  "sections": [
+    {
+      "title": "1. Personal Information",
+      "fields": [
+        {
+          "label": "First and Last Name"
+        },
+        {
+          "label": "Phone Number"
+        },
+        {
+          "label": "Email Address"
+        }
+      ]
+    },
+    {
+      "title": "2. Property Details"
+    },
+    {
+      "title": "3. Planned Purchase Timeframe"
+    }
+  ],
+  "button": "Submit Request"
+}
