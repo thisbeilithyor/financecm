@@ -1,0 +1,39 @@
+{
+  "heading": "Numbers & Facts",
+  "facts": [
+    {
+      "label": "from "
+    },
+    {
+      "label": " m²"
+    },
+    {
+      "label": "Bathroom"
+    },
+    {
+      "label": "Supermarket"
+    },
+    {
+      "label": "Electricity"
+    },
+    {
+      "label": "Water"
+    },
+    {
+      "label": "Pool"
+    },
+    {
+      "label": "Garden"
+    },
+    {
+      "label": "By the Sea"
+    },
+    {
+      "zahlung": "Payment: ",
+      "monate": "Months"
+    },
+    {
+      "label": "Finished: "
+    }
+  ]
+}

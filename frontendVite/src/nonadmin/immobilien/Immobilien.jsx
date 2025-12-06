@@ -12,10 +12,13 @@ import RelevanteThemen from "../components/RelevanteThemen.jsx";
 import { useNavigate } from "react-router-dom";
 import Ansprechpartner from "../components/Ansprechpartner.jsx";
 
+import { useTranslation } from "react-i18next";
+
 const Immobilien = () =>{
     const [immosData, setImmosData] = useState([]);
     const navigate = useNavigate();
 
+    const { t, i18n } = useTranslation();
 
     let weitereImmos = [];
     let counter = 0;
@@ -36,7 +39,7 @@ const Immobilien = () =>{
         {useGetImmos(setImmosData)}
         <Navbar></Navbar>
         <div className="bg-[#f1f1f1]">
-        <center><h1 className="text-[#093B3F] font-bold text-4xl pb-10 max-md:text-xl max-md:pl-1 max-md:pr-1 pt-5">Aktuelle Immobilien & Projekte in Nordzypern</h1></center>
+        <center><h1 className="text-[#093B3F] font-bold text-4xl pb-10 max-md:text-xl max-md:pl-1 max-md:pr-1 pt-5">{t("immobilien.immobilien.heading")}</h1></center>
         {immosData && 
         immosData.map((immo) => {
             return(

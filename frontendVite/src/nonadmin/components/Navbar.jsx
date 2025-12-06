@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { Sprachauswahl } from "./Sprachauswahl.jsx";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const { t, i18n } = useTranslation();
 
   return (
     <>
@@ -29,7 +32,7 @@ const Navbar = () => {
                 isActive ? "underline underline-offset-4" : "hover:underline underline-offset-4"
               }
             >
-              HOME
+              {t("components.navbar.home")}
             </NavLink>
             <NavLink
               to="/immobilien"
@@ -37,7 +40,7 @@ const Navbar = () => {
                 isActive ? "underline underline-offset-4" : "hover:underline underline-offset-4"
               }
             >
-              IMMOBILIEN & PROJEKTE
+              {t("components.navbar.projects")}
             </NavLink>
             <NavLink
               to="/uberzypern"
@@ -45,7 +48,7 @@ const Navbar = () => {
                 isActive ? "underline underline-offset-4" : "hover:underline underline-offset-4"
               }
             >
-              ÜBER ZYPERN
+              {t("components.navbar.cyprus")}
             </NavLink>
             <NavLink
               to="/mediathek"
@@ -53,7 +56,7 @@ const Navbar = () => {
                 isActive ? "underline underline-offset-4" : "hover:underline underline-offset-4"
               }
             >
-              MEDIATHEK
+              {t("components.navbar.mediathek")}
             </NavLink>
             <NavLink
               to="/kontakt"
@@ -61,7 +64,7 @@ const Navbar = () => {
                 isActive ? "underline underline-offset-4" : "hover:underline underline-offset-4"
               }
             >
-              KONTAKT
+              {t("components.navbar.contact")}
             </NavLink>
             <NavLink
               to="/vermietung"
@@ -69,7 +72,7 @@ const Navbar = () => {
                 isActive ? "underline underline-offset-4" : "hover:underline underline-offset-4"
               }
             >
-              VERMIETUNG
+              {t("components.navbar.renting")}
             </NavLink>
             <Sprachauswahl></Sprachauswahl>
           </nav>
@@ -86,32 +89,32 @@ const Navbar = () => {
               <ul className="absolute right-0 mt-2 w-56 bg-white rounded shadow-lg z-50 text-gray-900 text-base">
                 <li>
                   <NavLink to="/" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
-                    HOME
+                    {t("components.navbar.home")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/immobilien" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
-                    IMMOBILIEN & PROJEKTE
+                    {t("components.navbar.projects")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/uberzypern" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
-                    ÜBER ZYPERN
+                    {t("components.navbar.cyprus")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/mediathek" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
-                    MEDIATHEK
+                    {t("components.navbar.mediathek")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/kontakt" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
-                    KONTAKT
+                    {t("components.navbar.contact")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/vermietung" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
-                    VERMIETUNG
+                    {t("components.navbar.renting")}
                   </NavLink>
                 </li>
               </ul>

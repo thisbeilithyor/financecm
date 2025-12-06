@@ -10,6 +10,8 @@ import Weitere from "./Weitere.jsx";
 import { useLocation } from "react-router-dom";
 import Ansprechpartner from "../../components/Ansprechpartner.jsx";
 
+import { useTranslation } from "react-i18next";
+
 const ImmoElement = () => {
     const { objectnr } = useParams();
 
@@ -19,6 +21,8 @@ const ImmoElement = () => {
 
     const location = useLocation();
     const {weitereImmos} = location.state || {};
+
+    const {t, i18n} = useTranslation();
     
     useEffect(() => {
         const reqData = async () => {
@@ -72,7 +76,7 @@ const ImmoElement = () => {
                     </div>
                     <div className="flex flex-col justify-between pt-3 pb-3 pl-3">
                         <p className="text-white text-lg">{data.city}</p>
-                        <p className="text-white text-lg">Objekt Nr.: {data.objectnr}</p>
+                        <p className="text-white text-lg">{t("immobilien.specific_item.immoElement.objectNumber")} {data.objectnr}</p>
                         <p className="text-white text-lg">{data.description}</p>
                         <p className="text-white text-lg">+49 (0) 172 - 77 45 656</p>
                         <p className="text-white text-lg">meiner-finanz@gmx.de</p>
@@ -81,8 +85,8 @@ const ImmoElement = () => {
                 </>
                 ) 
             }
-            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">Entdecken Sie Wohnungen mit Garten: Ihre Wohnung direkt am Meer</h2>
-            <h4 className="text-2xl text-center text-[#093B3F] font-bold">Ihre Wohnung in Zypern!</h4>
+            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.immoElement.mainHeading")}</h2>
+            <h4 className="text-2xl text-center text-[#093B3F] font-bold">{t("immobilien.specific_item.immoElement.subHeading")}</h4>
             <IslandGraphic prefix="../"></IslandGraphic>
             <div className="flex flex-wrap w-[80vw] m-auto gap-5">
                 {data && (
@@ -101,10 +105,10 @@ const ImmoElement = () => {
                 <Ansprechpartner2></Ansprechpartner2>
             </div>
 
-            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">Über das Projekt</h2>
+            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.immoElement.projectHeading")}</h2>
             <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">{data.uberDasProjekt}</p>
 
-            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">Über den Standort</h2>
+            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.immoElement.locationHeading")}</h2>
             <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">{data.uberStandort}</p>
 
             

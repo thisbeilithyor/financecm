@@ -1,0 +1,39 @@
+{
+  "heading": "Zahlen & Fakten",
+  "facts": [
+    {
+      "label": "ab "
+    },
+    {
+      "label": " m²"
+    },
+    {
+      "label": "Badezimmer"
+    },
+    {
+      "label": "Supermarkt"
+    },
+    {
+      "label": "Strom"
+    },
+    {
+      "label": "Wasser"
+    },
+    {
+      "label": "Pool"
+    },
+    {
+      "label": "Garten"
+    },
+    {
+      "label": "Am Meer"
+    },
+    {
+      "zahlung": "Zahlung: ",
+      "monate": "Monate"
+    },
+    {
+      "label": "Fertig: "
+    }
+  ]
+}

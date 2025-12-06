@@ -1,43 +1,27 @@
+import { useTranslation } from "react-i18next";
+
 const UntereInfos = ({ immo }) => {
-    
+    const { t, i18n } = useTranslation();
     //Aufbau: Bild, Abhängigkeit, Text
 
-    const frontendDev = false;
-    let sources = [];
-    if (frontendDev){
-        sources = [
-            ['/house.webp', immo.price, "ab "+immo.price+" £"],
-            ['/square.webp', immo.squareMeters, immo.squareMeters+" m2"],
-            ['/bath.webp', immo.bathroom, "Badezimmer"],
-            ['/supermarket.webp', immo.supermarket, "Supermarkt"],
-            ['/electricity.webp', immo.electricity, "Strom"],
-            ['/water.webp', immo.water, "Wasser"],
-            ['/pool.webp', immo.pool, "Pool"],
-            ['/garden.webp', immo.garden, "Garten"],
-            ['/ocean.webp', immo.atOcean, "Am Meer"],
-            ['/payment.webp', immo.paymentDuration, "Zahlung: " + immo.paymentDuration+" Monate"],
-            ['/finished.webp', immo.buildingFinished, "Fertig: "+immo.buildingFinished]
-        ]
-    }
-    else{
-        sources = [
-            ['/house.webp', 55, "ab "+immo.price+" £"],
-            ['/square.webp', 33, immo.squareMeters+" m2"],
-            ['/bath.webp', 1, "Badezimmer"],
-            ['/supermarket.webp', 3, "Supermarkt"],
-            ['/electricity.webp', 3, "Strom"],
-            ['/water.webp', 3, "Wasser"],
-            ['/pool.webp', 3, "Pool"],
-            ['/garden.webp', 1, "Garten"],
-            ['/ocean.webp', 1, "Am Meer"],
-            ['/payment.webp', 44, "Zahlung: " + immo.paymentDuration+" Monate"],
-            ['/finished.webp', 3, "Fertig: "+immo.buildingFinished]
-        ]
-    }
+    let sources = [
+        ['/house.webp', immo.price, t("immobilien.specific_item.untereInfos.facts.0.label")+immo.price+" £"],
+        ['/square.webp', immo.squareMeters, immo.squareMeters+t("immobilien.specific_item.untereInfos.facts.1.label")],
+        ['/bath.webp', immo.bathroom, t("immobilien.specific_item.untereInfos.facts.2.label")],
+        ['/supermarket.webp', immo.supermarket, t("immobilien.specific_item.untereInfos.facts.3.label")],
+        ['/electricity.webp', immo.electricity, t("immobilien.specific_item.untereInfos.facts.4.label")],
+        ['/water.webp', immo.water, t("immobilien.specific_item.untereInfos.facts.5.label")],
+        ['/pool.webp', immo.pool, t("immobilien.specific_item.untereInfos.facts.6.label")],
+        ['/garden.webp', immo.garden, t("immobilien.specific_item.untereInfos.facts.7.label")],
+        ['/ocean.webp', immo.atOcean, t("immobilien.specific_item.untereInfos.facts.8.label")],
+        ['/payment.webp', immo.paymentDuration, t("immobilien.specific_item.untereInfos.facts.9.zahlung") + immo.paymentDuration+t("immobilien.specific_item.untereInfos.facts.9.monate")],
+        ['/finished.webp', immo.buildingFinished, t("immobilien.specific_item.untereInfos.facts.10.label")+immo.buildingFinished]
+    ]
+
     return(
         <>
             <div className="w-[60vw]">
-            <h2 className="bg-[#f1f1f1] text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">Zahlen & Fakten</h2>
+            <h2 className="bg-[#f1f1f1] text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.untereInfos.heading")}</h2>
             <div className="flex gap-8 flex-wrap justify-center">
             {sources.map((item) => {
                 return (
