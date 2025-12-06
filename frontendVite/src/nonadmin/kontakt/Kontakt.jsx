@@ -6,8 +6,11 @@ import KontaktForm from "./KontaktForm.jsx";
 
 
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Kontakt = () => {
+    const { t, i18n } = useTranslation();
+
     const initialFormData = {
         name: "",
         email: "",
@@ -58,8 +61,8 @@ const Kontakt = () => {
                 style={{ backgroundImage: "url('bgkontakt.webp')" }}
             ></div>
             <div className="relative flex flex-col items-center justify-center h-100 row bg-[rgba(0,0,0,0.4)]">
-                <h1 className="text-white text-4xl md:text-5xl font-bold text-center drop-shadow-lg">Wir freuen uns von Ihnen zu hören</h1>
-                <h3 className="text-2xl text-center text-white font-bold mt-3">Kontakt für Immobilien in Nordzypern</h3>
+                <h1 className="text-white text-4xl md:text-5xl font-bold text-center drop-shadow-lg">{t("contact.kontakt.mainHeading")}</h1>
+                <h3 className="text-2xl text-center text-white font-bold mt-3">{t("contact.kontakt.subHeading")}</h3>
             </div>
 
             <div className="flex justify-center bg-[#093B3F] pt-40 space-x-8">
@@ -81,8 +84,8 @@ const Kontakt = () => {
             <IslandGraphic isWhite={true}></IslandGraphic>
 
             <div className="bg-[#093B3F]">
-                <h2 className="text-white text-4xl md:text-5xl font-bold text-center drop-shadow-lg">Interesse geweckt?</h2>
-                <h3 className="text-2xl text-center text-white font-bold mt-3">Melden Sie sich bei uns!</h3>
+                <h2 className="text-white text-4xl md:text-5xl font-bold text-center drop-shadow-lg">{t("contact.kontakt.interestHeading")}</h2>
+                <h3 className="text-2xl text-center text-white font-bold mt-3">{t("contact.kontakt.interestSubHeading")}</h3>
             </div>
         
             <KontaktForm form={form} handleChange={handleChange} handleSave={handleSave}></KontaktForm>

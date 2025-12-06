@@ -10,12 +10,15 @@ import Infrastruktur from "./Infrastruktur.jsx";
 import Immobilieninvestitionen from "./Immobilieninvestitionen.jsx";
 import QandA from "./QandA.jsx";
 import HeaderRelevanteThemen from "../components/HeaderRelevanteThemen.jsx";
+import { useTranslation } from "react-i18next";
 
 const UeberZypern = () => {
+    const { t, i18n } = useTranslation();
+
     return (
         <>
             <Navbar></Navbar>
-            <HeaderRelevanteThemen url="./bgueberzypern.webp" head1='Ist Zypern Ihr neues Zuhause?' head2='... oder möchten Sie hier nur investieren?'></HeaderRelevanteThemen>
+            <HeaderRelevanteThemen url="./bgueberzypern.webp" head1={t("ueberzypern.ueberZypern.head1")} head2={t("ueberzypern.ueberZypern.head2")}></HeaderRelevanteThemen>
 
             <div className="relative bg-[#f1f1f1] md:mt-10 md:pt-10">            
 

@@ -1,0 +1,9 @@
+{
+  "labels": {
+    "name": "Name",
+    "email": "Email",
+    "phoneNumber": "Phone Number",
+    "message": "Message"
+  },
+  "button": "Submit"
+}

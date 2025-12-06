@@ -1,0 +1,23 @@
+{
+  "heading": "Zahlungsinformationen",
+  "paymentDetails": [
+    {
+      "label": "Immobilienpreis"
+    },
+    {
+      "label": "MwSt (5%)"
+    },
+    {
+      "label": "Stempelsteuer (0,5%)"
+    },
+    {
+      "label": "Übertragung der Eigentumsurkunde"
+    },
+    {
+      "label": "Anwaltskosten (optional)"
+    },
+    {
+      "total": "Gesamtmenge"
+    }
+  ]
+}

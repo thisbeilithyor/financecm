@@ -13,6 +13,17 @@ import deVorteileEinerImmobilie from "./de/components/VorteileEinerImmobilie.jso
 import deImmobilieAufZypernkaufen from "./de/components/ImmobilieAufZypernKaufen.json";
 import deImmoElement from "./de/immobilien/specific_item/ImmoElement.json";
 import deUntereInfos from "./de/immobilien/specific_item/UntereInfos.json";
+import deZahlungsinformationen from "./de/immobilien/specific_item/Zahlungsinformationen.json";
+import deAnpsrechpartner2 from "./de/components/Ansprechpartner2.json";
+import deUeberZypern from "./de/ueberzypern/UeberZypern.json";
+import deNatur from "./de/ueberzypern/Natur.json";
+import deAktivitaet from "./de/ueberzypern/Aktivitaet.json";
+import deNachtleben from "./de/ueberzypern/Nachtleben.json";
+import deInfrastruktur from "./de/ueberzypern/Infrastruktur.json";
+import deImmobilieninvestionen from "./de/ueberzypern/Immobilieninvestitionen.json";
+import deQandA from "./de/ueberzypern/QandA.json";
+import deKontakt from "./de/contact/Kontakt.json";
+import deKontaktForm from "./de/contact/KontaktForm.json";
 
 
 import enEinstieg from "./en/homepage/Einstieg.json";
@@ -28,7 +39,17 @@ import enVorteileEinerImmobilie from "./en/components/VorteileEinerImmobilie.jso
 import enImmobilieAufZypernkaufen from "./en/components/ImmobilieAufZypernKaufen.json";
 import enImmoElement from "./en/immobilien/specific_item/ImmoElement.json";
 import enUntereInfos from "./en/immobilien/specific_item/UntereInfos.json";
-
+import enZahlungsinformationen from "./en/immobilien/specific_item/Zahlungsinformationen.json";
+import enAnpsrechpartner2 from "./en/components/Ansprechpartner2.json";
+import enUeberZypern from "./en/ueberzypern/UeberZypern.json";
+import enNatur from "./en/ueberzypern/Natur.json";
+import enAktivitaet from "./en/ueberzypern/Aktivitaet.json";
+import enNachtleben from "./en/ueberzypern/Nachtleben.json";
+import enInfrastruktur from "./en/ueberzypern/Infrastruktur.json";
+import enImmobilieninvestionen from "./en/ueberzypern/Immobilieninvestitionen.json";
+import enQandA from "./en/ueberzypern/QandA.json";
+import enKontakt from "./en/contact/Kontakt.json";
+import enKontaktForm from "./en/contact/KontaktForm.json";
 
 
 i18n.use(initReactI18next).init(
@@ -51,6 +72,7 @@ i18n.use(initReactI18next).init(
                         footer: deFooter,
                         vorteileEinerImmobilie: deVorteileEinerImmobilie,
                         immobilieAufZypernKaufen: deImmobilieAufZypernkaufen,
+                        ansprechpartner2: deAnpsrechpartner2,
                     },
                     immobilien: {
                         immobilien: deImmobilien,
@@ -58,7 +80,21 @@ i18n.use(initReactI18next).init(
                         specific_item: {
                             immoElement: deImmoElement,
                             untereInfos: deUntereInfos,
+                            zahlungsinformationen: deZahlungsinformationen,
                         }
+                    },
+                    ueberzypern: {
+                        ueberZypern: deUeberZypern,
+                        natur: deNatur,
+                        aktivitaet: deAktivitaet,
+                        nachtleben: deNachtleben,
+                        infrastruktur: deInfrastruktur,
+                        immobilieninvestitionen: deImmobilieninvestionen,
+                        QandA: deQandA,
+                    },
+                    contact: {
+                        kontakt: deKontakt,
+                        kontaktForm: deKontaktForm,
                     }
                 }
                 
@@ -77,6 +113,7 @@ i18n.use(initReactI18next).init(
                         footer: enFooter,
                         vorteileEinerImmobilie: enVorteileEinerImmobilie,
                         immobilieAufZypernKaufen: enImmobilieAufZypernkaufen,
+                        ansprechpartner2: enAnpsrechpartner2,
                     },
                     immobilien: {
                         immobilien: enImmobilien,
@@ -84,7 +121,21 @@ i18n.use(initReactI18next).init(
                         specific_item: {
                             immoElement: enImmoElement,
                             untereInfos: enUntereInfos,
+                            zahlungsinformationen: enZahlungsinformationen,
                         }
+                    },
+                    ueberzypern: {
+                        ueberZypern: enUeberZypern,
+                        natur: enNatur,
+                        aktivitaet: enAktivitaet,
+                        nachtleben: enNachtleben,
+                        infrastruktur: enInfrastruktur,
+                        immobilieninvestitionen: enImmobilieninvestionen,
+                        QandA: enQandA,
+                    },
+                    contact: {
+                        kontakt: enKontakt,
+                        kontaktForm: enKontaktForm,
                     }
                 }
             }

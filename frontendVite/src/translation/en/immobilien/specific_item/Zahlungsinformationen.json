@@ -1,0 +1,23 @@
+{
+  "heading": "Payment Information",
+  "paymentDetails": [
+    {
+      "label": "Property Price"
+    },
+    {
+      "label": "VAT (5%)"
+    },
+    {
+      "label": "Stamp Duty (0.5%)"
+    },
+    {
+      "label": "Transfer of Title Deed"
+    },
+    {
+      "label": "Legal Fees (optional)"
+    },
+    {
+      "total": "Total Amount"
+    }
+  ]
+}
