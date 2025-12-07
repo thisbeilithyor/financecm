@@ -1,7 +1,11 @@
 export const inital_admin_newImmoFormData = {
     objectnr: 0,
-    city: "",
-    description: "",
+    city_de: "",
+    city_en: "",
+    city_ru: "",
+    description_de: "",
+    description_en: "",
+    description_ru: "",
     house: true,
     price: 0,
     squareMeters: 0,
@@ -14,8 +18,12 @@ export const inital_admin_newImmoFormData = {
     atOcean: true,
     paymentDuration: 0,
     buildingFinished: "01.2026",
-    uberDasProjekt: "",
-    uberStandort: "",
+    uberDasProjekt_de: "",
+    uberDasProjekt_en: "",
+    uberDasProjekt_ru: "",
+    uberStandort_de: "",
+    uberStandort_en: "",
+    uberStandort_ru: "",
     carouselObject: false
 }
 

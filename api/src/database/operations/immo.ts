@@ -3,14 +3,15 @@ import { FurtherImages } from "../models/furtherimages.model";
 import { Immobilie } from "../models/immobilie.model";
 import { CreateImmoDto } from "../../dtos/CreateImmo.dto";
 import { Response } from "express";
+import { MultilingualText } from "../models/multilingualText.model";
 
 const createImmobilie = async (mapImagePath: string, titleImagePath: string, formData: CreateImmoDto, furtherImagesPaths: string[], res: Response) =>{
     let success = false;
     try{
         const immo: Immobilie = await Immobilie.create({
             objectnr: formData.objectnr || 0,
-            city: formData.city || "",
-            description: formData.description || "",
+            // city: formData.city || "",
+            // description: formData.description || "",
             house: formData.house ?? true,
             price: formData.price || 0,
             squareMeters: formData.squareMeters || 0,
@@ -23,14 +24,50 @@ const createImmobilie = async (mapImagePath: string, titleImagePath: string, for
             atOcean: formData.atOcean ?? false,
             paymentDuration: formData.paymentDuration || 0,
             buildingFinished: formData.buildingFinished || "",
-            uberDasProjekt: formData.uberDasProjekt || "",
-            uberStandort: formData.uberStandort || "",
+            // uberDasProjekt: formData.uberDasProjekt || "",
+            // uberStandort: formData.uberStandort || "",
             mapImagePath: mapImagePath || "",
             titleImagePath: titleImagePath || "",
             carouselObject: formData.carouselObject ?? false
         } as Immobilie)
         if(immo.objectnr){
             success = true;
+        }
+
+        const multilingualDeutsch: MultilingualText = await MultilingualText.create({
+            objectnr: formData.objectnr || 0,
+            languageID: 1,
+            city: formData.city_de || "",
+            description: formData.description_de || "",
+            uberDasProjekt: formData.uberDasProjekt_de || "",
+            uberStandort: formData.uberStandort_de || ""
+        } as MultilingualText)
+        if(!multilingualDeutsch.objectnr){
+            success = false;
+        }
+
+        const multilingualEnglisch: MultilingualText = await MultilingualText.create({
+            objectnr: formData.objectnr || 0,
+            languageID: 2,
+            city: formData.city_en || "",
+            description: formData.description_en || "",
+            uberDasProjekt: formData.uberDasProjekt_en || "",
+            uberStandort: formData.uberStandort_en || ""
+        } as MultilingualText)
+        if(!multilingualEnglisch.objectnr){
+            success = false;
+        }
+
+        const multilingualRussisch: MultilingualText = await MultilingualText.create({
+            objectnr: formData.objectnr || 0,
+            languageID: 3,
+            city: formData.city_ru || "",
+            description: formData.description_ru || "",
+            uberDasProjekt: formData.uberDasProjekt_ru || "",
+            uberStandort: formData.uberStandort_ru || ""
+        } as MultilingualText)
+        if(!multilingualRussisch.objectnr){
+            success = false;
         }
     }catch(err){
         //Logging

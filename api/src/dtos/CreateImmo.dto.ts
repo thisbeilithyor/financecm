@@ -1,7 +1,11 @@
 export interface CreateImmoDto {
     objectnr: number,
-    city?: string,
-    description?: string,
+    city_de?: string,
+    city_en?: string,
+    city_ru?: string,
+    description_de?: string,
+    description_en?: string,
+    description_ru?: string,
     house?: boolean,
     price?: number,
     squareMeters?: number,
@@ -14,7 +18,11 @@ export interface CreateImmoDto {
     atOcean?: boolean,
     paymentDuration?: number,
     buildingFinished?: string,
-    uberDasProjekt?: string,
-    uberStandort?: string,
+    uberDasProjekt_de?: string,
+    uberDasProjekt_en?: string,
+    uberDasProjekt_ru?: string,
+    uberStandort_de?: string,
+    uberStandort_en?: string,
+    uberStandort_ru?: string,
     carouselObject?: boolean
 }

@@ -1,5 +1,3 @@
-import "./addimmo.css";
-
 const AddImmoForm = ({ formData, handleChange, handleImageChange, imageUploadData }) => {
 
     return (
@@ -14,24 +12,63 @@ const AddImmoForm = ({ formData, handleChange, handleImageChange, imageUploadDat
             className="w-full border border-white rounded-full px-3 py-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-white"
         />
 
-        {/* Stadt */}
-        <label className="block mb-1">Stadt</label>
+        <hr></hr>
+
+        <h2>Stadt (Russisch erfordert oftmals eine andersartige Schreibweise)</h2>
+        {/* Stadt Deutsch*/}
+        <label className="block mb-1">Stadt (Deutsch)</label>
         <input
             type="text"
-            name="city"
-            value={formData.city}
+            name="city_de"
+            value={formData.city_de}
+            onChange={handleChange}
+            className="w-full border border-white rounded-full px-3 py-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-white"
+        />
+        <label className="block mb-1">Stadt (Englisch)</label>
+        <input
+            type="text"
+            name="city_en"
+            value={formData.city_en}
+            onChange={handleChange}
+            className="w-full border border-white rounded-full px-3 py-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-white"
+        />
+        <label className="block mb-1">Stadt (Russisch)</label>
+        <input
+            type="text"
+            name="city_ru"
+            value={formData.city_ru}
             onChange={handleChange}
             className="w-full border border-white rounded-full px-3 py-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-white"
         />
 
-        {/* Beschreibung */}
-        <label className="block mb-1">Beschreibung</label>
+        <hr></hr>
+
+        <h2>Beschreibungen</h2>
+        {/* Beschreibung Deutsch*/}
+        <label className="block mb-1">Beschreibung (Deutsch)</label>
         <textarea
-            name="description"
-            value={formData.description}
+            name="description_de"
+            value={formData.description_de}
             onChange={handleChange}
             className="w-full h-24 border border-white rounded-[2vw] px-3 py-2 bg-white text-black resize-none focus:outline-none focus:ring-2 focus:ring-white"
         />
+        {/* Beschreibung Englisch*/}
+        <label className="block mb-1">Beschreibung (Englisch)</label>
+        <textarea
+            name="description_en"
+            value={formData.description_en}
+            onChange={handleChange}
+            className="w-full h-24 border border-white rounded-[2vw] px-3 py-2 bg-white text-black resize-none focus:outline-none focus:ring-2 focus:ring-white"
+        />
+        {/* Beschreibung Russich*/}
+        <label className="block mb-1">Beschreibung (Russich)</label>
+        <textarea
+            name="description_ru"
+            value={formData.description_ru}
+            onChange={handleChange}
+            className="w-full h-24 border border-white rounded-[2vw] px-3 py-2 bg-white text-black resize-none focus:outline-none focus:ring-2 focus:ring-white"
+        />
+        <hr></hr>
 
         {/* Kartenbild */}
         <label className="block mb-1">Kartenbild</label>
@@ -154,20 +191,52 @@ const AddImmoForm = ({ formData, handleChange, handleImageChange, imageUploadDat
             className="w-full border border-white rounded-full px-3 py-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-white"
         />
 
+        <hr></hr>
+
         {/* Über das Projekt */}
-        <label className="block mb-1">Über das Projekt</label>
+        <label className="block mb-1">Über das Projekt (Deutsch)</label>
         <textarea
-            name="uberDasProjekt"
-            value={formData.uberDasProjekt}
+            name="uberDasProjekt_de"
+            value={formData.uberDasProjekt_de}
+            onChange={handleChange}
+            className="w-full h-24 border border-white rounded-[2vw] px-3 py-2 bg-white text-black resize-none focus:outline-none focus:ring-2 focus:ring-white"
+        />
+        <label className="block mb-1">Über das Projekt (Englisch)</label>
+        <textarea
+            name="uberDasProjekt_en"
+            value={formData.uberDasProjekt_en}
+            onChange={handleChange}
+            className="w-full h-24 border border-white rounded-[2vw] px-3 py-2 bg-white text-black resize-none focus:outline-none focus:ring-2 focus:ring-white"
+        />
+        <label className="block mb-1">Über das Projekt (Russisch)</label>
+        <textarea
+            name="uberDasProjekt_ru"
+            value={formData.uberDasProjekt_ru}
             onChange={handleChange}
             className="w-full h-24 border border-white rounded-[2vw] px-3 py-2 bg-white text-black resize-none focus:outline-none focus:ring-2 focus:ring-white"
         />
 
+        <hr></hr>
+
         {/* Über den Standort */}
-        <label className="block mb-1">Über den Standort</label>
+        <label className="block mb-1">Über den Standort (Deutsch)</label>
         <textarea
-            name="uberStandort"
-            value={formData.uberStandort}
+            name="uberStandort_de"
+            value={formData.uberStandort_de}
+            onChange={handleChange}
+            className="w-full h-24 border border-white rounded-[2vw] px-3 py-2 bg-white text-black resize-none focus:outline-none focus:ring-2 focus:ring-white"
+        />
+        <label className="block mb-1">Über den Standort (Englisch)</label>
+        <textarea
+            name="uberStandort_en"
+            value={formData.uberStandort_en}
+            onChange={handleChange}
+            className="w-full h-24 border border-white rounded-[2vw] px-3 py-2 bg-white text-black resize-none focus:outline-none focus:ring-2 focus:ring-white"
+        />
+        <label className="block mb-1">Über den Standort (Russisch)</label>
+        <textarea
+            name="uberStandort_ru"
+            value={formData.uberStandort_ru}
             onChange={handleChange}
             className="w-full h-24 border border-white rounded-[2vw] px-3 py-2 bg-white text-black resize-none focus:outline-none focus:ring-2 focus:ring-white"
         />

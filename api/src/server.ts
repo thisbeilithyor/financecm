@@ -8,6 +8,7 @@ import customerRequestRouter from "./routes/customerRequest";
 import checklistRouter from "./routes/checklist";
 import sequelize from "./database/util/database";
 import { User } from "./database/models/users.model";
+import { Language } from './database/models/language.model';
 import { hashPassword } from './miniscripts/hash';
 
 dotenv.config();
@@ -24,7 +25,7 @@ const dev: boolean = true;
 
 const startDBConnection = async () =>{
     try{
-        await sequelize.sync({ force: false, alter: true });
+        await sequelize.sync({ force: true, alter: true });
         console.log("DB synced");
         if(!process.env.ADMIN_PASS || !process.env.ADMIN_NAME) return;
         const user = await User.create({
@@ -32,6 +33,26 @@ const startDBConnection = async () =>{
             admin: true, 
             password: await hashPassword(process.env.ADMIN_PASS)
         } as User)
+        await autocreateNecessaryMasterdata();
+    }catch(err){
+        console.log(err);
+    }
+}
+
+const autocreateNecessaryMasterdata = async () => {
+    try{
+        const deutsch: Language = await Language.create({
+            languageID: 1,
+            language: "Deutsch"
+        } as Language)
+        const englisch: Language = await Language.create({
+            languageID: 2,
+            language: "Englisch"
+        } as Language)
+        const russisch: Language = await Language.create({
+            languageID: 3,
+            language: "Russisch"
+        } as Language)
     }catch(err){
         console.log(err);
     }

@@ -8,14 +8,6 @@ export class Immobilie extends Model<Immobilie> {
     objectnr!: number;
 
     @AllowNull(true)
-    @Column(DataType.STRING)
-    city?: string;
-
-    @AllowNull(true)
-    @Column(DataType.STRING)
-    description?: string;
-
-    @AllowNull(true)
     @Column(DataType.BOOLEAN)
     house?: boolean;
 
@@ -62,14 +54,6 @@ export class Immobilie extends Model<Immobilie> {
     @AllowNull(true)
     @Column(DataType.STRING)
     buildingFinished?: string;
-
-    @AllowNull(true)
-    @Column(DataType.TEXT)
-    uberDasProjekt?: string;
-
-    @AllowNull(true)
-    @Column(DataType.TEXT)
-    uberStandort?: string;
 
     @AllowNull(false)
     @Column(DataType.STRING)

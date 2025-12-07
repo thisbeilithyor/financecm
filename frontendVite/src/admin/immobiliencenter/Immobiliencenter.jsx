@@ -4,7 +4,6 @@ import AddImmoForm from "./AddImmoForm.jsx";
 import { inital_admin_newImmoFormData, initial_admin_newImmoFormImages } from "../../initalFormStates/initalFormStates.js";
 import { convertImgURLToBlob } from "../../util/convertImgURLToBlob.js";
 import ImmobilieItem from "../../general-components/ImmobilieItem.jsx";
-import "./immobiliencenter.css";
 
 const Immobiliencenter = () => {
     const [formActive, setFormActive] = useState(false);
