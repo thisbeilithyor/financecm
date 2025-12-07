@@ -1,25 +1,27 @@
 import Ansprechpartner from "../components/Ansprechpartner.jsx";
 import Footer from "../components/Footer.jsx";
 import Navbar from "../components/Navbar.jsx";
+import { useTranslation } from "react-i18next";
 
 const Impressum = () => {
+    const { t, i18n } = useTranslation();
     return (
         <>
         <Navbar></Navbar>
-        <h1>Impressum</h1>
+        <h1>{t("impressum.impressum.title")}</h1>
         <table>
             <tr>
                 <td>
-                    Alexander Meier
+                    {t("impressum.impressum.name")}
                 </td>
                 <td>
-                    Manchingerstr. 10
+                    {t("impressum.impressum.address.street")}
                 </td>
                 <td>
                     85053 Ingolstadt
                 </td>
                 <td>
-                    Deutschland
+                    {t("impressum.impressum.address.country")}
                 </td>
                 <br></br>
                 <td>
@@ -30,17 +32,17 @@ const Impressum = () => {
                 </td>
                 <br></br>
                 <td>
-                    Plattform der EU-Kommission zur Online-Streitbeilegung: https://ec.europa.eu/odr
+                    {t("impressum.impressum.platform")}
                 </td>
                 <td>
-                    Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit.
+                    {t("impressum.impressum.statement")}
                 </td>
                 <br></br>
                 <td>
-                    Verantwortliche/r i.S.d. § 18 Abs. 2 MStV:
+                    {t("impressum.impressum.verantwortlicher")}
                 </td>
                 <td>
-                    Alexander Meier
+                    {t("impressum.impressum.name")}
                 </td>
             </tr>
         </table>

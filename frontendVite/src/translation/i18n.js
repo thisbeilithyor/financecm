@@ -29,6 +29,7 @@ import deHausNordzypern from "./de/relevanteThemen/HausNordzypern.json";
 import deZitat from "./de/relevanteThemen/Zitat.json";
 import deWohnungenNordzypern from "./de/relevanteThemen/WohnungenNordzypern.json";
 import deImmobilienInNordzypern from "./de/relevanteThemen/ImmobilienInNordzypern.json";
+import deImpressum from "./de/impressum/Impressum.json";
 
 
 import enEinstieg from "./en/homepage/Einstieg.json";
@@ -60,6 +61,7 @@ import enHausNordzypern from "./en/relevanteThemen/HausNordzypern.json";
 import enZitat from "./en/relevanteThemen/Zitat.json";
 import enWohnungenNordzypern from "./en/relevanteThemen/WohnungenNordzypern.json";
 import enImmobilienInNordzypern from "./en/relevanteThemen/ImmobilienInNordzypern.json";
+import enImpressum from "./en/impressum/Impressum.json";
 
 
 i18n.use(initReactI18next).init(
@@ -114,6 +116,9 @@ i18n.use(initReactI18next).init(
                         zitat: deZitat,
                         wohnungenNordzypern: deWohnungenNordzypern,
                         immobilienInNordzypern: deImmobilienInNordzypern
+                    },
+                    impressum: {
+                        impressum: deImpressum
                     }
                 }
                 
@@ -164,6 +169,9 @@ i18n.use(initReactI18next).init(
                         zitat: enZitat,
                         wohnungenNordzypern: enWohnungenNordzypern,
                         immobilienInNordzypern: enImmobilienInNordzypern
+                    },
+                    impressum: {
+                        impressum: enImpressum
                     }
                 }
             }

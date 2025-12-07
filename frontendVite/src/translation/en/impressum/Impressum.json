@@ -1,0 +1,15 @@
+{
+    "title": "Imprint",
+    "name": "Alexander Meier",
+    "address": {
+        "street": "Manchingerstr. 10",
+        "country": "Germany"
+    },
+    "email": "meier-finanz@gmx.de",
+
+    "platform": "Platform of the EU Commission for Online Dispute Resolution: https://ec.europa.eu/odr",
+    "statement": "We are neither obliged nor willing to participate in a dispute resolution procedure before a consumer arbitration board.",
+
+    "verantwortlicher": "Person responsible according to § 18 para. 2 MStV"
+}
+
