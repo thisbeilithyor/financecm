@@ -1,0 +1,15 @@
+{
+    "title": "Выходные данные",
+    "name": "Alexander Meier",
+    "address": {
+        "street": "Manchingerstr. 10",
+        "country": "Германия"
+    },
+    "email": "meier-finanz@gmx.de",
+
+    "platform": "Платформа ЕС по урегулированию споров онлайн: https://ec.europa.eu/odr",
+    "statement": "Мы не обязаны и не готовы участвовать в процедуре разрешения споров в арбитражном органе по защите прав потребителей.",
+
+    "verantwortlicher": "Ответственное лицо в соответствии с § 18, пункт 2 MStV"
+    
+}

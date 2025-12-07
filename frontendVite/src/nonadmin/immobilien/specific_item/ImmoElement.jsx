@@ -23,10 +23,13 @@ const ImmoElement = () => {
     const {weitereImmos} = location.state || {};
 
     const {t, i18n} = useTranslation();
+    const language = i18n.language;
     
+    //request data
     useEffect(() => {
         const reqData = async () => {
-            const res = await fetch(`/api/immo/getImmoItem/${objectnr}`, {
+            console.log(objectnr);
+            const res = await fetch(`/api/immo/getImmoItem/${objectnr}?language=${language}`, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json'
@@ -37,10 +40,16 @@ const ImmoElement = () => {
             }
             else{
                 const ress = await res.json();
+                console.log(ress);
                 setData(ress);
             }
 
         }
+        reqData();
+    }, [language])
+
+    //request images
+    useEffect(() => {
         const reqFurtherImages = async () => {
             const res = await fetch(`/api/immo/getFurtherImages/${objectnr}`, {
                 method: 'GET',
@@ -54,13 +63,9 @@ const ImmoElement = () => {
                 setFurtherImages(ress);
             }
         }
-        reqData();
         reqFurtherImages();
     }, [])
 
-
-    // <img class="mapImage" src={`/api/images/${data.mapImagePath}`}></img>
-    // <img class="titleImage" src={`/api/images/${data.titleImagePath}`}></img>
     return (
         <>
             <Navbar></Navbar>

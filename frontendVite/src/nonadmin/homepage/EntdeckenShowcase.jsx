@@ -8,10 +8,11 @@ const EntdeckenShowcase = () => {
     const navigate = useNavigate();
 
     const { t, i18n } = useTranslation();
+    const language = i18n.language;
     
     useEffect(() => {
         const reqRandomImages = async () => {
-            const res = await fetch('/api/immo/getCarouselImages', {
+            const res = await fetch(`/api/immo/getCarouselImages?language=${language}`, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json'

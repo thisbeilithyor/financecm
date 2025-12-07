@@ -1,13 +1,32 @@
 import { NextFunction, Request, Response } from "express";
 import { CreateImmoDto } from "../dtos/CreateImmo.dto";
-import { Immobilie } from "../database/models/immobilie.model";
 import { FurtherImages } from "../database/models/furtherimages.model";
 import createImmobilie from "../database/operations/immo";
+import { Immobilie } from "../database/models/immobilie.model";
+import sequelize from "../database/util/database";
+import { MultilingualText } from "../database/models/multilingualText.model";
+import { QueryTypes } from "sequelize";
+
 
 export const getImmos = async (req: Request, res: Response, next: NextFunction) => {
-    const queryResult = await Immobilie.findAll({
-        raw: true
-    })
+    const language = req.query.language;
+    let queryResult: object[] = [];
+    try{
+        queryResult = await sequelize.query(
+            `SELECT I.*, MT.city, MT.description, MT.uberDasProjekt, MT.uberStandort
+            FROM Immobilie as I 
+            INNER JOIN MultilingualText AS MT ON MT.objectnr = I.objectnr
+            INNER JOIN Language as L ON L.languageID = MT.languageID
+            WHERE L.language = :language`,{
+                replacements: {language},
+                type: QueryTypes.SELECT
+            },
+        )
+        console.log(queryResult);
+    }catch(err){
+        console.log(err);
+    }
+
     if(queryResult){
         res.status(200).json(queryResult);
     }else{
@@ -39,13 +58,19 @@ export const createImmo = (req: Request, res: Response, next: NextFunction) => {
 }
 
 export const getCarouselImages = async (req: Request, res: Response, next: NextFunction) => {
-    const queryResult: Immobilie[] = await Immobilie.findAll({
-        where: { carouselObject: true },
-        raw: true,
-        attributes: ['city', 'titleImagePath', 'objectnr']
-    });
+    const language = req.query.language;
 
-    res.json(queryResult);
+    const queryRes = await sequelize.query(`
+        SELECT MT.city, I.titleImagePath, I.objectnr
+        FROM Immobilie AS I 
+        INNER JOIN MultilingualText AS MT ON MT.objectnr = I.objectnr
+        INNER JOIN Language AS L ON L.languageID = MT.languageID
+        WHERE I.carouselObject = 1 AND L.language = :language`,{
+            replacements: {language},
+            type: QueryTypes.SELECT
+        })
+
+    res.json(queryRes);
 }
 
 
@@ -62,14 +87,27 @@ export const getFurtherImages = async (req: Request, res: Response, next: NextFu
 
 export const getImmoItem = async (req: Request, res: Response, next: NextFunction) => {
     const objectnr = req.params.objectnr;
+    const language = req.query.language;
 
-    const queryResult: Immobilie | null = await Immobilie.findOne({
-        where: {objectnr: objectnr},
-        raw: true
-    })
+    let queryResult: object[] = [];
+    try{
+        queryResult = await sequelize.query(`
+            SELECT I.*, MT.city, MT.description, MT.uberDasProjekt, MT.uberStandort
+            FROM Immobilie AS I 
+            INNER JOIN MultilingualText AS MT ON MT.objectnr = I.objectnr
+            INNER JOIN Language AS L ON L.languageID = MT.languageID
+            WHERE L.language = :language AND I.objectnr = :objectnr`,{
+                replacements: {language, objectnr},
+                type: QueryTypes.SELECT
+            })
+    }catch(err){
+        console.log(err);
+    }
 
-    if(queryResult) {
-        res.status(200).json(queryResult);
+    let queryResultItem: object = queryResult[0];
+
+    if(queryResultItem) {
+        res.status(200).json(queryResultItem);
         await Immobilie.increment('views', {
             by: 1,
             where: { objectnr: objectnr }

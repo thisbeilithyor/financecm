@@ -15,7 +15,8 @@ export const Sprachauswahl = () => {
                 className="border px-3 py-1 rounded-md"
             >
                 <option value="de">Deutsch</option>
-                <option value="en">Englisch</option>
+                <option value="en">English</option>
+                <option value="ru">Русский</option>
             </select>
         </>
     )

@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 
-const useGetImmos = (setImmosData) => {
+const useGetImmos = (setImmosData, language) => {
     useEffect(() => {
         const request = async () => {
-            const response = await fetch('/api/immo/getImmos',  {
+            const response = await fetch(`/api/immo/getImmos?language=${language}`,  {
                 method: 'GET',
                 headers: {
                     'Accept-Content': 'application/json'
@@ -13,7 +13,7 @@ const useGetImmos = (setImmosData) => {
             setImmosData(res);
         }
         request();
-    }, []);
+    }, [language]);
 }
 
 

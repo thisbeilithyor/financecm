@@ -84,7 +84,7 @@ const Immobiliencenter = () => {
 
     useEffect(() => {
         const request = async () => {
-            const response = await fetch('/api/immo/getImmos',  {
+            const response = await fetch('/api/immo/getImmos?language=de',  {
                 method: 'GET',
                 headers: {
                     'Accept-Content': 'application/json'

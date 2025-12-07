@@ -64,6 +64,38 @@ import enImmobilienInNordzypern from "./en/relevanteThemen/ImmobilienInNordzyper
 import enImpressum from "./en/impressum/Impressum.json";
 
 
+import ruEinstieg from "./ru/homepage/Einstieg.json";
+import ruEntdeckenShowcase from "./ru/homepage/EntdeckenShowcase.json";
+import ruBewertungen from "./ru/homepage/Bewertungen.json";
+import ruNavbar from "./ru/components/Navbar.json";
+import ruRelevanteThemen from "./ru/components/RelevanteThemen.json";
+import ruAnsprechpartner from "./ru/components/Ansprechpartner.json";
+import ruFooter from "./ru/components/Footer.json";
+import ruImmobilien from "./ru/immobilien/Immobilien.json";
+import ruHaeufigeFragen from "./ru/immobilien/HaeufigeFragen.json";
+import ruVorteileEinerImmobilie from "./ru/components/VorteileEinerImmobilie.json";
+import ruImmobilieAufZypernkaufen from "./ru/components/ImmobilieAufZypernKaufen.json";
+import ruImmoElement from "./ru/immobilien/specific_item/ImmoElement.json";
+import ruUntereInfos from "./ru/immobilien/specific_item/UntereInfos.json";
+import ruZahlungsinformationen from "./ru/immobilien/specific_item/Zahlungsinformationen.json";
+import ruAnpsrechpartner2 from "./ru/components/Ansprechpartner2.json";
+import ruUeberZypern from "./ru/ueberzypern/UeberZypern.json";
+import ruNatur from "./ru/ueberzypern/Natur.json";
+import ruAktivitaet from "./ru/ueberzypern/Aktivitaet.json";
+import ruNachtleben from "./ru/ueberzypern/Nachtleben.json";
+import ruInfrastruktur from "./ru/ueberzypern/Infrastruktur.json";
+import ruImmobilieninvestionen from "./ru/ueberzypern/Immobilieninvestitionen.json";
+import ruQandA from "./ru/ueberzypern/QandA.json";
+import ruKontakt from "./ru/contact/Kontakt.json";
+import ruKontaktForm from "./ru/contact/KontaktForm.json";
+import ruChecklist from "./ru/checklist/Checklist.json";
+import ruHausNordzypern from "./ru/relevanteThemen/HausNordzypern.json";
+import ruZitat from "./ru/relevanteThemen/Zitat.json";
+import ruWohnungenNordzypern from "./ru/relevanteThemen/WohnungenNordzypern.json";
+import ruImmobilienInNordzypern from "./ru/relevanteThemen/ImmobilienInNordzypern.json";
+import ruImpressum from "./ru/impressum/Impressum.json";
+
+
 i18n.use(initReactI18next).init(
     {
         fallbackLng: 'de',
@@ -174,9 +206,61 @@ i18n.use(initReactI18next).init(
                         impressum: enImpressum
                     }
                 }
-            }
+            },
+            ru: {
+                translation:{
+                    homepage: {
+                        einstieg: ruEinstieg,
+                        entdeckenShowcase: ruEntdeckenShowcase,
+                        bewertungen: ruBewertungen,
+                        footer: ruFooter,
+                    },
+                    components: {
+                        navbar: ruNavbar,
+                        relevantethemen: ruRelevanteThemen,
+                        ansprechpartner: ruAnsprechpartner,
+                        footer: ruFooter,
+                        vorteileEinerImmobilie: ruVorteileEinerImmobilie,
+                        immobilieAufZypernKaufen: ruImmobilieAufZypernkaufen,
+                        ansprechpartner2: ruAnpsrechpartner2,
+                    },
+                    immobilien: {
+                        immobilien: ruImmobilien,
+                        haeufigeFragen: ruHaeufigeFragen,
+                        specific_item: {
+                            immoElement: ruImmoElement,
+                            untereInfos: ruUntereInfos,
+                            zahlungsinformationen: ruZahlungsinformationen,
+                        }
+                    },
+                    ueberzypern: {
+                        ueberZypern: ruUeberZypern,
+                        natur: ruNatur,
+                        aktivitaet: ruAktivitaet,
+                        nachtleben: ruNachtleben,
+                        infrastruktur: ruInfrastruktur,
+                        immobilieninvestitionen: ruImmobilieninvestionen,
+                        QandA: ruQandA,
+                    },
+                    contact: {
+                        kontakt: ruKontakt,
+                        kontaktForm: ruKontaktForm,
+                    },
+                    checklist: {
+                        checklist: ruChecklist
+                    },
+                    relevantethemen: {
+                        hausNordzypern: ruHausNordzypern,
+                        zitat: ruZitat,
+                        wohnungenNordzypern: ruWohnungenNordzypern,
+                        immobilienInNordzypern: ruImmobilienInNordzypern
+                    },
+                    impressum: {
+                        impressum: ruImpressum
+                    }
+                }    
+            },
         },
-
         interpolation: {
             escapeValue: false,
         }

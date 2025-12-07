@@ -53,15 +53,15 @@ const autocreateNecessaryMasterdata = async () => {
 
             const deutsch: Language = await Language.create({
                 languageID: 1,
-                language: "Deutsch"
+                language: "de"
             } as Language)
             const englisch: Language = await Language.create({
                 languageID: 2,
-                language: "Englisch"
+                language: "en"
             } as Language)
             const russisch: Language = await Language.create({
                 languageID: 3,
-                language: "Russisch"
+                language: "ru"
             } as Language)
         
             const newStateinf: Stateinformation = await Stateinformation.create({
