@@ -9,6 +9,7 @@ import checklistRouter from "./routes/checklist";
 import sequelize from "./database/util/database";
 import { User } from "./database/models/users.model";
 import { Language } from './database/models/language.model';
+import { Stateinformation } from './database/models/stateinformation.model';
 import { hashPassword } from './miniscripts/hash';
 
 dotenv.config();
@@ -25,14 +26,9 @@ const dev: boolean = true;
 
 const startDBConnection = async () =>{
     try{
-        await sequelize.sync({ force: true, alter: true });
+        await sequelize.sync({ force: false, alter: true });
         console.log("DB synced");
-        if(!process.env.ADMIN_PASS || !process.env.ADMIN_NAME) return;
-        const user = await User.create({
-            username: process.env.ADMIN_NAME,
-            admin: true, 
-            password: await hashPassword(process.env.ADMIN_PASS)
-        } as User)
+
         await autocreateNecessaryMasterdata();
     }catch(err){
         console.log(err);
@@ -41,18 +37,38 @@ const startDBConnection = async () =>{
 
 const autocreateNecessaryMasterdata = async () => {
     try{
-        const deutsch: Language = await Language.create({
-            languageID: 1,
-            language: "Deutsch"
-        } as Language)
-        const englisch: Language = await Language.create({
-            languageID: 2,
-            language: "Englisch"
-        } as Language)
-        const russisch: Language = await Language.create({
-            languageID: 3,
-            language: "Russisch"
-        } as Language)
+        const masterDataAlreadyCreated: Stateinformation | null = await Stateinformation.findOne({
+            where: {
+                metaID: 1
+            }
+        })
+
+        if(!masterDataAlreadyCreated){
+            if(!process.env.ADMIN_PASS || !process.env.ADMIN_NAME) return;
+            const user = await User.create({
+                username: process.env.ADMIN_NAME,
+                admin: true, 
+                password: await hashPassword(process.env.ADMIN_PASS)
+            } as User)
+
+            const deutsch: Language = await Language.create({
+                languageID: 1,
+                language: "Deutsch"
+            } as Language)
+            const englisch: Language = await Language.create({
+                languageID: 2,
+                language: "Englisch"
+            } as Language)
+            const russisch: Language = await Language.create({
+                languageID: 3,
+                language: "Russisch"
+            } as Language)
+        
+            const newStateinf: Stateinformation = await Stateinformation.create({
+                metaID: 1,
+                metaAlreadyCreated: true
+            } as Stateinformation)
+        }
     }catch(err){
         console.log(err);
     }
