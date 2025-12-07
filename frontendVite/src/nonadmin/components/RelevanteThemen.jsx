@@ -13,11 +13,11 @@ const RelevanteThemen = () => {
 
             
             <div className="md:flex w-[80vw] m-auto gap-x-5 md:justify-center">
-                <Link to="weitere/immobilie-nordzypern" className="md:w-[40vw] max-md:m-auto max-md:pb-5 text-center">
+                <Link to="/weitere/immobilie-nordzypern" className="md:w-[40vw] max-md:m-auto max-md:pb-5 text-center">
                     <img className="rounded-xl" src='relImg1.webp'></img>
                     <p className="m-auto font-bold text-lg mt-1">{t("components.relevantethemen.q1")}</p>
                 </Link>
-                <Link to="weitere/wohnungen-nordzypern" className="md:w-[40vw] max-md:m-auto max-md:pb-5 text-center">
+                <Link to="/weitere/wohnungen-nordzypern" className="md:w-[40vw] max-md:m-auto max-md:pb-5 text-center">
                     <img className="rounded-xl" src='relImg2.webp'></img>
                     <p className="m-auto font-bold text-lg mt-1">{t("components.relevantethemen.q2")}</p>
                 </Link>

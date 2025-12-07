@@ -25,6 +25,10 @@ import deQandA from "./de/ueberzypern/QandA.json";
 import deKontakt from "./de/contact/Kontakt.json";
 import deKontaktForm from "./de/contact/KontaktForm.json";
 import deChecklist from "./de/checklist/Checklist.json";
+import deHausNordzypern from "./de/relevanteThemen/HausNordzypern.json";
+import deZitat from "./de/relevanteThemen/Zitat.json";
+import deWohnungenNordzypern from "./de/relevanteThemen/WohnungenNordzypern.json";
+import deImmobilienInNordzypern from "./de/relevanteThemen/ImmobilienInNordzypern.json";
 
 
 import enEinstieg from "./en/homepage/Einstieg.json";
@@ -52,6 +56,10 @@ import enQandA from "./en/ueberzypern/QandA.json";
 import enKontakt from "./en/contact/Kontakt.json";
 import enKontaktForm from "./en/contact/KontaktForm.json";
 import enChecklist from "./en/checklist/Checklist.json";
+import enHausNordzypern from "./en/relevanteThemen/HausNordzypern.json";
+import enZitat from "./en/relevanteThemen/Zitat.json";
+import enWohnungenNordzypern from "./en/relevanteThemen/WohnungenNordzypern.json";
+import enImmobilienInNordzypern from "./en/relevanteThemen/ImmobilienInNordzypern.json";
 
 
 i18n.use(initReactI18next).init(
@@ -100,6 +108,12 @@ i18n.use(initReactI18next).init(
                     },
                     checklist: {
                         checklist: deChecklist
+                    },
+                    relevantethemen: {
+                        hausNordzypern: deHausNordzypern,
+                        zitat: deZitat,
+                        wohnungenNordzypern: deWohnungenNordzypern,
+                        immobilienInNordzypern: deImmobilienInNordzypern
                     }
                 }
                 
@@ -144,6 +158,12 @@ i18n.use(initReactI18next).init(
                     },
                     checklist: {
                         checklist: enChecklist
+                    },
+                    relevantethemen: {
+                        hausNordzypern: enHausNordzypern,
+                        zitat: enZitat,
+                        wohnungenNordzypern: enWohnungenNordzypern,
+                        immobilienInNordzypern: enImmobilienInNordzypern
                     }
                 }
             }
