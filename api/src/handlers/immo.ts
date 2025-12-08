@@ -9,7 +9,50 @@ import { QueryTypes } from "sequelize";
 
 
 export const getImmos = async (req: Request, res: Response, next: NextFunction) => {
-    const language = req.query.language;
+    const allowedLanguages = ["de", "en", "ru"];
+    let language = String(req.query.language || "de").toLowerCase();
+    if(!allowedLanguages.includes(language)){
+        return res.status(400).json({ error: "Invalid language parameter!"});
+    }
+
+    let von = Number(req.query.von);
+    if(isNaN(von) || von < 0){
+        von = 0;
+    }
+
+    let bis = Number(req.query.bis);
+    if(isNaN(bis) || bis < 0 || bis > 10000000){
+        bis = 10000000;
+    }
+    
+    let haus: boolean;
+    if(typeof req.query.haus === "undefined"){
+        haus = true;
+    } else {
+        const value = String(req.query.haus).toLowerCase();
+        if(value==="true" || value==="1"){
+            haus = true;
+        }else if (value === "false" || value === "0"){
+            haus = false;
+        }else{
+            return res.status(400).json({ error: "Invalid haus parameter!"});
+        }
+    }
+
+    let wohnung: boolean;
+    if(typeof req.query.wohnung === "undefined"){
+        wohnung = false;
+    } else {
+        const value = String(req.query.wohnung).toLowerCase();
+        if(value==="true" || value==="1"){
+            wohnung = false;
+        }else if (value === "false" || value === "0"){
+            wohnung = true;
+        }else{
+            return res.status(400).json({ error: "Invalid wohnung parameter!"});
+        }
+    }
+
     let queryResult: object[] = [];
     try{
         queryResult = await sequelize.query(
@@ -17,8 +60,11 @@ export const getImmos = async (req: Request, res: Response, next: NextFunction) 
             FROM Immobilie as I 
             INNER JOIN MultilingualText AS MT ON MT.objectnr = I.objectnr
             INNER JOIN Language as L ON L.languageID = MT.languageID
-            WHERE L.language = :language`,{
-                replacements: {language},
+            WHERE L.language = :language
+            AND I.price > :von
+            AND I.price < :bis
+            AND (I.house = :haus OR I.house = :wohnung)`,{
+                replacements: {language, von, bis, haus, wohnung},
                 type: QueryTypes.SELECT
             },
         )

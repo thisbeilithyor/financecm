@@ -30,6 +30,7 @@ import deZitat from "./de/relevanteThemen/Zitat.json";
 import deWohnungenNordzypern from "./de/relevanteThemen/WohnungenNordzypern.json";
 import deImmobilienInNordzypern from "./de/relevanteThemen/ImmobilienInNordzypern.json";
 import deImpressum from "./de/impressum/Impressum.json";
+import deFilter from "./de/immobilien/Filter.json";
 
 
 import enEinstieg from "./en/homepage/Einstieg.json";
@@ -62,6 +63,7 @@ import enZitat from "./en/relevanteThemen/Zitat.json";
 import enWohnungenNordzypern from "./en/relevanteThemen/WohnungenNordzypern.json";
 import enImmobilienInNordzypern from "./en/relevanteThemen/ImmobilienInNordzypern.json";
 import enImpressum from "./en/impressum/Impressum.json";
+import enFilter from "./en/immobilien/Filter.json";
 
 
 import ruEinstieg from "./ru/homepage/Einstieg.json";
@@ -94,6 +96,7 @@ import ruZitat from "./ru/relevanteThemen/Zitat.json";
 import ruWohnungenNordzypern from "./ru/relevanteThemen/WohnungenNordzypern.json";
 import ruImmobilienInNordzypern from "./ru/relevanteThemen/ImmobilienInNordzypern.json";
 import ruImpressum from "./ru/impressum/Impressum.json";
+import ruFilter from "./ru/immobilien/Filter.json";
 
 
 i18n.use(initReactI18next).init(
@@ -121,6 +124,7 @@ i18n.use(initReactI18next).init(
                     immobilien: {
                         immobilien: deImmobilien,
                         haeufigeFragen: deHaeufigeFragen,
+                        filter: deFilter,
                         specific_item: {
                             immoElement: deImmoElement,
                             untereInfos: deUntereInfos,
@@ -174,6 +178,7 @@ i18n.use(initReactI18next).init(
                     immobilien: {
                         immobilien: enImmobilien,
                         haeufigeFragen: enHaeufigeFragen,
+                        filter: enFilter,
                         specific_item: {
                             immoElement: enImmoElement,
                             untereInfos: enUntereInfos,
@@ -227,6 +232,7 @@ i18n.use(initReactI18next).init(
                     immobilien: {
                         immobilien: ruImmobilien,
                         haeufigeFragen: ruHaeufigeFragen,
+                        filter: ruFilter,
                         specific_item: {
                             immoElement: ruImmoElement,
                             untereInfos: ruUntereInfos,

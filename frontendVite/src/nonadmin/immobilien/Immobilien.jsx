@@ -14,12 +14,18 @@ import Ansprechpartner from "../components/Ansprechpartner.jsx";
 import { useEffect } from "react";
 
 import { useTranslation } from "react-i18next";
+import Filter from "./Filter.jsx";
+import { FilterState } from "./FilterState.js";
+
 
 const Immobilien = () =>{
     const [immosData, setImmosData] = useState([]);
     const navigate = useNavigate();
 
     const { t, i18n } = useTranslation();
+
+    const [filterState, setFilterState] = useState(FilterState);
+    const [invokeAPIRequest, setInvokeAPIRequest] = useState(false);
 
     let weitereImmos = [];
     let counter = 0;
@@ -34,10 +40,14 @@ const Immobilien = () =>{
     const handleClick = (e, objectnr) => {
         navigate('/immobilien/'+objectnr, { state: {weitereImmos} });
     }
+
+    const applyFilter = () => {
+        setInvokeAPIRequest(!invokeAPIRequest);
+    }
     
     return(
     <>
-        {useGetImmos(setImmosData, i18n.language)}
+        {useGetImmos(setImmosData, i18n.language, filterState, invokeAPIRequest)}
         {console.log(immosData)}
         <Navbar></Navbar>
         <div className="bg-[#f1f1f1]">
@@ -49,6 +59,7 @@ const Immobilien = () =>{
             )
         })}
         </div>
+        <Filter setFilterState={setFilterState} filterState={filterState} applyFilter={applyFilter}></Filter>
         <IslandGraphic></IslandGraphic>
         <VorteileEinerImmobilie></VorteileEinerImmobilie>
 
