@@ -51,12 +51,12 @@ const Navbar = () => {
               {t("components.navbar.cyprus")}
             </NavLink>
             <NavLink
-              to="/mediathek"
+              to="/inspektionsreise"
               className={({ isActive }) =>
                 isActive ? "underline underline-offset-4" : "hover:underline underline-offset-4"
               }
             >
-              {t("components.navbar.mediathek")}
+              {t("components.navbar.inspektionsreise")}
             </NavLink>
             <NavLink
               to="/kontakt"
@@ -103,8 +103,8 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/mediathek" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
-                    {t("components.navbar.mediathek")}
+                  <NavLink to="/inspektionsreise" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
+                    {t("components.navbar.inspektionsreise")}
                   </NavLink>
                 </li>
                 <li>

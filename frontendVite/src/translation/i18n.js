@@ -31,6 +31,7 @@ import deWohnungenNordzypern from "./de/relevanteThemen/WohnungenNordzypern.json
 import deImmobilienInNordzypern from "./de/relevanteThemen/ImmobilienInNordzypern.json";
 import deImpressum from "./de/impressum/Impressum.json";
 import deFilter from "./de/immobilien/Filter.json";
+import deInspektionsreise from "./de/inspektionsreise/Inspektionsreise.json";
 
 
 import enEinstieg from "./en/homepage/Einstieg.json";
@@ -64,6 +65,7 @@ import enWohnungenNordzypern from "./en/relevanteThemen/WohnungenNordzypern.json
 import enImmobilienInNordzypern from "./en/relevanteThemen/ImmobilienInNordzypern.json";
 import enImpressum from "./en/impressum/Impressum.json";
 import enFilter from "./en/immobilien/Filter.json";
+import enInspektionsreise from "./en/inspektionsreise/Inspektionsreise.json";
 
 
 import ruEinstieg from "./ru/homepage/Einstieg.json";
@@ -97,6 +99,7 @@ import ruWohnungenNordzypern from "./ru/relevanteThemen/WohnungenNordzypern.json
 import ruImmobilienInNordzypern from "./ru/relevanteThemen/ImmobilienInNordzypern.json";
 import ruImpressum from "./ru/impressum/Impressum.json";
 import ruFilter from "./ru/immobilien/Filter.json";
+import ruInspektionsreise from "./ru/inspektionsreise/Inspektionsreise.json";
 
 
 i18n.use(initReactI18next).init(
@@ -155,6 +158,9 @@ i18n.use(initReactI18next).init(
                     },
                     impressum: {
                         impressum: deImpressum
+                    },
+                    inspektionsreise: {
+                        inspektionsreise: deInspektionsreise
                     }
                 }
                 
@@ -209,6 +215,9 @@ i18n.use(initReactI18next).init(
                     },
                     impressum: {
                         impressum: enImpressum
+                    },
+                    inspektionsreise: {
+                        inspektionsreise: enInspektionsreise
                     }
                 }
             },
@@ -263,6 +272,9 @@ i18n.use(initReactI18next).init(
                     },
                     impressum: {
                         impressum: ruImpressum
+                    },
+                    inspektionsreise: {
+                        inspektionsreise: ruInspektionsreise
                     }
                 }    
             },

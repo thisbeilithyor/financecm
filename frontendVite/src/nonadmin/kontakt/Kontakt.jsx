@@ -66,17 +66,21 @@ const Kontakt = () => {
             </div>
 
             <div className="flex justify-center bg-[#093B3F] pt-40 space-x-8">
-                <div className="flex flex-col w-[10vw]">
-                    <center><img className="!border-none" src="phone.svg"></img></center>
-                    <center><p className="text-white text-lg">+49 172 77 45656</p></center>
-                </div>
+                <a href="https://wa.me/491727745656" target="_blank" rel="noopener noreferrer">
+                    <div className="flex flex-col w-[10vw]">
+                        <center><img className="!border-none" src="phone.svg"></img></center>
+                        <center><p className="text-white text-lg">+49 172 77 45656</p></center>
+                    </div>
+                </a>
                 <div className="flex flex-col w-[10vw]">
                     <center><img className="!border-none" src="location.svg"></img></center>
                     <center><p className="text-white text-lg">Manchingerstr. 10, 85053 Ingolstadt</p></center>
                 </div>
                 <div className="flex flex-col w-[10vw]">
-                    <center><img className="!border-none" src="mail.svg"></img></center> 
-                    <center><p className="text-white text-lg">meier-finanz@gmx.de</p></center>
+                    <a href="mailto:meier-finanz@gmx.de">
+                        <center><img className="!border-none" src="mail.svg"></img></center> 
+                        <center><p className="text-white text-lg">meier-finanz@gmx.de</p></center>
+                    </a>
                 </div>
             </div>
             
