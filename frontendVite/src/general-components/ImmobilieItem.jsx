@@ -1,6 +1,3 @@
-import Card from "react";
-import "./card.css";
-
 const ImmobilieItem = ({immo, handleClick}) => {
     return (
         <>
