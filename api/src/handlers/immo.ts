@@ -68,7 +68,6 @@ export const getImmos = async (req: Request, res: Response, next: NextFunction) 
                 type: QueryTypes.SELECT
             },
         )
-        console.log(queryResult);
     }catch(err){
         console.log(err);
     }

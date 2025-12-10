@@ -6,7 +6,7 @@ const Weitere = ({immos}) => {
             {immos && immos.map((immo) => { 
                 return(
                     <>
-                        <img src={`/api/images/${immo.titleImagePath}`}></img>
+                        <img src={`/file/${immo.titleImagePath}`}></img>
                         <p>{immo.price}</p>
                     </>
                 )

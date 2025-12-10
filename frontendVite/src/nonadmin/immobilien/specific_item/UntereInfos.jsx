@@ -26,7 +26,7 @@ const UntereInfos = ({ immo }) => {
             {sources.map((item) => {
                 return (
                     <>
-                    {item[1] && (
+                    { !!item[1] && (
                         <div className="w-[10%]">
                             <img className="infoImg" src={item[0]}></img>
                             <p className="infoTxt" style={{ color: "black", display: "inline"}}>{item[2]}</p>

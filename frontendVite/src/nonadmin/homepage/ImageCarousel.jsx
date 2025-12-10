@@ -20,7 +20,7 @@ const ImageCarousel = ({images}) => {
                     return (
                         
                         <div key={index}>
-                            <img className="w-[30vw] m-auto rounded-2xl" src={'/api/images/'+url}></img>
+                            <img className="w-[30vw] m-auto rounded-2xl" src={'/file/'+url}></img>
                         </div>
                     )})}
             </Slider>

@@ -74,11 +74,11 @@ const ImmoElement = () => {
 
             {data && (
                 <>
-                <img className="relative w-[100vw] z-5" src={`/api/images/${data.mapImagePath}`}></img>
+                <img className="relative w-[100vw] z-5" src={`/file/${data.mapImagePath}`}></img>
 
                 <div className="relative w-[65vw] m-auto flex rounded-3xl bg-[#010101] mt-[-20px] z-10">
                     <div className="w-[50%]">
-                        <img className="rounded-3xl" src={`/api/images/${data.titleImagePath}`}></img>
+                        <img className="rounded-3xl" src={`/file/${data.titleImagePath}`}></img>
                     </div>
                     <div className="flex flex-col justify-between pt-3 pb-3 pl-3">
                         <p className="text-white text-lg">{data.city}</p>
@@ -104,7 +104,7 @@ const ImmoElement = () => {
                     <>
                         {furtherImages.map((item, index) => {
                             return (
-                                <img className="rounded-xl w-[30%]" key={index} src={`/api/images/${item.imagePath}`}></img>
+                                <img className="rounded-xl w-[30%]" key={index} src={`/file/${item.imagePath}`}></img>
                             )
                         })}
                     </>

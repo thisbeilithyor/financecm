@@ -8,11 +8,7 @@ import path from "path";
 const router = Router();
 const storage = multer.diskStorage({ 
     destination: function (req, file, cb) {
-        if (file.fieldname.startsWith('pdf')) {
-            cb(null, 'file_exchange/');
-        } else {
-            cb(null, 'upload_images/');
-        }
+        cb(null, 'file_exchange/');
     },
     filename: function (req, file, cb) {
         const ext = path.extname(file.originalname);
