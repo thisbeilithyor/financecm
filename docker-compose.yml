@@ -39,6 +39,7 @@ services:
 
     volumes:
       - fcm_images_data:/upload_images
+      - fcm_file_exchange:/file_exchange
 
     networks:
       - web_api
@@ -55,9 +56,13 @@ services:
     networks:
       - web_api
 
+    volumes:
+      - fcm_file_exchange:/file_exchange
+
 volumes:
   fcm_db_data:
   fcm_images_data:
+  fcm_file_exchange:
 
 networks:
   api_db:

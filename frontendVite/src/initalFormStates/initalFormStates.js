@@ -30,5 +30,8 @@ export const inital_admin_newImmoFormData = {
 export const initial_admin_newImmoFormImages = {
     mapImage: null,
     titleImage: null,
-    furtherImages: null
+    furtherImages: null,
+    pdf_de: null,
+    pdf_en: null,
+    pdf_ru: null
 }

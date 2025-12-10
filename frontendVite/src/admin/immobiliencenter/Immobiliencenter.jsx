@@ -50,6 +50,21 @@ const Immobiliencenter = () => {
             formDataContainer.append("mapImage", mapImage);
         }
 
+        if(imageUploadData.pdf_de){
+            const pdf_de = await convertImgURLToBlob(imageUploadData.pdf_de[0]);
+            formDataContainer.append("pdf_de", pdf_de, `${formData.objectnr}_de.pdf`);
+        }
+
+        if(imageUploadData.pdf_en){
+            const pdf_en = await convertImgURLToBlob(imageUploadData.pdf_en[0]);
+            formDataContainer.append("pdf_en", pdf_en, `${formData.objectnr}_en.pdf`);
+        }
+
+        if(imageUploadData.pdf_ru){
+            const pdf_ru = await convertImgURLToBlob(imageUploadData.pdf_ru[0]);
+            formDataContainer.append("pdf_ru", pdf_ru, `${formData.objectnr}_ru.pdf`);
+        }
+
         if(imageUploadData.furtherImages){
             for (const value of imageUploadData.furtherImages){
                 const a = await convertImgURLToBlob(value);

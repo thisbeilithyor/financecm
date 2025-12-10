@@ -14,6 +14,45 @@ const AddImmoForm = ({ formData, handleChange, handleImageChange, imageUploadDat
 
         <hr></hr>
 
+        <label className="block mb-1">PDF-Datei (Deutsch)</label>
+        <input
+            type="file"
+            name="pdf_de"
+            accept=".pdf"
+            onChange={handleImageChange}
+        />
+        {
+            imageUploadData.pdf_de && (
+                <p>{imageUploadData.pdf_de.name}</p>
+            )
+        }
+        <label className="block mb-1">PDF-Datei (Englisch)</label>
+        <input
+            type="file"
+            name="pdf_en"
+            accept=".pdf"
+            onChange={handleImageChange}
+        />
+        {
+            imageUploadData.pdf_en && (
+                <p>{imageUploadData.pdf_en.name}</p>
+            )
+        }
+        <label className="block mb-1">PDF-Datei (Russisch)</label>
+        <input
+            type="file"
+            name="pdf_ru"
+            accept=".pdf"
+            onChange={handleImageChange}
+        />
+        {
+            imageUploadData.pdf_ru && (
+                <p>{imageUploadData.pdf_ru.name}</p>
+            )
+        }
+
+        <hr></hr>
+
         <h2>Stadt (Russisch erfordert oftmals eine andersartige Schreibweise)</h2>
         {/* Stadt Deutsch*/}
         <label className="block mb-1">Stadt (Deutsch)</label>

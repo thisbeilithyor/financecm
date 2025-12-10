@@ -27,4 +27,8 @@ export class MultilingualText extends Model<MultilingualText> {
     @AllowNull(true)
     @Column(DataType.TEXT)
     uberStandort?: string;
+
+    @Default(false)
+    @Column(DataType.BOOLEAN)
+    PDFexisting?: boolean;
 }

@@ -4,8 +4,9 @@ import { Immobilie } from "../models/immobilie.model";
 import { CreateImmoDto } from "../../dtos/CreateImmo.dto";
 import { Response } from "express";
 import { MultilingualText } from "../models/multilingualText.model";
+import { PDFGenerator } from "../../util/PDFGenerator";
 
-const createImmobilie = async (mapImagePath: string, titleImagePath: string, formData: CreateImmoDto, furtherImagesPaths: string[], res: Response) =>{
+const createImmobilie = async (mapImagePath: string, titleImagePath: string, formData: CreateImmoDto, furtherImagesPaths: string[], res: Response, pdf_de_existing: boolean, pdf_en_existing: boolean, pdf_ru_existing: boolean) =>{
     let success = false;
     try{
         const immo: Immobilie = await Immobilie.create({
@@ -40,7 +41,8 @@ const createImmobilie = async (mapImagePath: string, titleImagePath: string, for
             city: formData.city_de || "",
             description: formData.description_de || "",
             uberDasProjekt: formData.uberDasProjekt_de || "",
-            uberStandort: formData.uberStandort_de || ""
+            uberStandort: formData.uberStandort_de || "",
+            PDFexisting: pdf_de_existing || false
         } as MultilingualText)
         if(!multilingualDeutsch.objectnr){
             success = false;
@@ -52,7 +54,8 @@ const createImmobilie = async (mapImagePath: string, titleImagePath: string, for
             city: formData.city_en || "",
             description: formData.description_en || "",
             uberDasProjekt: formData.uberDasProjekt_en || "",
-            uberStandort: formData.uberStandort_en || ""
+            uberStandort: formData.uberStandort_en || "",
+            PDFexisting: pdf_en_existing || false
         } as MultilingualText)
         if(!multilingualEnglisch.objectnr){
             success = false;
@@ -64,7 +67,8 @@ const createImmobilie = async (mapImagePath: string, titleImagePath: string, for
             city: formData.city_ru || "",
             description: formData.description_ru || "",
             uberDasProjekt: formData.uberDasProjekt_ru || "",
-            uberStandort: formData.uberStandort_ru || ""
+            uberStandort: formData.uberStandort_ru || "",
+            PDFexisting: pdf_ru_existing || false
         } as MultilingualText)
         if(!multilingualRussisch.objectnr){
             success = false;

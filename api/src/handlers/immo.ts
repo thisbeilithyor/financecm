@@ -100,7 +100,11 @@ export const createImmo = (req: Request, res: Response, next: NextFunction) => {
         titleImageFilename = files.titleImage[0].filename;
     }
 
-    return createImmobilie(mapImageFilename, titleImageFilename, myFormData, furtherImagesPaths, res);
+    const pdf_ru_existing = files.pdf_ru ? true : false;
+    const pdf_en_existing = files.pdf_en ? true : false;
+    const pdf_de_existing = files.pdf_de ? true : false;
+
+    return createImmobilie(mapImageFilename, titleImageFilename, myFormData, furtherImagesPaths, res, pdf_de_existing, pdf_en_existing, pdf_ru_existing);
 }
 
 export const getCarouselImages = async (req: Request, res: Response, next: NextFunction) => {
@@ -138,7 +142,7 @@ export const getImmoItem = async (req: Request, res: Response, next: NextFunctio
     let queryResult: object[] = [];
     try{
         queryResult = await sequelize.query(`
-            SELECT I.*, MT.city, MT.description, MT.uberDasProjekt, MT.uberStandort
+            SELECT I.*, MT.city, MT.description, MT.uberDasProjekt, MT.uberStandort, MT.PDFexisting
             FROM Immobilie AS I 
             INNER JOIN MultilingualText AS MT ON MT.objectnr = I.objectnr
             INNER JOIN Language AS L ON L.languageID = MT.languageID

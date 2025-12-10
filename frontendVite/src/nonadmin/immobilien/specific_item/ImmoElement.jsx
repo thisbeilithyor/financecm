@@ -9,6 +9,7 @@ import Zahlungsinformationen from "./Zahlungsinformationen.jsx";
 import Weitere from "./Weitere.jsx";
 import { useLocation } from "react-router-dom";
 import Ansprechpartner from "../../components/Ansprechpartner.jsx";
+import { Link } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 
@@ -92,6 +93,11 @@ const ImmoElement = () => {
             }
             <h2 className="text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.immoElement.mainHeading")}</h2>
             <h4 className="text-2xl text-center text-[#093B3F] font-bold">{t("immobilien.specific_item.immoElement.subHeading")}</h4>
+            {
+                !!data.PDFexisting && (
+                    <Link to= {`/file/${data.objectnr}_${language}.pdf`} target="_blank" rel="noopener noreferrer">Infos hier herunterladen</Link>
+                )
+            }
             <IslandGraphic prefix="../"></IslandGraphic>
             <div className="flex flex-wrap w-[80vw] m-auto gap-5">
                 {data && (
