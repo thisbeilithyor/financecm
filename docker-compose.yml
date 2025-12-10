@@ -38,7 +38,7 @@ services:
         condition: service_healthy
 
     volumes:
-      - fcm_file_exchange:/file_exchange
+      - fcm_file_exchange:/file_exchange # public
 
     networks:
       - web_api
@@ -56,11 +56,11 @@ services:
       - web_api
 
     volumes:
-      - fcm_file_exchange:/file_exchange
+      - fcm_file_exchange:/file_exchange # public
 
 volumes:
   fcm_db_data:
-  fcm_file_exchange:
+  fcm_file_exchange: # public !!!
 
 networks:
   api_db:
