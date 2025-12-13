@@ -9,25 +9,38 @@ interface loginData {
 }
 
 export const adminlogin = async (req: Request<{}, {}, loginData>, res: Response) => {
-    const username: string = req.body.username;
-    const password: string = req.body.password;
+    const username = req.body.username;
+    const password = req.body.password;
 
-    let user: User | null = await User.findOne({
-        where: {
-            username: username,
-            admin: true
-        }
-    })
+    let user: User | null = null;
 
-    if(user){
+    try{
+        user = await User.findOne({
+            where: {
+                username: username,
+                admin: true
+            }
+        })
+    } catch(err) {
+        return res.status(500).send();
+    }
+
+    if(!user){
+        return res.status(401).json( {message: "Falsche Anmeldedaten!"});
+    }
+
+    try{
         if(await compareHash(password, user.password)){
             const token: string = generateJWTToken(user);
-            res.status(200).json({ token });
+            return res.status(200).json({ token });
         }
+        else{
+            return res.status(401).json( {message: "Falsche Anmeldedaten!"});
+        }
+    } catch (err) {
+        return res.status(500).send();
     }
-    else{
-        res.status(401).json( {message: "Falsche Anmeldedaten!"})
-    }
+        
 }
 
 interface JWTPayload {
@@ -36,16 +49,17 @@ interface JWTPayload {
 }
 
 const generateJWTToken = (user: User): string =>{
-    if(process.env.JWT_TOKEN){
-        const jwt_token: string = process.env.JWT_TOKEN;
-        const payload: JWTPayload = {id: user.id, username: user.username};
-        return jwt.sign(payload,
-            jwt_token,
-        { expiresIn: '2h'}
-        )
-    }
-    else {
-        throw new Error("JWT Token nicht gesetzt!");
+    try {
+        if(process.env.JWT_TOKEN){
+            const payload: JWTPayload = {id: user.id, username: user.username};
+
+            return jwt.sign(payload, process.env.JWT_TOKEN, { expiresIn: '2h'})
+        }
+        else {
+            throw new Error("JWT Token nicht gesetzt!");
+        }
+    } catch (err) {
+        throw new Error("Error in function generateJWTToken (auth.ts): "+err);
     }
 }
 

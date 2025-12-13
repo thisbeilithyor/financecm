@@ -15,15 +15,15 @@ export const checkPermission = (req: Request, res: Response, next: NextFunction)
     try{
         if(process.env.JWT_TOKEN && process.env.ADMIN_NAME){
             jwt.verify(token, process.env.JWT_TOKEN, (err, user) => {
+                if (err) return res.sendStatus(403).json({message: "You have no permission!"});
+                if (!user) return res.sendStatus(403).json({message: "You have no permission!"});
+
                 let myUser: { id: number, username: string } = user as { id: number, username: string };
-                if(err || !user){
-                    return res.json({message: "You have no permission!"});
-                }
+
                 if(myUser.id === 1 && myUser.username === process.env.ADMIN_NAME){
                     console.log("upload permission is ok");
                     return next();
                 }
-                return res.json({message: "You have no permission!"});
             })
         }
     }catch(err){
