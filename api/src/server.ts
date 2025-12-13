@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 
 import express, { NextFunction, Request, Response } from "express";
 import immoRouter from "./routes/immo";
@@ -12,10 +13,12 @@ import { Language } from './database/models/language.model';
 import { Stateinformation } from './database/models/stateinformation.model';
 import { hashPassword } from './miniscripts/hash';
 
+
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 
 const PORT: number = 5000;
 const appName: string | undefined = process.env.APP_NAME;

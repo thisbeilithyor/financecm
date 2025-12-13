@@ -32,7 +32,15 @@ export const adminlogin = async (req: Request<{}, {}, loginData>, res: Response)
     try{
         if(await compareHash(password, user.password)){
             const token: string = generateJWTToken(user);
-            return res.status(200).json({ token });
+
+            res.cookie("accessToken", token, {
+                httpOnly: true,
+                secure: true,
+                sameSite: "strict",
+                maxAge: 7200000 //2 hours
+            })
+
+            return res.status(200).json({ message: "Login erfolgreich!" });
         }
         else{
             return res.status(401).json( {message: "Falsche Anmeldedaten!"});
@@ -67,24 +75,32 @@ const generateJWTToken = (user: User): string =>{
 
 
 export const verifyJWT = (req: Request, res: Response, next: NextFunction) => {
-    if(req.headers['authorization']){
-        const authHeader: string = req.headers['authorization'];
-        const token: string = authHeader.split(' ')[1];
+    const accessToken: string = req.cookies.accessToken;
 
-        if(!token || token === "null") {
-            return res.status(401).json( {verified: false} );
-        }
-        try{
-            if(process.env.JWT_TOKEN && process.env.ADMIN_NAME){
-                const decoded: JWTPayload = jwt.verify(token, process.env.JWT_TOKEN) as JWTPayload;
-                if(decoded && decoded.id === 1 && decoded.username === process.env.ADMIN_NAME){
-                    return res.json({ verified: true });
-                }
-            }
-            return res.status(401).json({ verified: false });
-        }catch(err){
-            console.log("verifyJWT FAILED:", err);
-            return res.status(401).json({ verified: false });
-        }
+    if(!accessToken) return res.sendStatus(401);
+    if(!process.env.JWT_TOKEN) return res.sendStatus(500);
+
+    try {
+        jwt.verify(accessToken, process.env.JWT_TOKEN, (err, user) => {
+            if (err) return res.sendStatus(401);
+            if (!user) return res.sendStatus(401);
+            if (typeof user === "string") return res.sendStatus(401);
+
+            if (user.id === 1 && user.username === process.env.ADMIN_NAME) return res.sendStatus(200);
+        })
+
+    } catch (err) {
+        console.log(err);
+        return res.sendStatus(500);
     }
+}
+
+export const logout = (req: Request, res: Response, next: NextFunction) => {
+    res.clearCookie("accessToken", {
+        httpOnly: true,
+        secure: true,
+        sameSite: "strict"
+    })
+
+    return res.status(200).json( { message: "Erfolgreich ausgeloggt!" } );
 }

@@ -5,30 +5,27 @@ import { useEffect, useState } from "react";
 const ProtectedRoutes = () => {
     const [permission, setPermission] = useState(false);
     const [loading, setLoading] = useState(true);
-    const token = window.localStorage.getItem("token");
+
     useEffect(() => {
-        const verify_token = () => {
-            fetch('/api/auth/verifyJWT', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            }
-            }).then(async (rawResponse) => {
-                const res = await rawResponse.json();
-                const a = res.verified;
-                a ? setPermission(true) : setPermission(false);
-                setLoading(false);
+        const verify_authorization = async () => {
+            const rawResponse = await fetch('/api/auth/verifyJWT', {
+                method: 'POST'
             })
+            
+            const status = rawResponse.status;
+
+            if(status === 200) {
+                setPermission(true);
+                setLoading(false);
+            } else {
+                setPermission(false);
+                setLoading(false);
+            }
         }
-        if(token){
-            verify_token();
-        }
-        else{
-            setLoading(false);
-            setPermission(false);
-        }
-    }, [token]);
+
+        verify_authorization();
+
+    }, [])
 
     if(loading){
         return <p>Laden... Berechtigung überprüfen...</p>

@@ -38,7 +38,6 @@ const Immobiliencenter = () => {
     }
 
     const handleSave = async (e) => {
-        const token = window.localStorage.getItem("token");
         const formDataContainer = new FormData();
         
         if(imageUploadData.titleImage) {
@@ -77,9 +76,6 @@ const Immobiliencenter = () => {
         try{
             const request = await fetch('/api/immo/createImmo', {
                 method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                },
                 body: formDataContainer
             })
             const res = await request.json();

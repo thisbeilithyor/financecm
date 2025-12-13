@@ -18,14 +18,14 @@ const Login = () => {
             },
             body: JSON.stringify({ username, password })
         });
-        const response = await rawResponse.json();
 
-        if(response.token){ 
-            window.localStorage.setItem("token", response.token); //unsafe!!!
+        const response = await rawResponse.json();
+        setMessage(response.message);
+
+        const status = rawResponse.status;
+        if(status === 200){
             setRedirect(true);
         };
-
-        setMessage(response.message);
     }
 
     if(redirect){

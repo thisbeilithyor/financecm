@@ -8,18 +8,21 @@ const AdminPanel = () => {
     const [customerRequests, setCustomerRequests] = useState([]);
     const [checklistEntrys, setChecklistEntrys] = useState([]);
 
-    const logout = () => {
-        window.localStorage.removeItem("token");
+    const logout = async () => {
+        const result = await fetch('/api/auth/logout', {
+            method: 'POST'
+        })
+        console.log(result);
+        console.log(result.status);
+        window.localStorage.removeItem("token"); //TODO
         setHomeRedirect(true);
     }
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
         const reqCustomerRequests = async () => {
             const result = await fetch('/api/customerRequest/getCustomerRequests', {
                 method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 }
@@ -39,7 +42,6 @@ const AdminPanel = () => {
             const result = await fetch('/api/checklist/getAll', {
                 method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 }

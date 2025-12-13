@@ -53,19 +53,15 @@ const LineChart = () => {
     };
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
         const reqVisits = async () =>{
             const res = await fetch('/api/kpi/getVisits', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept-Content': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Accept-Content': 'application/json'
             }})
             const result = await res.json();
-            console.log(result);
-            console.log(result.data);
-            console.log(result.labels);
+
             setLabel(result.labels);
             setTableData(result.data);
         }
