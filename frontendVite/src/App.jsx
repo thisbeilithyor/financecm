@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop.jsx";
 import Login from './Login.jsx';
 import Home from './nonadmin/homepage/Home.jsx';
 import AdminPanel from "./admin/AdminPanel.jsx";
@@ -29,32 +30,36 @@ function App() {
   useWebsiteVisitTracker();
 
   return(
-      <Routes>
-        <Route element={<Nonadmin />}>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/immobilien" element={<Immobilien />}></Route>
-          <Route path="/immobilien/:objectnr" element={<ImmoElement />}></Route>
-          <Route path="/kontakt" element={<Kontakt />}></Route>
-          <Route path="/impressum" element={<Impressum />}></Route>
-          <Route path="/uberzypern" element={<UeberZypern />}></Route>
-          <Route path="/datenschutzerklarung" element={<Datenschutzerklarung />}></Route>
-          <Route path="/checklist" element={<Checklist />}></Route>
-          <Route path="/vermietung" element={<Vermietung />}></Route>
-          <Route path="/inspektionsreise" element={<Inspektionsreise />}></Route>
-          <Route path="/weitere/immobilie-nordzypern" element={<ImmobilienInNordzypern />}></Route>
-          <Route path="/weitere/wohnungen-nordzypern" element={<WohnungenNordzypern />}></Route>
-          <Route path="/weitere/haus-nordzypern" element={<HausNordzypern />}></Route>
-        </Route>
-        <Route element={<ProtectedRoutes/>}>
-          <Route element={<AdminNavBar />}>
-            <Route path="admin/panel" element={<AdminPanel />}></Route>
-            <Route path="admin/immobiliencenter" element={<Immobiliencenter />}></Route>
-            <Route path="admin/kpi" element={<KPI />}></Route>
-            <Route path="admin/immobiliencenter/:objectnr" element={<EditImmo />}></Route>
+      <>
+        <ScrollToTop></ScrollToTop>
+      
+        <Routes>
+          <Route element={<Nonadmin />}>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/immobilien" element={<Immobilien />}></Route>
+            <Route path="/immobilien/:objectnr" element={<ImmoElement />}></Route>
+            <Route path="/kontakt" element={<Kontakt />}></Route>
+            <Route path="/impressum" element={<Impressum />}></Route>
+            <Route path="/uberzypern" element={<UeberZypern />}></Route>
+            <Route path="/datenschutzerklarung" element={<Datenschutzerklarung />}></Route>
+            <Route path="/checklist" element={<Checklist />}></Route>
+            <Route path="/vermietung" element={<Vermietung />}></Route>
+            <Route path="/inspektionsreise" element={<Inspektionsreise />}></Route>
+            <Route path="/weitere/immobilie-nordzypern" element={<ImmobilienInNordzypern />}></Route>
+            <Route path="/weitere/wohnungen-nordzypern" element={<WohnungenNordzypern />}></Route>
+            <Route path="/weitere/haus-nordzypern" element={<HausNordzypern />}></Route>
           </Route>
-        </Route>
-        <Route path="admin" element={<Login />}></Route>
-      </Routes>
+          <Route element={<ProtectedRoutes/>}>
+            <Route element={<AdminNavBar />}>
+              <Route path="admin/panel" element={<AdminPanel />}></Route>
+              <Route path="admin/immobiliencenter" element={<Immobiliencenter />}></Route>
+              <Route path="admin/kpi" element={<KPI />}></Route>
+              <Route path="admin/immobiliencenter/:objectnr" element={<EditImmo />}></Route>
+            </Route>
+          </Route>
+          <Route path="admin" element={<Login />}></Route>
+        </Routes>
+      </>
   )
 }
 

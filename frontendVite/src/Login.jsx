@@ -24,6 +24,7 @@ const Login = () => {
 
         const status = rawResponse.status;
         if(status === 200){
+            // request CSRF here?
             setRedirect(true);
         };
     }
