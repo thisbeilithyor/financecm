@@ -50,8 +50,9 @@ const Immobilien = () =>{
         {useGetImmos(setImmosData, i18n.language, filterState, invokeAPIRequest)}
         {console.log(immosData)}
         <Navbar></Navbar>
-        <div className="bg-[#f1f1f1]">
-        <center><h1 className="text-[#093B3F] font-bold text-4xl pb-10 max-md:text-xl max-md:pl-1 max-md:pr-1 pt-5">{t("immobilien.immobilien.heading")}</h1></center>
+        <div className="bg-[#f1f1f1] pt-2">
+        <Filter setFilterState={setFilterState} filterState={filterState} applyFilter={applyFilter}></Filter>
+        <center><h1 className="text-xl md:text-4xl text-[#093B3F] font-bold pb-4 md:pb-10 pl-1 pr-1 pt-3">{t("immobilien.immobilien.heading")}</h1></center>
         {immosData && 
         immosData.map((immo) => {
             return(
@@ -59,7 +60,6 @@ const Immobilien = () =>{
             )
         })}
         </div>
-        <Filter setFilterState={setFilterState} filterState={filterState} applyFilter={applyFilter}></Filter>
         <IslandGraphic></IslandGraphic>
         <VorteileEinerImmobilie></VorteileEinerImmobilie>
 

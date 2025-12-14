@@ -6,24 +6,24 @@ const RelevanteThemen = () => {
 
     return (
         <>
-            <section className="bg-[#f1f1f1] pt-15 pb-15">
-            <center><h2 className="text-[#093B3F] font-bold text-4xl pb-10 max-md:text-xl max-md:pl-1 max-md:pr-1">
+            <section className="bg-[#f1f1f1] pt-0 md:pt-15 pb-0 md:pb-15">
+            <center><h2 className="text-xl md:text-4xl pr-2 pl-2 pb-3 md:pb-10 text-[#093B3F] font-bold">
                 {t("components.relevantethemen.headline")}
             </h2></center>
 
             
-            <div className="md:flex w-[80vw] m-auto gap-x-5 md:justify-center">
-                <Link to="/weitere/immobilie-nordzypern" className="md:w-[40vw] max-md:m-auto max-md:pb-5 text-center">
+            <div className="md:flex md:gap-x-5 md:justify-center w-[80vw] m-auto">
+                <Link to="/weitere/immobilie-nordzypern" className="md:w-[40vw] text-center">
                     <img className="rounded-xl" src='relImg1.webp'></img>
-                    <p className="m-auto font-bold text-lg mt-1">{t("components.relevantethemen.q1")}</p>
+                    <p className="text-sm md:text-lg m-auto font-bold mt-0.3 mb-2">{t("components.relevantethemen.q1")}</p>
                 </Link>
-                <Link to="/weitere/wohnungen-nordzypern" className="md:w-[40vw] max-md:m-auto max-md:pb-5 text-center">
+                <Link to="/weitere/wohnungen-nordzypern" className="md:w-[40vw] max-md:m-auto text-center">
                     <img className="rounded-xl" src='relImg2.webp'></img>
-                    <p className="m-auto font-bold text-lg mt-1">{t("components.relevantethemen.q2")}</p>
+                    <p className="text-sm md:text-lg m-auto font-bold mt-0.3 mb-2">{t("components.relevantethemen.q2")}</p>
                 </Link>
-                <Link to="/weitere/haus-nordzypern" className="md:w-[40vw] max-md:m-auto max-md:pb-5 text-center">
+                <Link to="/weitere/haus-nordzypern" className="md:w-[40vw] max-md:m-auto text-center">
                     <img className="rounded-xl" src='relImg3.webp'></img>
-                    <p className="m-auto font-bold text-lg mt-1">{t("components.relevantethemen.q3")}</p>
+                    <p className="text-sm md:text-lg m-auto font-bold mt-0.3">{t("components.relevantethemen.q3")}</p>
                 </Link>
             </div>
             

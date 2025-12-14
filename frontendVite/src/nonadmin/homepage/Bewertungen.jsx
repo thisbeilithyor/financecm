@@ -39,15 +39,15 @@ const Bewertungen = () => {
 
   return (
     <div className="bg-[#f1f1f1] pb-10 pt-5">
-      <center><h1 className="text-[#093B3F] font-bold text-4xl pb-10 max-md:text-xl max-md:pl-1 max-md:pr-1">{t("homepage.bewertungen.headline")}</h1></center>
+      <center><h1 className="text-xl md:text-4xl mt-3 pb-1.5 text-[#093B3F] font-bold md:pb-10">{t("homepage.bewertungen.headline")}</h1></center>
       <center><StarRating rating={averageRating} /></center>
-      <center><p className="text-black">
+      <center><p className="text-black w-[85vw] text-justify">
         {t("homepage.bewertungen.basedp1")} {reviews.length} {t("homepage.bewertungen.basedp2")} <strong>{averageRating.toFixed(2)}</strong> {t("homepage.bewertungen.basedp3")}
       </p></center>
 
-      <div className="flex gap-x-5 m-auto w-[80vw] mt-10">
+      <div className="max-md:w-[85vw] mt-3 md:mt-10 md:flex md:gap-x-5 m-auto">
         {reviews.map((review) => (
-          <div key={review.id} className="w-[33%]">
+          <div key={review.id} className="md:w-[33%] mt-3">
             <StarRating rating={review.rating} />
             <p className="text-justify">{t(review.textKey)}</p>
             <div className="font-bold mt-2">

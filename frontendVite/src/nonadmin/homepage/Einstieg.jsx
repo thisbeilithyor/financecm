@@ -7,10 +7,6 @@ const Einstieg = () => {
 
     const { t, i18n } = useTranslation();
 
-    const handleClick = (e) => {
-        console.log(e);
-    }
-
     return (
         <>
             <div className="w-[100vw]">
@@ -18,17 +14,17 @@ const Einstieg = () => {
                     <source src='/backgroundvideo.mp4' type='video/mp4'></source>
                 </video>
             </div>
-            <div className="relative flex flex-col items-center justify-center h-150 row w-[100vw]">
-                    <div className="text-white text-3xl md:text-4xl font-bold text-center drop-shadow-lg">
+            <div className="h-50 sm:h-150 relative flex flex-col items-center justify-center row w-[100vw]">
+                    <div className="text-xl md:text-4xl px-5 md:px-0 text-white font-bold text-center drop-shadow-lg">
                         <h1>{t("homepage.einstieg.headline")}</h1>
                     </div>
-                    <div className="text-3xl text-center text-white font-bold mt-3">
+                    <div className="text-lg md:text-3xl text-center text-white font-bold mt-3">
                         <h2>{t("homepage.einstieg.subheadline")}</h2>
                     </div>
-                    <div className="md:flex md:justify-center gap-x-20 pt-15">
-                        <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => navigate('/immobilien')}>{t("homepage.einstieg.buttonLeft")}</button>
-                        <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => navigate('/immobilien')}>{t("homepage.einstieg.buttonMid")}</button>
-                        <button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => navigate('/immobilien')}>{t("homepage.einstieg.buttonRight")}</button>
+                    <div className="max-md:hidden flex justify-center gap-x-3 md:gap-x-20 pt-2 md:pt-15">
+                        <button className="w-30 md:w-55 text-xs md:text-lg bg-[#093B3F] text-white h-10 rounded-full" onClick={() => navigate('/immobilien')}>{t("homepage.einstieg.buttonLeft")}</button>
+                        <button className="w-25 md:w-55 text-xs md:text-lg bg-[#093B3F] text-white h-10 rounded-full" onClick={() => navigate('/immobilien')}>{t("homepage.einstieg.buttonMid")}</button>
+                        <button className="w-25 md:w-55 text-xs md:text-lg bg-[#093B3F] text-white h-10 rounded-full" onClick={() => navigate('/immobilien')}>{t("homepage.einstieg.buttonRight")}</button>
                     </div>
             </div>
         </>

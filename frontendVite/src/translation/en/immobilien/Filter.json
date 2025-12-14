@@ -3,5 +3,7 @@
     "title2": "Property type",
     "haus": "Houses",
     "wohnung": "Apartments",
-    "applyFilter": "Apply filter"
+    "applyFilter": "Apply filter",
+    "filterAusblenden": "Hide filter",
+    "filterAnzeigen": "Show filter"
 }

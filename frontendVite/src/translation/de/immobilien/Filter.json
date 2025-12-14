@@ -3,5 +3,7 @@
     "title2": "Immobilienart",
     "haus": "Häuser",
     "wohnung": "Wohnungen",
-    "applyFilter": "Filter anwenden"
+    "applyFilter": "Filter anwenden",
+    "filterAusblenden": "Filter ausblenden",
+    "filterAnzeigen": "Filter anzeigen"
 }

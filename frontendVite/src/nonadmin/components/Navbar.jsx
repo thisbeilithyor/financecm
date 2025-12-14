@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="bg-gray-100 shadow sticky top-0 z-50 h-20">
+      <header className="h-12 sm:h-18 bg-gray-100 shadow sticky top-0 z-50">
         <div className="flex items-center justify-between px-6 w-full h-full">
           
           {/* Logo (responsive) */}
@@ -19,7 +19,7 @@ const Navbar = () => {
             <img
                 src="/logo-dunkel.webp"
                 alt="Logo"
-                className="!border-none h-18 !w-auto object-contain !mt-0 !mb-0 !mr-0"
+                className="h-10 sm:h-17 !border-none !w-auto object-contain !mt-0 !mb-0 !mr-0"
             />
         </div>
 
@@ -86,36 +86,41 @@ const Navbar = () => {
             </button>
 
             {isMenuOpen && (
-              <ul className="absolute right-0 mt-2 w-56 bg-white rounded shadow-lg z-50 text-gray-900 text-base">
+              <ul className="border-2 rounded border-green-900 absolute right-0 w-56 bg-white shadow-lg z-50 text-gray-900 text-base">
                 <li>
-                  <NavLink to="/" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
+                  <NavLink to="/" onClick={() => setIsMenuOpen(false)} className="block px-4 py-0 hover:bg-gray-100">
                     {t("components.navbar.home")}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/immobilien" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
+                  <NavLink to="/immobilien" onClick={() => setIsMenuOpen(false)} className="block px-4 py-0 hover:bg-gray-100">
                     {t("components.navbar.projects")}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/uberzypern" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
+                  <NavLink to="/uberzypern" onClick={() => setIsMenuOpen(false)} className="block px-4 py-0 hover:bg-gray-100">
                     {t("components.navbar.cyprus")}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/inspektionsreise" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
+                  <NavLink to="/inspektionsreise" onClick={() => setIsMenuOpen(false)} className="block px-4 py-0 hover:bg-gray-100">
                     {t("components.navbar.inspektionsreise")}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/kontakt" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
+                  <NavLink to="/kontakt" onClick={() => setIsMenuOpen(false)} className="block px-4 py-0 hover:bg-gray-100">
                     {t("components.navbar.contact")}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/vermietung" onClick={() => setIsMenuOpen(false)} className="block px-4 py-2 hover:bg-gray-100">
+                  <NavLink to="/vermietung" onClick={() => setIsMenuOpen(false)} className="block px-4 py-0 hover:bg-gray-100">
                     {t("components.navbar.renting")}
                   </NavLink>
+                </li>
+                <li>
+                  <div className="block px-4 py-0 hover:bg-gray-100">
+                    <Sprachauswahl/>
+                  </div>
                 </li>
               </ul>
             )}

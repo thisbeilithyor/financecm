@@ -31,11 +31,11 @@ const EntdeckenShowcase = () => {
 
 
     return (
-        <section className="bg-[#f1f1f1] pt-15 pb-15 w-[100vw]">
-            <center><h2 className="text-[#093B3F] font-bold text-4xl pb-10">{t("homepage.entdeckenShowcase.headline")}</h2></center>
+        <section className="pt-3 md:pt-15 bg-[#f1f1f1] pb-5 md:pb-15 w-[100vw]">
+            <center><h2 className="text-2xl md:text-4xl text-[#093B3F] font-bold pb-3 md:pb-10">{t("homepage.entdeckenShowcase.headline")}</h2></center>
             <ImageCarousel images={images}></ImageCarousel>
 
-            <center><button className="bg-[#093B3F] text-white w-auto h-10 rounded-full text-lg pl-10 pr-10 mt-10" onClick={() => navigate('/immobilien')}>{t("homepage.entdeckenShowcase.weitere")}</button></center>
+            <center><button className="text-xs md:text-lg h-8 md:h-10 mt-8 md:mt-10 bg-[#093B3F] text-white w-auto rounded-full pl-10 pr-10" onClick={() => navigate('/immobilien')}>{t("homepage.entdeckenShowcase.weitere")}</button></center>
         </section>
     );
 }
