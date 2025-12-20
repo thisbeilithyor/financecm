@@ -1,0 +1,36 @@
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+
+providers:
+  docker:
+    exposedByDefault: false
+
+http:
+  middlewares:
+    auth:
+      basicAuth:
+        users:
+          - "admin:pw"
+    redirect-to-https:
+      redirectScheme:
+        scheme: https
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: christoph21.schweiger@gmx.de
+      storage: /acme.json
+      httpChallenge:
+        entryPoint: web
+    
+api:
+  dashboard: true
+  insecure: false
+  debug: false
+
+log:
+  level: INFO
+  filePath: /traefik.log

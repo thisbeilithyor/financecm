@@ -14,9 +14,6 @@ RUN npm run build
 #Stage 3: prod env
 FROM nginx:alpine AS production
 
-COPY nginx-certs/nginx-selfsigned.crt /etc/nginx
-COPY nginx-certs/nginx-selfsigned.key /etc/nginx
-
 COPY nginx.conf /etc/nginx
 COPY --from=build /myApp/dist /usr/share/nginx/html
 

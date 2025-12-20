@@ -29,10 +29,7 @@ services:
       - APP_NAME=fcm_api
     env_file: "api.env"
     container_name: fcm_api
-#    image: ilithyor/myrepo-api:1.0
-#    ports:
-#      - "5001:5000"
-    
+    restart: always    
     depends_on:
       fcm_db:
         condition: service_healthy
@@ -47,16 +44,42 @@ services:
   fcm_webserver:
     build: ./frontendVite
     container_name: fcm_webserver
-#    image: ilithyor/myrepo-webserver:1.0
-    ports:
-      - "443:443"
+    restart: always    
     depends_on:
       - fcm_api
     networks:
       - web_api
-
+      - frontend
     volumes:
       - fcm_file_exchange:/file_exchange # public
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.fcm_webserver.rule=Host(`finance-center-meier.com`)"
+      - "traefik.http.routers.fcm_webserver.entrypoints=websecure"
+      - "traefik.http.routers.fcm_webserver.tls.certresolver=letsencrypt"
+
+  traefik:
+    image: traefik:3.6
+    container_name: traefik
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik.yml:/traefik.yml:ro
+      - ./acme.json:/acme.json
+    command:
+      - "--configFile=/traefik.yml"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.rule=Host(`finance-center-meier.com`)"
+      - "traefik.http.routers.traefik.entrypoints=websecure"
+      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.traefik.tls.certresolver=letsencrypt"
+    networks:
+      - frontend
+
 
 volumes:
   fcm_db_data:
@@ -65,3 +88,4 @@ volumes:
 networks:
   api_db:
   web_api:
+  frontend:
