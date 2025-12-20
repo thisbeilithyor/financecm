@@ -102,10 +102,10 @@ const ImmoElement = () => {
                 </>
                 ) 
             }
-            <h2 className="max-md:hidden text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.immoElement.mainHeading")}</h2>
-            <h4 className="max-md:hidden text-2xl text-center text-[#093B3F] font-bold">{t("immobilien.specific_item.immoElement.subHeading")}</h4>
+            <h2 className="hidden text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.immoElement.mainHeading")}</h2>
+            <h4 className="hidden text-2xl text-center text-[#093B3F] font-bold">{t("immobilien.specific_item.immoElement.subHeading")}</h4>
             
-            <UntereInfos immo={data} className="md:hidden"></UntereInfos>
+            <UntereInfos immo={data}></UntereInfos>
 
             {
                 !!data.PDFexisting && (
@@ -131,7 +131,7 @@ const ImmoElement = () => {
             <IslandGraphic prefix="../"></IslandGraphic>
 
             
-            <div className="max-md:hidden flex w-[80vw] m-auto">
+            <div className="max-lg:hidden flex w-[80vw] m-auto">
                 <UntereInfos immo={data}></UntereInfos>
                 <Ansprechpartner2></Ansprechpartner2>
             </div>

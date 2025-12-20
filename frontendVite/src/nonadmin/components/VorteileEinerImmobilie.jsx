@@ -8,25 +8,25 @@ const VorteileEinerImmobilie = () => {
             <div className="bg-[#f1f1f1]">
             <center><h2 className="text-xl md:text-4xl text-[#093B3F] font-bold pb-10 pl-1 pr-1 pt-1">{t("components.vorteileEinerImmobilie.heading")}</h2></center>
             <div className="flex flex-wrap justify-center gap-x-10 md:gap-x-20">
-                <div className="flex flex-col w-[19%] md:w-[6vw]">
-                    <img src="tax.webp"></img>
-                    <p className="text-[#093B3F] m-auto text-center text-xs">{t("components.vorteileEinerImmobilie.icons.0.label")}</p>
+                <div className="flex flex-col w-[19%] md:w-[8vw]">
+                    <center><img src="tax.webp"></img></center>
+                    <center><p className="text-[#093B3F] m-auto text-center text-xs">{t("components.vorteileEinerImmobilie.icons.0.label")}</p></center>
                 </div>
-                <div className="flex flex-col w-[19%] md:w-[6vw]">
-                    <img src="loc.webp"></img>
-                    <p className="text-[#093B3F] m-auto text-center text-xs">{t("components.vorteileEinerImmobilie.icons.1.label")}</p>
+                <div className="flex flex-col w-[19%] md:w-[8vw]">
+                    <center><img src="loc.webp"></img></center>
+                    <center><p className="text-[#093B3F] m-auto text-center text-xs">{t("components.vorteileEinerImmobilie.icons.1.label")}</p></center>
                 </div>
-                <div className="flex flex-col w-[19%] md:w-[6vw]">
-                    <img src="rights.webp"></img>
-                    <p className="text-[#093B3F] m-auto text-center text-xs">{t("components.vorteileEinerImmobilie.icons.2.label")}</p>
+                <div className="flex flex-col w-[19%] md:w-[8vw]">
+                    <center><img src="rights.webp"></img></center>
+                    <center><p className="text-[#093B3F] m-auto text-center text-xs">{t("components.vorteileEinerImmobilie.icons.2.label")}</p></center>
                 </div>
-                <div className="flex flex-col w-[19%] md:w-[6vw]">
-                    <img src="economy.webp"></img>
-                    <p className="text-[#093B3F] m-auto text-center text-xs">{t("components.vorteileEinerImmobilie.icons.3.label")}</p>
+                <div className="flex flex-col w-[19%] md:w-[8vw]">
+                    <center><img src="economy.webp"></img></center>
+                    <center><p className="text-[#093B3F] m-auto text-center text-xs">{t("components.vorteileEinerImmobilie.icons.3.label")}</p></center>
                 </div>
-                <div className="flex flex-col w-[19%] md:w-[6vw]">
-                    <img src="diversity.webp"></img>
-                    <p className="text-[#093B3F] m-auto text-center text-xs">{t("components.vorteileEinerImmobilie.icons.4.label")}</p>
+                <div className="flex flex-col w-[19%] md:w-[8vw]">
+                    <center><img src="diversity.webp"></img></center>
+                    <center><p className="text-[#093B3F] m-auto text-center text-xs">{t("components.vorteileEinerImmobilie.icons.4.label")}</p></center>
                 </div>
             </div>
             {

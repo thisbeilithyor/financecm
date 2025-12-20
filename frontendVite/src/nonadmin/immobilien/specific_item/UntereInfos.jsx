@@ -20,7 +20,7 @@ const UntereInfos = ({ immo }) => {
 
     return(
         <>
-            <div className="w-[85vw] md:w-[60vw] max-md:m-auto pb-3">
+            <div className="w-[85vw] lg:w-[60vw] max-lg:m-auto pb-3">
                 <h2 className="max-md:hidden bg-[#f1f1f1] text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.untereInfos.heading")}</h2>
                 <div className="md:flex md:gap-8 md:flex-wrap md:justify-center">
                     {sources.map((item) => {
@@ -28,8 +28,8 @@ const UntereInfos = ({ immo }) => {
                             <>
                             { !!item[1] && (
                                 <div className="max-md:flex max-md:items-center">
-                                    <img className="w-[15vw] mr-4" src={item[0]}></img>
-                                    <p className="">{item[2]}</p>
+                                    <img className="w-[15vw] md:w-[10vw] mr-4" src={item[0]}></img>
+                                    <center><p className="">{item[2]}</p></center>
                                 </div>
                             )}
                             </>

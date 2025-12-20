@@ -25,7 +25,7 @@ const Navbar = () => {
 
 
           {/* Navigation für große Bildschirme */}
-          <nav className="hidden md:flex space-x-6 text-lg font-medium text-gray-900">
+          <nav className="hidden lg:flex space-x-6 text-lg font-medium text-gray-900">
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -78,7 +78,7 @@ const Navbar = () => {
           </nav>
 
           {/* Mobile: Hamburger Menü Button */}
-          <div className="md:hidden relative">
+          <div className="lg:hidden relative">
             <button onClick={toggleMenu} className="flex flex-col justify-between w-8 h-6">
                 <span className="block h-1 bg-green-900 rounded"></span>
                 <span className="block h-1 bg-green-900 rounded"></span>

@@ -45,7 +45,7 @@ const Bewertungen = () => {
         {t("homepage.bewertungen.basedp1")} {reviews.length} {t("homepage.bewertungen.basedp2")} <strong>{averageRating.toFixed(2)}</strong> {t("homepage.bewertungen.basedp3")}
       </p></center>
 
-      <div className="max-md:w-[85vw] mt-3 md:mt-10 md:flex md:gap-x-5 m-auto">
+      <div className="max-lg:w-[85vw] mt-3 md:flex md:gap-x-5 m-auto">
         {reviews.map((review) => (
           <div key={review.id} className="md:w-[33%] mt-3">
             <StarRating rating={review.rating} />

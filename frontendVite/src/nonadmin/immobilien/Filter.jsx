@@ -34,7 +34,7 @@ const Filter = ({setFilterState, filterState, applyFilter}) => {
                         <input className="accent-[#093B3F]" type="checkbox" id="wohnung" name="wohnung" checked={filterState.wohnung} onChange={handleChange}></input>
                         <label className="flex items-center gap-2 text-[#093B3F]" for="checkbox">{t("immobilien.filter.wohnung")}</label>
                     </div>
-                    <button className="w-full bg-[#093B3F] hover:bg-teal-600 text-white py-2 rounded-lg font-semibold transition" onClick={applyFilter}>{t("immobilien.filter.applyFilter")}</button>
+                    <button className="w-full md:w-[50%] md:ml-[25%] bg-[#093B3F] hover:bg-teal-600 text-white py-2 rounded-lg font-semibold transition" onClick={applyFilter}>{t("immobilien.filter.applyFilter")}</button>
                 </div>
             )}
         </>

@@ -31,7 +31,7 @@ const EntdeckenShowcase = () => {
 
 
     return (
-        <section className="pt-3 md:pt-15 bg-[#f1f1f1] pb-5 md:pb-15 w-[100vw]">
+        <section className="pt-3 md:pt-10 bg-[#f1f1f1] pb-5 md:pb-10 w-[100vw]">
             <center><h2 className="text-2xl md:text-4xl text-[#093B3F] font-bold pb-3 md:pb-10">{t("homepage.entdeckenShowcase.headline")}</h2></center>
             <ImageCarousel images={images}></ImageCarousel>
 

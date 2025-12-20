@@ -6,7 +6,7 @@ const Footer = () => {
   let { t, i18n } = useTranslation();
 
   return (
-  <footer className="bg-[#093B3F] py-6 md:py-10">
+  <footer className="bg-[#093B3F] py-6 md:pb-12">
     <div className="mx-auto flex flex-col md:flex-row items-center justify-between w-[85vw] gap-6">
 
       {/* Links */}
@@ -23,7 +23,7 @@ const Footer = () => {
       </div>
 
       {/* Logo */}
-      <div className="hidden md:flex justify-center">
+      <div className="hidden lg:flex justify-center">
         <img className="w-32" src="/logo-hell.webp" alt="Logo" />
       </div>
 
@@ -36,10 +36,11 @@ const Footer = () => {
       </div>
 
 
-      <div className="text-white text-md">
+      
+    </div>
+    <div className="mb-3 pt-3 w-[85vw] m-auto text-white text-md">
         © {new Date().getFullYear()} {t("components.footer.rights")}
       </div>
-    </div>
     </footer>
     );
 }

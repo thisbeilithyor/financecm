@@ -51,7 +51,7 @@ const Checklist = () => {
             <div className="bg-[#093B3F] mt-0 py-8">
             <h1 className="text-white text-3xl font-bold text-center mb-8">{t("checklist.checklist.heading")}</h1>
 
-            <form className="space-y-6 w-[60vw] m-auto">
+            <form className="space-y-6 w-[85vw] md:w-[60vw] m-auto">
                 {/* 1. Persönliche Daten */}
                 <h2 className="text-white text-xl font-semibold">{t("checklist.checklist.sections.0.title")}</h2>
 

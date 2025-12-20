@@ -6,7 +6,7 @@ const ImageCarousel = ({images}) => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 750,
+        speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true
@@ -20,7 +20,7 @@ const ImageCarousel = ({images}) => {
                     return (
                         
                         <div key={index}>
-                            <img className="w-[90vw] md:w-[30vw] m-auto rounded-2xl" src={'/file/'+url}></img>
+                            <img className="w-[90vw] md:w-[70vw] m-auto rounded-2xl" src={'/file/'+url}></img>
                         </div>
                     )})}
             </Slider>
