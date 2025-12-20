@@ -10,23 +10,23 @@ const VorteileEinerImmobilie = () => {
             <div className="flex flex-wrap justify-center gap-x-10 md:gap-x-20">
                 <div className="flex flex-col w-[19%] md:w-[8vw]">
                     <center><img src="tax.webp"></img></center>
-                    <center><p className="text-[#093B3F] m-auto text-center text-xs">{t("components.vorteileEinerImmobilie.icons.0.label")}</p></center>
+                    <center><p className="text-[#093B3F] m-auto text-center text-xs lg:text-lg">{t("components.vorteileEinerImmobilie.icons.0.label")}</p></center>
                 </div>
                 <div className="flex flex-col w-[19%] md:w-[8vw]">
                     <center><img src="loc.webp"></img></center>
-                    <center><p className="text-[#093B3F] m-auto text-center text-xs">{t("components.vorteileEinerImmobilie.icons.1.label")}</p></center>
+                    <center><p className="text-[#093B3F] m-auto text-center text-xs lg:text-lg">{t("components.vorteileEinerImmobilie.icons.1.label")}</p></center>
                 </div>
                 <div className="flex flex-col w-[19%] md:w-[8vw]">
                     <center><img src="rights.webp"></img></center>
-                    <center><p className="text-[#093B3F] m-auto text-center text-xs">{t("components.vorteileEinerImmobilie.icons.2.label")}</p></center>
+                    <center><p className="text-[#093B3F] m-auto text-center text-xs lg:text-lg">{t("components.vorteileEinerImmobilie.icons.2.label")}</p></center>
                 </div>
                 <div className="flex flex-col w-[19%] md:w-[8vw]">
                     <center><img src="economy.webp"></img></center>
-                    <center><p className="text-[#093B3F] m-auto text-center text-xs">{t("components.vorteileEinerImmobilie.icons.3.label")}</p></center>
+                    <center><p className="text-[#093B3F] m-auto text-center text-xs lg:text-lg">{t("components.vorteileEinerImmobilie.icons.3.label")}</p></center>
                 </div>
                 <div className="flex flex-col w-[19%] md:w-[8vw]">
                     <center><img src="diversity.webp"></img></center>
-                    <center><p className="text-[#093B3F] m-auto text-center text-xs">{t("components.vorteileEinerImmobilie.icons.4.label")}</p></center>
+                    <center><p className="text-[#093B3F] m-auto text-center text-xs lg:text-lg">{t("components.vorteileEinerImmobilie.icons.4.label")}</p></center>
                 </div>
             </div>
             {

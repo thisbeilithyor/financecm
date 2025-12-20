@@ -14,7 +14,7 @@ const Einstieg = () => {
                     <source src='/backgroundvideo.mp4' type='video/mp4'></source>
                 </video>
             </div>
-            <div className="h-50 sm:h-150 md:h-100 relative flex flex-col items-center justify-center row w-[100vw]">
+            <div className="h-50 sm:h-150 md:h-100 lg:h-175 relative flex flex-col items-center justify-center row w-[100vw]">
                     <div className="text-xl md:text-4xl px-5 md:px-0 text-white font-bold text-center drop-shadow-lg">
                         <h1>{t("homepage.einstieg.headline")}</h1>
                     </div>

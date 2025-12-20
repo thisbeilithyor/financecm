@@ -105,12 +105,13 @@ const ImmoElement = () => {
             <h2 className="hidden text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.immoElement.mainHeading")}</h2>
             <h4 className="hidden text-2xl text-center text-[#093B3F] font-bold">{t("immobilien.specific_item.immoElement.subHeading")}</h4>
             
-            <UntereInfos immo={data}></UntereInfos>
-
+            <div className="lg:hidden">
+                <UntereInfos immo={data}></UntereInfos>
+            </div>
             {
                 !!data.PDFexisting && (
                     <center>
-                        <Link to= {`/file/${data.objectnr}_${language}.pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center w-50 md:w-55 text-xs md:text-lg bg-[#093B3F] text-white h-12 justify-center rounded-full">Infos hier herunterladen</Link>
+                        <Link to= {`/file/${data.objectnr}_${language}.pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center mt-3 w-50 md:w-55 text-xs md:text-lg bg-[#093B3F] text-white h-12 justify-center rounded-full">Infos hier herunterladen</Link>
                     </center>
                 )
             }

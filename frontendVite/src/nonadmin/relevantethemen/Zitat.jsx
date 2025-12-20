@@ -5,12 +5,12 @@ const Zitat = () => {
     
     return (
         <>
-            <div className="flex w-[80vw] m-auto">
-                <div className="flex flex-col justify-center w-[60%] mr-20">
-                    <p className="text-2xl italic font-light">{t("relevantethemen.zitat.quote")}</p>
-                    <p className="font-bold text-3xl pt-5">{t("relevantethemen.zitat.name")}</p>
+            <div className="md:flex justify-between items-center pb-5 pt-5">
+                <div className="flex flex-col md:w-[60%]">
+                    <p className="text-md md:text-2xl text-justify italic font-light">{t("relevantethemen.zitat.quote")}</p>
+                    <p className="font-bold text-sm md:text-3xl pt-5">{t("relevantethemen.zitat.name")}</p>
                 </div>
-                <img className="rounded-4xl w-[30%]" src="../geschaeftsfuehrer.webp"></img>
+                <img className="max-md:hidden md:rounded-4xl md:w-[30%]" src="../geschaeftsfuehrer.webp"></img>
             </div>
         </>
     )

@@ -53,12 +53,16 @@ const Immobilien = () =>{
         <div className="bg-[#f1f1f1] pt-2">
         <Filter setFilterState={setFilterState} filterState={filterState} applyFilter={applyFilter}></Filter>
         <center><h1 className="text-xl md:text-4xl text-[#093B3F] font-bold pb-4 md:pb-10 pl-1 pr-1 pt-3">{t("immobilien.immobilien.heading")}</h1></center>
-        {immosData && 
-        immosData.map((immo) => {
-            return(
-                <ImmobilieItem immo={immo} handleClick={handleClick}></ImmobilieItem>
-            )
-        })}
+        <div className="lg:flex lg:flex-wrap lg:w-[90vw] lg:justify-between lg:m-auto">
+            {immosData && 
+            immosData.map((immo) => {
+                return(
+                    <div className="w-full lg:w-1/2">
+                        <ImmobilieItem immo={immo} handleClick={handleClick}></ImmobilieItem>
+                    </div>
+                )
+            })}
+        </div>
         </div>
         <IslandGraphic></IslandGraphic>
         <VorteileEinerImmobilie></VorteileEinerImmobilie>

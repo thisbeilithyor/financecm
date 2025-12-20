@@ -24,31 +24,37 @@ const Inspektionsreise = () => {
                 </div>
 
                 <h2 className="text-xl md:text-4xl pb-1 pt-2 text-center text-[#093B3F] font-bold md:mb-5">{t(`inspektionsreise.inspektionsreise.listheading1`)}</h2>
-                <ul role="list" className="list-disc pl-5 space-y-2">
+                <div className="w-[85vw] m-auto">
                 {
                     Array.from({length:5}).map((_, i) => (
-                        <li key={i} className="text-[#093B3F] text-justify text-md md:text-lg"> • {t(`inspektionsreise.inspektionsreise.listitems1.${i}`)}</li>
+                        <>
+                        <p className="text-[#093B3F] text-justify text-md md:text-lg pb-3"> • {t(`inspektionsreise.inspektionsreise.listitems1.${i}`)}</p>
+                        </>
                     ))
                     
                 }
                 <br></br>
-                </ul>
+                </div>
 
                 <h2 className="text-xl md:text-4xl pb-1 pt-2 text-center text-[#093B3F] font-bold md:mb-5">{t(`inspektionsreise.inspektionsreise.listheading2`)}</h2>
                 <div className="w-[85vw] m-auto">
                 {
                     Array.from({length:3}).map((_, i) => (
-                        <p className="text-[#093B3F] text-justify text-md md:text-lg">{t(`inspektionsreise.inspektionsreise.listitems2.${i}`)}</p>
+                        <p className="text-[#093B3F] text-justify text-md md:text-lg pb-3"> • {t(`inspektionsreise.inspektionsreise.listitems2.${i}`)}</p>
                     ))
                 }
                 </div>
+                <br></br>
 
                 <div className="w-[85vw] m-auto pb-2">
-                {
-                    Array.from({length:3}).map((_, i) => (
-                        <p className="text-[#093B3F] text-justify text-md md:text-lg">{t(`inspektionsreise.inspektionsreise.paragraphs2.${i}`)}</p>
-                    ))
-                }
+                <strong className="text-[#093B3F] text-justify text-md md:text-lg">{t(`inspektionsreise.inspektionsreise.paragraphs2.0`)}</strong>
+                <br></br>
+                <br></br>
+                <strong className="text-[#093B3F] text-justify text-md md:text-lg">{t(`inspektionsreise.inspektionsreise.paragraphs2.2`)}</strong>
+                <br></br>
+                <br></br>
+                <p className="text-[#093B3F] text-justify text-md md:text-lg">{t(`inspektionsreise.inspektionsreise.paragraphs2.1`)}</p>
+
                 </div>
             </div>
         

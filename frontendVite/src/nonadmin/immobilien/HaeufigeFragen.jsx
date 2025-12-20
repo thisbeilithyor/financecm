@@ -11,7 +11,7 @@ const HaeufigeFragen = () => {
             {
                 Array.from({ length: 9 }).map((_, i) => (
                     <details key={i} className="text-[#093B3F] mb-2 md:mb-5">
-                        <summary className="text-md md:text-lg font-bold text-justify">{t(`immobilien.haeufigeFragen.faq.${i}.question`)}</summary>
+                        <summary className="text-md md:text-lg lg:text-xl font-bold text-justify">{t(`immobilien.haeufigeFragen.faq.${i}.question`)}</summary>
                         <p className="text-md md:text-lg text-black mt-0.1 text-justify">{t(`immobilien.haeufigeFragen.faq.${i}.answer`)}</p>
                     </details>
             ))

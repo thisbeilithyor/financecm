@@ -15,46 +15,48 @@ const HausNordzypern = () => {
             <Navbar></Navbar>
             <HeaderRelevanteThemen url='../relImg3.webp' head1={t("relevantethemen.hausNordzypern.header.head1")} head2={t("relevantethemen.hausNordzypern.header.head2")}></HeaderRelevanteThemen>
 
-            <div className="bg-[#f1f1f1] pt-20">
-                <h2 className="text-4xl text-center text-[#093B3F] font-bold md:mb-5">{t("relevantethemen.hausNordzypern.sections.0.title")}</h2>
+            <div className="bg-[#f1f1f1] pt-3 md:pt-20">
+                <div className="w-[85vw] m-auto">
+                <h2 className="text-xl md:text-4xl text-center text-[#093B3F] font-bold md:mb-5">{t("relevantethemen.hausNordzypern.sections.0.title")}</h2>
                 {
                     Array.from( {length: 4} ).map((_, i) => (
-                        <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">{t(`relevantethemen.hausNordzypern.sections.0.paragraphs.${i}`)}</p>
+                        <p className="text-[#093B3F] text-justify text-md md:text-lg">{t(`relevantethemen.hausNordzypern.sections.0.paragraphs.${i}`)}</p>
                     ))
                 }
 
                 <center><button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg mt-5 mb-5" onClick={() => navigate('/immobilien')}>{t("relevantethemen.hausNordzypern.sections.0.button")}</button></center>
 
-                <h2 className="text-4xl text-center text-[#093B3F] font-bold md:mb-5">{t("relevantethemen.hausNordzypern.sections.1.title")}</h2>
+                <h2 className="text-xl md:text-4xl text-center text-[#093B3F] font-bold md:mb-5">{t("relevantethemen.hausNordzypern.sections.1.title")}</h2>
                 {
                     Array.from( {length: 5} ).map((_, i) => (
-                        <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">{t(`relevantethemen.hausNordzypern.sections.1.paragraphs.${i}`)}</p>
+                        <p className="text-[#093B3F] text-justify text-md md:text-lg">{t(`relevantethemen.hausNordzypern.sections.1.paragraphs.${i}`)}</p>
                     ))
                 }
 
-                <h2 className="text-4xl text-center text-[#093B3F] font-bold md:mb-5">{t("relevantethemen.hausNordzypern.sections.2.title")}</h2>
+                <h2 className="text-xl md:text-4xl text-center text-[#093B3F] font-bold md:mb-5">{t("relevantethemen.hausNordzypern.sections.2.title")}</h2>
                 {
                     Array.from( {length: 5} ).map((_, i) => (
-                        <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">{t(`relevantethemen.hausNordzypern.sections.2.paragraphs.${i}`)}</p>
+                        <p className="text-[#093B3F] text-justify text-md md:text-lg">{t(`relevantethemen.hausNordzypern.sections.2.paragraphs.${i}`)}</p>
                     ))
                 }
                 <center><button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg mt-5 mb-5" onClick={() => navigate('/uberzypern')}>{t(`relevantethemen.hausNordzypern.sections.2.button`)}</button></center>
 
-                <h2 className="text-4xl text-center text-[#093B3F] font-bold md:mb-5">{t("relevantethemen.hausNordzypern.sections.3.title")}</h2>
+                <h2 className="text-xl md:text-4xl text-center text-[#093B3F] font-bold md:mb-5">{t("relevantethemen.hausNordzypern.sections.3.title")}</h2>
                 {
                     Array.from( {length: 4} ).map((_, i) => (
-                        <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">{t(`relevantethemen.hausNordzypern.sections.3.paragraphs.${i}`)}</p>
+                        <p className="text-[#093B3F] text-justify text-md md:text-lg">{t(`relevantethemen.hausNordzypern.sections.3.paragraphs.${i}`)}</p>
                     ))
                 }
 
                 <Zitat></Zitat>
 
-                <h2 className="text-4xl text-center text-[#093B3F] font-bold md:mb-5">{t("relevantethemen.hausNordzypern.sections.4.title")}</h2>
+                <h2 className="text-xl md:text-4xl text-center text-[#093B3F] font-bold md:mb-5">{t("relevantethemen.hausNordzypern.sections.4.title")}</h2>
                 {
                     Array.from( {length: 5} ).map((_, i) => (
-                        <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">{t(`relevantethemen.hausNordzypern.sections.4.paragraphs.${i}`)}</p>
+                        <p className="text-[#093B3F] text-justify text-md md:text-lg">{t(`relevantethemen.hausNordzypern.sections.4.paragraphs.${i}`)}</p>
                     ))
                 }
+                </div>
             </div>
 
             <Ansprechpartner></Ansprechpartner>
