@@ -11,7 +11,8 @@ export const track = (req: Request, res: Response, next: NextFunction) => {
     if(req.headers['user-agent']){
         userAgent = req.headers['user-agent'];
     }
-    let ipaddr: string = '';
+    let ipaddr: string = '0';
+    /*
     if(req.headers['x-forwarded-for']){
         ipaddr = req.headers['x-forwarded-for'][0].trim();
     }
@@ -19,7 +20,7 @@ export const track = (req: Request, res: Response, next: NextFunction) => {
         if(req.socket.remoteAddress){
             ipaddr =  req.socket.remoteAddress;
         }
-    }
+    } */
     res.sendStatus(204);
 
     saveTrack(timestamp, path, ipaddr, userAgent);

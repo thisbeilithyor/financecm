@@ -12,9 +12,7 @@ const AdminPanel = () => {
         const result = await fetch('/api/auth/logout', {
             method: 'POST'
         })
-        console.log(result);
-        console.log(result.status);
-        window.localStorage.removeItem("token"); //TODO
+        // window.localStorage.removeItem("token");
         setHomeRedirect(true);
     }
 

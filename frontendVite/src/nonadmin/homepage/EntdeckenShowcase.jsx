@@ -21,7 +21,6 @@ const EntdeckenShowcase = () => {
             const resJ = await res.json();
 
             const imagePaths = resJ.map((entry) => {
-                console.log(entry.titleImagePath);
                 return entry.titleImagePath;
             });
             setImages(imagePaths);

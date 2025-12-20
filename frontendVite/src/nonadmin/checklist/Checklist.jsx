@@ -3,8 +3,8 @@ import Navbar from "../components/Navbar.jsx";
 import { useTranslation } from "react-i18next";
 
 const Checklist = () => {
-
     const { t, i18n } = useTranslation();
+    const [successMessage, setSuccessMessage] = useState("");
 
     const initalForm = {
         name: "",
@@ -40,7 +40,13 @@ const Checklist = () => {
             },
             body: JSON.stringify(form)
         })
-        console.log(await res.json());
+        const ress = await res.json();
+        setSuccessMessage(ress.message);
+        resetForm();
+    }
+
+    const resetForm = () => {
+        setForm(initalForm);
     }
 
 
@@ -126,6 +132,9 @@ const Checklist = () => {
                 {t("checklist.checklist.button")}
                 </button>
             </form>
+            {
+                successMessage && <center><p className="text-white">{successMessage}</p></center>
+            }
             </div>
 
         </>

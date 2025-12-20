@@ -28,7 +28,7 @@ const UntereInfos = ({ immo }) => {
                             <>
                             { !!item[1] && (
                                 <div className="max-md:flex max-md:items-center">
-                                    <img className="w-[15vw] md:w-[10vw] mr-4" src={item[0]}></img>
+                                    <img className="w-[15vw] md:w-[10vw] lg:w-[5vw] mr-4" src={item[0]}></img>
                                     <center><p className="">{item[2]}</p></center>
                                 </div>
                             )}

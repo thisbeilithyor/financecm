@@ -7,6 +7,7 @@ import KontaktForm from "./KontaktForm.jsx";
 
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { init } from "i18next";
 
 const Kontakt = () => {
     const { t, i18n } = useTranslation();
@@ -32,7 +33,6 @@ const Kontakt = () => {
 
     const handleSave = async () => {
         try{
-            console.log(form);
             const request = await fetch('/api/customerRequest/createCustomerRequest', {
                 method: 'POST',
                 headers: {
@@ -47,9 +47,14 @@ const Kontakt = () => {
             }else{
                 setErrorMessage(res.message);
             }
+            resetForm();
         }catch(err){
-            console.log(err);
+
         }
+    }
+
+    const resetForm = () => {
+        setForm({...initialFormData});
     }
 
     return (
@@ -95,8 +100,8 @@ const Kontakt = () => {
             <KontaktForm form={form} handleChange={handleChange} handleSave={handleSave}></KontaktForm>
 
             <div className="bg-[#093B3F]">
-                {successMessage && <p className="text-white">{successMessage}</p>}
-                {errorMessage && <p className="text-white">{errorMessage}</p>}
+                {successMessage && <center><p className="text-white">{successMessage}</p></center>}
+                {errorMessage && <center><p className="text-white">{errorMessage}</p></center>}
             </div>
             <Ansprechpartner></Ansprechpartner>
 

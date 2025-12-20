@@ -105,7 +105,7 @@ import ruInspektionsreise from "./ru/inspektionsreise/Inspektionsreise.json";
 i18n.use(initReactI18next).init(
     {
         fallbackLng: 'de',
-        debug: true,
+        debug: false,
         resources: {
             de: {
                 translation:{

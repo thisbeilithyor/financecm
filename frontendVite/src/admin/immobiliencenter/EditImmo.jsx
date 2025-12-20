@@ -18,7 +18,6 @@ const EditImmo = () => {
             }
             else{
                 const ress = await res.json();
-                console.log(ress);
             }
 
         }

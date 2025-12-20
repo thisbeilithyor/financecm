@@ -61,7 +61,7 @@ export const getImmos = async (req: Request, res: Response, next: NextFunction) 
             INNER JOIN MultilingualText AS MT ON MT.objectnr = I.objectnr
             INNER JOIN Language as L ON L.languageID = MT.languageID
             WHERE L.language = :language
-            AND I.price > :von
+            AND I.price >= :von
             AND I.price < :bis
             AND (I.house = :haus OR I.house = :wohnung)`,{
                 replacements: {language, von, bis, haus, wohnung},
@@ -107,7 +107,11 @@ export const createImmo = (req: Request, res: Response, next: NextFunction) => {
 }
 
 export const getCarouselImages = async (req: Request, res: Response, next: NextFunction) => {
-    const language = req.query.language;
+    const allowedLanguages = ["de", "en", "ru"];
+    let language = String(req.query.language || "de").toLowerCase();
+    if(!allowedLanguages.includes(language)){
+        return res.status(400).json({ error: "Invalid language parameter!"});
+    }
 
     const queryRes = await sequelize.query(`
         SELECT MT.city, I.titleImagePath, I.objectnr
@@ -119,7 +123,7 @@ export const getCarouselImages = async (req: Request, res: Response, next: NextF
             type: QueryTypes.SELECT
         })
 
-    res.json(queryRes);
+    return res.json(queryRes);
 }
 
 
@@ -135,8 +139,17 @@ export const getFurtherImages = async (req: Request, res: Response, next: NextFu
 }
 
 export const getImmoItem = async (req: Request, res: Response, next: NextFunction) => {
-    const objectnr = req.params.objectnr;
-    const language = req.query.language;
+    const allowedLanguages = ["de", "en", "ru"];
+    let language = String(req.query.language || "de").toLowerCase();
+    if(!allowedLanguages.includes(language)){
+        return res.status(400).json({ error: "Invalid language parameter!"});
+    }
+
+    let objectnr = Number(req.params.objectnr);
+    if(isNaN(objectnr) || objectnr < 0) {
+        return res.status(400).json({ error: "Invalid objectnr parameter!"});
+    }
+
 
     let queryResult: object[] = [];
     try{

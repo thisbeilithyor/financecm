@@ -5,8 +5,6 @@ const useWebsiteVisitTracker = () => {
     const location = useLocation();
 
     useEffect(() => {
-
-        console.log(location.pathname);
         const handleVisibilityChange = () => {
             if(document.visibilityState === 'hidden'){
                 const blob = new Blob([JSON.stringify({path: location.pathname})], { type: 'application/json' });

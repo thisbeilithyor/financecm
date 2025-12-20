@@ -29,7 +29,6 @@ const ImmoElement = () => {
     //request data
     useEffect(() => {
         const reqData = async () => {
-            console.log(objectnr);
             const res = await fetch(`/api/immo/getImmoItem/${objectnr}?language=${language}`, {
                 method: 'GET',
                 headers: {
@@ -41,7 +40,6 @@ const ImmoElement = () => {
             }
             else{
                 const ress = await res.json();
-                console.log(ress);
                 setData(ress);
             }
 

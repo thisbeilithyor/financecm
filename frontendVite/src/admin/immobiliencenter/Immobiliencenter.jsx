@@ -89,7 +89,7 @@ const Immobiliencenter = () => {
                 setErrorMessage(res.message);
             }
         }catch(err){
-            console.log(err);
+
         }
     }
 
@@ -147,13 +147,14 @@ const Immobiliencenter = () => {
         <center><button className="bg-[#093B3F] text-white w-55 h-10 rounded-full text-lg" onClick={() => setFormActive(true)}>Neues Objekt hinzufügen</button></center>
         {successMessage && <p style={{color: 'green'}}>{successMessage}</p>}
 
+        <center><div className="w-[40vw]">
         {immosData &&
         immosData.map((immo) => {
             return (
                 <ImmobilieItem immo={immo} handleClick={handleClick}/>
             )
         })
-        }
+        }</div></center>
         </>
     )
 }
