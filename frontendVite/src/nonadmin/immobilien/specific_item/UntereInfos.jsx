@@ -20,23 +20,23 @@ const UntereInfos = ({ immo }) => {
 
     return(
         <>
-            <div className="w-[60vw]">
-            <h2 className="bg-[#f1f1f1] text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.untereInfos.heading")}</h2>
-            <div className="flex gap-8 flex-wrap justify-center">
-            {sources.map((item) => {
-                return (
-                    <>
-                    { !!item[1] && (
-                        <div className="w-[10%]">
-                            <img className="infoImg" src={item[0]}></img>
-                            <p className="infoTxt" style={{ color: "black", display: "inline"}}>{item[2]}</p>
-                        </div>
-                    )}
-                    </>
-                    
-                )
-            })}
-            </div>
+            <div className="w-[85vw] md:w-[60vw] max-md:m-auto pb-3">
+                <h2 className="max-md:hidden bg-[#f1f1f1] text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.untereInfos.heading")}</h2>
+                <div className="md:flex md:gap-8 md:flex-wrap md:justify-center">
+                    {sources.map((item) => {
+                        return (
+                            <>
+                            { !!item[1] && (
+                                <div className="max-md:flex max-md:items-center">
+                                    <img className="w-[15vw] mr-4" src={item[0]}></img>
+                                    <p className="">{item[2]}</p>
+                                </div>
+                            )}
+                            </>
+                            
+                        )
+                    })}
+                </div>
             </div>
         </>
     )

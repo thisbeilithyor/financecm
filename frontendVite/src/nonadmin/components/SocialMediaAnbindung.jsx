@@ -1,10 +1,34 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const SocialMediaLeiste = () => {
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
     <>
       {/* Rechte vertikale Social-Leiste */}
-      <div className="fixed top-40 md:top-1/2 right-0 transform -translate-y-1/2 z-50">
+      <div className={`fixed top-40 md:top-1/2 right-0 transform -translate-y-1/2 z-50
+        transition-all duration-300 ease-in-out
+        ${visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20 pointer-events-none"}`}>
         <div className="bg-[#f1f1f1] rounded-l-2xl py-4 px-2 flex flex-col items-center gap-4 shadow-md">
           <Link to="mailto:meier-finanz@gmx.de" target="_blank" rel="noopener noreferrer">
             <img src="/floating_mail.svg" alt="E-Mail" className="w-7 h-7 hover:scale-110 transition" />

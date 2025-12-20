@@ -12,7 +12,7 @@ const IslandGraphic = ({ isWhite=false, prefix='./' }) => {
                 {!isWhite ? 
                     <img className="!border-none w-[40vw] md:w-[20vw]" src={`${prefix}island.svg`}></img>
                     :
-                    <img className="!border-none w-[40vw] md:w-[20vw]" src={`${prefix}island.svg`}></img>
+                    <img className="!border-none w-[40vw] md:w-[20vw]" src={`${prefix}island-white.svg`}></img>
                 }
 
                 <div className="w-[20vw]">

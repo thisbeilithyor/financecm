@@ -70,10 +70,20 @@ const ImmoElement = () => {
     return (
         <>
             <Navbar></Navbar>
-            <div className="bg-[#f1f1f1]">
+            <div className="bg-[#f1f1f1] pb-8">
 
             {data && (
                 <>
+                <div className="md:hidden pt-3">
+                    <img className="rounded-xl w-[85vw] m-auto" src={`/file/${data.titleImagePath}`}></img>
+                    <div className="flex flex-col w-[85vw] m-auto justify-between pt-3 pb-3 pl-3">
+                        <p className="text-lg text-[#093B3F]">{t("immobilien.specific_item.immoElement.stadtname")} {data.city}</p>
+                        <p className="text-lg text-[#093B3F]">{t("immobilien.specific_item.immoElement.objectNumber")} {data.objectnr}</p>
+                        <p className="text-lg text-[#093B3F]">{data.description}</p>
+                    </div>
+                </div>
+
+                <div className="max-md:hidden">
                 <img className="relative w-[100vw] z-5" src={`/file/${data.mapImagePath}`}></img>
 
                 <div className="relative w-[65vw] m-auto flex rounded-3xl bg-[#010101] mt-[-20px] z-10">
@@ -88,18 +98,25 @@ const ImmoElement = () => {
                         <p className="text-white text-lg">meiner-finanz@gmx.de</p>
                     </div>
                 </div>
+                </div>
                 </>
                 ) 
             }
-            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.immoElement.mainHeading")}</h2>
-            <h4 className="text-2xl text-center text-[#093B3F] font-bold">{t("immobilien.specific_item.immoElement.subHeading")}</h4>
+            <h2 className="max-md:hidden text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.immoElement.mainHeading")}</h2>
+            <h4 className="max-md:hidden text-2xl text-center text-[#093B3F] font-bold">{t("immobilien.specific_item.immoElement.subHeading")}</h4>
+            
+            <UntereInfos immo={data} className="md:hidden"></UntereInfos>
+
             {
                 !!data.PDFexisting && (
-                    <Link to= {`/file/${data.objectnr}_${language}.pdf`} target="_blank" rel="noopener noreferrer">Infos hier herunterladen</Link>
+                    <center>
+                        <Link to= {`/file/${data.objectnr}_${language}.pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center w-50 md:w-55 text-xs md:text-lg bg-[#093B3F] text-white h-12 justify-center rounded-full">Infos hier herunterladen</Link>
+                    </center>
                 )
             }
-            <IslandGraphic prefix="../"></IslandGraphic>
-            <div className="flex flex-wrap w-[80vw] m-auto gap-5">
+            
+            
+            <div className="flex flex-wrap w-[80vw] m-auto gap-5 mt-5">
                 {data && (
                     <>
                         {furtherImages.map((item, index) => {
@@ -110,17 +127,20 @@ const ImmoElement = () => {
                     </>
                 )}
             </div>
+
+            <IslandGraphic prefix="../"></IslandGraphic>
+
             
-            <div className="flex w-[80vw] m-auto">
+            <div className="max-md:hidden flex w-[80vw] m-auto">
                 <UntereInfos immo={data}></UntereInfos>
                 <Ansprechpartner2></Ansprechpartner2>
             </div>
 
-            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.immoElement.projectHeading")}</h2>
-            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">{data.uberDasProjekt}</p>
+            <h2 className="text-xl md:text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.immoElement.projectHeading")}</h2>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-md md:text-lg">{data.uberDasProjekt}</p>
 
-            <h2 className="text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.immoElement.locationHeading")}</h2>
-            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-lg">{data.uberStandort}</p>
+            <h2 className="text-xl md:text-4xl text-center text-[#093B3F] font-bold md:pb-10 md:pt-10">{t("immobilien.specific_item.immoElement.locationHeading")}</h2>
+            <p className="md:ml-50 md:mr-50 max-md:ml-10 max-md:mr-10 text-[#093B3F] text-justify text-md md:text-lg">{data.uberStandort}</p>
 
             
             <Zahlungsinformationen price={data.price}></Zahlungsinformationen>

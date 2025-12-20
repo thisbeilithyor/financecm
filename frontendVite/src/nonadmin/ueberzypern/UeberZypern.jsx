@@ -27,7 +27,7 @@ const UeberZypern = () => {
 
             <Aktivitaet></Aktivitaet>  
 
-            <div className="flex justify-center items-center px-4 pt-10 pb-10">
+            <div className="flex justify-center items-center px-4 pt-5 md:pt-10 pb-10">
                 <img className="min-w-[350px] h-[350px] object-cover mx-2 !border-0 !border-transparent !rounded-2xl" src="relImg3.webp"></img>     
                 <img className="min-w-[350px] h-[350px] object-cover mx-2 !border-0 !border-transparent !rounded-2xl" src="showImg1.webp"></img>
                 <img className="min-w-[350px] h-[350px] object-cover mx-2 !border-0 !border-transparent !rounded-2xl" src="boat.webp"></img>

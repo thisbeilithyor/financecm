@@ -65,31 +65,31 @@ const Kontakt = () => {
                 <h3 className="text-2xl text-center text-white font-bold mt-3">{t("contact.kontakt.subHeading")}</h3>
             </div>
 
-            <div className="flex justify-center bg-[#093B3F] pt-40 space-x-8">
+            <div className="md:flex justify-between md:justify-center bg-[#093B3F] pt-5 md:pt-40 md:space-x-8">
                 <a href="https://wa.me/491727745656" target="_blank" rel="noopener noreferrer">
-                    <div className="flex flex-col w-[10vw]">
-                        <center><img className="!border-none" src="phone.svg"></img></center>
-                        <center><p className="text-white text-lg">+49 172 77 45656</p></center>
+                    <div className="flex justify-center items-center md:flex-col md:w-[10vw]">
+                        <center><img className="!border-none w-[10vw] mr-5 " src="phone.svg"></img></center>
+                        <center><p className="text-white text-s md:text-lg">+49 172 77 45656</p></center>
                     </div>
                 </a>
-                <div className="flex flex-col w-[10vw]">
-                    <center><img className="!border-none" src="location.svg"></img></center>
-                    <center><p className="text-white text-lg">Manchingerstr. 10, 85053 Ingolstadt</p></center>
+                <div className="flex justify-center items-center md:flex-col md:w-[10vw] mt-3">
+                    <center><img className="!border-none w-[10vw] mr-1" src="location.svg"></img></center>
+                    <center><p className="text-white text-s md:text-lg">Manchingerstr. 10, 85053 Ingolstadt</p></center>
                 </div>
-                <div className="flex flex-col w-[10vw]">
-                    <a href="mailto:meier-finanz@gmx.de">
-                        <center><img className="!border-none" src="mail.svg"></img></center> 
-                        <center><p className="text-white text-lg">meier-finanz@gmx.de</p></center>
-                    </a>
+                <a href="mailto:meier-finanz@gmx.de">
+                <div className="flex justify-center items-center md:flex-col md:w-[10vw] mt-3">
+                        <center><img className="!border-none w-[10vw] mr-2" src="mail.svg"></img></center> 
+                        <center><p className="text-white text-x md:text-lg">meier-finanz@gmx.de</p></center>
                 </div>
+                </a>
             </div>
             
 
             <IslandGraphic isWhite={true}></IslandGraphic>
 
             <div className="bg-[#093B3F]">
-                <h2 className="text-white text-4xl md:text-5xl font-bold text-center drop-shadow-lg">{t("contact.kontakt.interestHeading")}</h2>
-                <h3 className="text-2xl text-center text-white font-bold mt-3">{t("contact.kontakt.interestSubHeading")}</h3>
+                <h2 className="text-white text-2xl md:text-4xl font-bold text-center drop-shadow-lg">{t("contact.kontakt.interestHeading")}</h2>
+                <h3 className="text-xl md:text-2xl text-center text-white font-bold mt-3">{t("contact.kontakt.interestSubHeading")}</h3>
             </div>
         
             <KontaktForm form={form} handleChange={handleChange} handleSave={handleSave}></KontaktForm>

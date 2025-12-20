@@ -6,7 +6,7 @@ const KontaktForm = ({form, handleChange, handleSave}) => {
     return ( 
         <>
             <div className="bg-[#093B3F] mt-0">
-            <form className="space-y-4 w-[60vw] m-auto">
+            <form className="space-y-4 w-[85vw] md:w-[60vw] m-auto">
                 <label className="block text-white mb-1">{t("contact.kontaktForm.labels.name")}</label>
                 <input type="text" name="name" value={form.name} onChange={handleChange}
                 className="w-full border border-white rounded-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white bg-white"></input>
@@ -26,7 +26,7 @@ const KontaktForm = ({form, handleChange, handleSave}) => {
                 <button className="w-full border border-white rounded-full px-3 py-2 text-[#093B3F] bg-white text-lg" type="button" onClick={handleSave}>{t("contact.kontaktForm.button")}</button>
             </form>
 
-           
+           <hr className="md:hidden mt-5 border-white"></hr>
             </div>
         </>
     )

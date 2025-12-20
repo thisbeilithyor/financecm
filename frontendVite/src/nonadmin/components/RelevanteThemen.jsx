@@ -6,7 +6,7 @@ const RelevanteThemen = () => {
 
     return (
         <>
-            <section className="bg-[#f1f1f1] pt-0 md:pt-15 pb-0 md:pb-15">
+            <section className="bg-[#f1f1f1] pt-0 md:pt-15 pb-2 md:pb-15">
             <center><h2 className="text-xl md:text-4xl pr-2 pl-2 pb-3 md:pb-10 text-[#093B3F] font-bold">
                 {t("components.relevantethemen.headline")}
             </h2></center>

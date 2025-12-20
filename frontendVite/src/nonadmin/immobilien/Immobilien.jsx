@@ -48,7 +48,7 @@ const Immobilien = () =>{
     return(
     <>
         {useGetImmos(setImmosData, i18n.language, filterState, invokeAPIRequest)}
-        {console.log(immosData)}
+        
         <Navbar></Navbar>
         <div className="bg-[#f1f1f1] pt-2">
         <Filter setFilterState={setFilterState} filterState={filterState} applyFilter={applyFilter}></Filter>
