@@ -54,9 +54,16 @@ services:
       - fcm_file_exchange:/file_exchange # public
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.fcm_webserver.rule=Host(`finance-center-meier.com`)"
-      - "traefik.http.routers.fcm_webserver.entrypoints=websecure"
-      - "traefik.http.routers.fcm_webserver.tls.certresolver=letsencrypt"
+
+      #HTTP router(needed for ACME)
+      - "traefik.http.routers.fcm_webserver_http.rule=Host(`finance-center-meier.com`)"
+      - "traefik.http.routers.fcm_webserver_http.entrypoints=web"
+      - "traefik.http.routers.fcm_webserver_http.middlewares=redirect-to-https"
+
+      #HTTPS router
+      - "traefik.http.routers.fcm_webserver_https.rule=Host(`finance-center-meier.com`)"
+      - "traefik.http.routers.fcm_webserver_https.entrypoints=websecure"
+      - "traefik.http.routers.fcm_webserver_https.tls.certresolver=letsencrypt"
       - "traefik.http.services.fcm_webserver.loadbalancer.server.port=80"
 
   traefik:
