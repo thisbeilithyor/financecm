@@ -20,5 +20,5 @@ jobs:
 
     - name: Build the Docker image
       run: | 
-        docker build . --file ./api/Dockerfile --tag fcm_api:${{VERSION}}
-        docker build . --file ./frontendVite/Dockerfile --tag fcm_webserver:${{VERSION}} 
+        docker build . --file ./api/Dockerfile --tag fcm_api:${VERSION}
+        docker build . --file ./frontendVite/Dockerfile --tag fcm_webserver:${VERSION}
