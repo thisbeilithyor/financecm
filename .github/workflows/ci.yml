@@ -26,5 +26,5 @@ jobs:
     - name: Push Docker images to Docker Hub
       run: |
         echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
-        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_api:${VERSION}
-        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_webserver:${VERSION}
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_api
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_webserver
