@@ -10,14 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v6
 
-    - name: Extract Tag Name
-      id: vars
-      run: echo "tag=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
-    
-    - name: Show env'steps
-      run: env
-
     - name: Build the Docker image
       run: | 
-        docker build . --file ./api/Dockerfile --tag fcm_api:${{ steps.vars.outputs.tag }}
-        docker build . --file ./frontendVite/Dockerfile --tag fcm_webserver:${{ steps.vars.outputs.tag }}
+        docker build . --file ./api/Dockerfile --tag fcm_api:${{ github.ref_name }}
+        docker build . --file ./frontendVite/Dockerfile --tag fcm_webserver:${{ github.ref_name }}
