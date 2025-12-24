@@ -1,0 +1,19 @@
+name: Automatic Server Deployment
+
+on: 
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Extract Tag Name
+      id: vars
+      run: echo "tag=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+    - name: Build the Docker image
+      run: docker build . --file ./api/Dockerfile --tag fcm_api:${{ steps.vars.outputs.tag }}
+      run: docker build . --file ./frontendVite/Dockerfile --tag fcm_webserver:${{ steps.vars.outputs.tag }}

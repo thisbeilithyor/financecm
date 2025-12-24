@@ -10,7 +10,7 @@ const QandA = () => {
             { 
                 Array.from( {length: 10 }).map((_, i) => (
                     <details key={i} className="text-[#093B3F] mb-2">
-                        <summary className="text-md md:text-lg font-bold text-justify">{t(`ueberzypern.QandA.faqs.${i}.question`)}</summary>
+                        <summary className="text-md md:text-lg lg:text-lg font-bold text-justify">{t(`ueberzypern.QandA.faqs.${i}.question`)}</summary>
                         <p className="text-black text-md md:text-lg mt-0.25 text-justify">{t(`ueberzypern.QandA.faqs.${i}.answer`)}</p>
                     </details>
                 ))
