@@ -9,8 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
+      with:
+        fetch-depth: 0
+
+    - name: Get latest git tag
+      id: get_tag
+      run: |
+        TAG=$(git describe --tags --abbrev=0)
+        echo "VERSION=$TAG" >> $GITHUB_ENV
 
     - name: Build the Docker image
       run: | 
-        docker build . --file ./api/Dockerfile --tag fcm_api:${{ github.ref_name }}
-        docker build . --file ./frontendVite/Dockerfile --tag fcm_webserver:${{ github.ref_name }}
+        docker build . --file ./api/Dockerfile --tag fcm_api:${{VERSION}}
+        docker build . --file ./frontendVite/Dockerfile --tag fcm_webserver:${{VERSION}}

@@ -3,7 +3,7 @@ FROM node:22-alpine
 WORKDIR /
 
 COPY package*.json ./
-RUN npm install -y
+RUN npm install --frozen-lockfile
 
 COPY . ./
 RUN npm run build
