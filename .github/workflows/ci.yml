@@ -22,3 +22,9 @@ jobs:
       run: | 
         docker build ./api --file ./api/Dockerfile --tag fcm_api:${VERSION}
         docker build ./frontendVite --file ./frontendVite/Dockerfile --tag fcm_webserver:${VERSION}
+
+    - name: Push Docker images to Docker Hub
+      run: |
+        echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+        docker push fcm_api:${VERSION}
+        docker push fcm_webserver:${VERSION}
