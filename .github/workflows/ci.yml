@@ -13,4 +13,4 @@ jobs:
     - name: Build the Docker image
       run: | 
         docker build . --file ./api/Dockerfile --tag fcm_api:${{ github.ref_name }}
-        docker build . --file ./frontendVite/Dockerfile --tag fcm_webserver:${{ github.ref_name }} 
+        docker build . --file ./frontendVite/Dockerfile --tag fcm_webserver:${{ github.ref_name }}
