@@ -13,6 +13,9 @@ jobs:
     - name: Extract Tag Name
       id: vars
       run: echo "tag=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+    
+    - name: Show env'steps
+      run: env
 
     - name: Build the Docker image
       run: | 
