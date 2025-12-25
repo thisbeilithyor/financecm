@@ -54,12 +54,12 @@ services:
       - "traefik.enable=true"
 
       #HTTP router(needed for ACME)
-      - "traefik.http.routers.fcm_webserver_http.rule=Host(`192.168.2.229`)"
+      - "traefik.http.routers.fcm_webserver_http.rule=Host(`localhost`)"
       - "traefik.http.routers.fcm_webserver_http.entrypoints=web"
       - "traefik.http.routers.fcm_webserver_http.middlewares=redirect-to-https"
 
       #HTTPS router
-      - "traefik.http.routers.fcm_webserver_https.rule=Host(`192.168.2.229`)"
+      - "traefik.http.routers.fcm_webserver_https.rule=Host(`localhost`)"
       - "traefik.http.routers.fcm_webserver_https.entrypoints=websecure"
       - "traefik.http.routers.fcm_webserver_https.tls.certresolver=letsencrypt"
       - "traefik.http.services.fcm_webserver.loadbalancer.server.port=80"

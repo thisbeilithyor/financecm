@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop.jsx";
 import Login from './Login.jsx';
 import Home from './nonadmin/homepage/Home.jsx';
@@ -58,6 +58,7 @@ function App() {
             </Route>
           </Route>
           <Route path="admin" element={<Login />}></Route>
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </>
   )
