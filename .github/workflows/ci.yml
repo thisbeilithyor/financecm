@@ -33,8 +33,12 @@ jobs:
 
     - name: Push Docker images
       run: |
+        docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_api:${VERSION} ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_api:latest
+        docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_webserver:${VERSION} ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_webserver:latest
         docker push ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_api:${VERSION}
         docker push ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_webserver:${VERSION}
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_api:latest
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_webserver:latest
     
     - name: Deploy to Server
       uses: appleboy/ssh-action@v1.0.3
@@ -43,4 +47,26 @@ jobs:
         username: ${{ secrets.SERVER_USER }}
         key: ${{ secrets.SERVER_SSH_PRIVATE_KEY }}
         script: |
-          touch hellofromGH.txt
+          cd /home/prod/realprod
+
+          cat > db.env <<EOF
+          # .env
+
+          MARIADB_ROOT_PASSWORD=${{ secrets.MARIADB_ROOT_PASSWORD }}
+          MARIADB_DATABASE=${{ secrets.MARIADB_DATABASE }}
+          MARIADB_USER=${{ secrets.MARIADB_USER }}
+          MARIADB_PASSWORD=${{ secrets.MARIADB_PASSWORD }}
+          EOF
+
+          cat > api.env <<EOF
+          # .env
+
+          DB_NAME=${{ secrets.MARIADB_DATABASE }}
+          DB_USER=${{ secrets.MARIADB_USER }}
+          DB_PASS=${{ secrets.MARIADB_PASSWORD }}
+          DB_HOST=fcm_db
+          DB_PORT=3306
+          ADMIN_PASS=${{ secrets.ADMIN_PASS }}
+          ADMIN_NAME=${{ secrets.ADMIN_NAME }}
+          JWT_TOKEN=${{ secrets.JWT_TOKEN }}
+          EOF
