@@ -1,8 +1,6 @@
 services:
-
-#ToDo: setup secure credentials for prod
   fcm_db:
-    image: mariadb:latest
+    image: mariadb:12.1.2-noble
 
     restart: always
 
@@ -24,7 +22,7 @@ services:
       - api_db
 
   fcm_api:
-    build: ./api
+    image: ilithyor/fcm_api:latest
     environment:
       - APP_NAME=fcm_api
     env_file: "api.env"
@@ -42,7 +40,7 @@ services:
       - api_db
 
   fcm_webserver:
-    build: ./frontendVite
+    image: ilithyor/fcm_webserver:latest
     container_name: fcm_webserver
     restart: always    
     depends_on:
@@ -85,7 +83,7 @@ services:
 
 volumes:
   fcm_db_data:
-  fcm_file_exchange: # public !!!
+  fcm_file_exchange:
 
 networks:
   api_db:

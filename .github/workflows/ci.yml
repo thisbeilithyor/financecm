@@ -70,3 +70,6 @@ jobs:
           ADMIN_NAME=${{ secrets.ADMIN_NAME }}
           JWT_TOKEN=${{ secrets.JWT_TOKEN }}
           EOF
+
+          docker-compose down
+          docker-compose up
