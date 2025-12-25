@@ -71,5 +71,6 @@ jobs:
           JWT_TOKEN=${{ secrets.JWT_TOKEN }}
           EOF
 
+          docker-compose pull
           docker-compose down
           docker-compose up -d
