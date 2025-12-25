@@ -82,7 +82,7 @@ const ImmoElement = () => {
                 </div>
 
                 <div className="max-md:hidden">
-                <img className="relative w-[100vw] z-5" src={`/file/${data.mapImagePath}`}></img>
+                <img className="relative w-[100vw] z-5" alt="image of map" src={`/file/${data.mapImagePath}`}></img>
 
                 <div className="relative w-[65vw] m-auto flex rounded-3xl bg-[#010101] mt-[-20px] z-10">
                     <div className="w-[50%]">
