@@ -7,24 +7,33 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
     - name: Get latest git tag
-      id: get_tag
       run: |
         TAG=$(git describe --tags --abbrev=0)
         echo "VERSION=$TAG" >> $GITHUB_ENV
 
-    - name: Build the Docker image
-      run: | 
-        docker build ./api --file ./api/Dockerfile --tag fcm_api:${VERSION}
-        docker build ./frontendVite --file ./frontendVite/Dockerfile --tag fcm_webserver:${VERSION}
-
-    - name: Push Docker images to Docker Hub
+    - name: Login to Docker Hub
       run: |
-        echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
-        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_api
-        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_webserver
+        echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | \
+        docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+
+    - name: Build Docker images
+      run: |
+        docker build ./api \
+          --file ./api/Dockerfile \
+          --tag ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_api:${VERSION}
+
+        docker build ./frontendVite \
+          --file ./frontendVite/Dockerfile \
+          --tag ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_webserver:${VERSION}
+
+    - name: Push Docker images
+      run: |
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_api:${VERSION}
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/fcm_webserver:${VERSION}
