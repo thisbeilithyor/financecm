@@ -73,4 +73,5 @@ jobs:
 
           docker-compose pull
           docker-compose down
+          sleep 20s
           docker-compose up -d
