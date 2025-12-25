@@ -43,4 +43,4 @@ jobs:
         username: ${{ secrets.SERVER_USER }}
         key: ${{ secrets.SERVER_SSH_PRIVATE_KEY }}
         script: |
-          echo "hi"
+          touch hellofromGH.txt
