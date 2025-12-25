@@ -4,7 +4,7 @@ import Login from './Login.jsx';
 import Home from './nonadmin/homepage/Home.jsx';
 import AdminPanel from "./admin/AdminPanel.jsx";
 import ProtectedRoutes from "./ProtectedRoutes.jsx";
-import Immobiliencenter from "./admin/immobiliencenter/Immobiliencenter.jsx"; //errors otherwise, but this is how it works
+import Immobiliencenter from "./admin/immobiliencenter/Immobiliencenter.jsx";
 import KPI from "./admin/KPI.jsx";
 import AdminNavBar from "./admin/AdminNavBar.jsx";
 import EditImmo from "./admin/immobiliencenter/EditImmo.jsx";

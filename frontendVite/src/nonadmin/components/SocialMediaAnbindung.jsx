@@ -48,7 +48,7 @@ const SocialMediaLeiste = () => {
       {/* WhatsApp-Button unten rechts */}
       <div  className="fixed right-3 bottom-3 md:bottom-6 md:right-6 rounded-full flex items-center justify-center z-50">
         <Link to="https://wa.me/+491727745656" target="_blank" rel="noopener noreferrer">
-            <img src="/whatsapp.png" alt="WhatsApp" className="w-[10vw] h-[10vw] md:w-[6vw] md:h-[6vw] max-w-[72px] max-h-[72px]" />
+            <img src="/whatsapp.png" alt="WhatsApp" className="w-[10vw] h-[10vw] md:w-[6vw] md:h-[6vw] lg:w-[3vw] lg:h-[3vw]" />
         </Link>
       </div>
     </>
