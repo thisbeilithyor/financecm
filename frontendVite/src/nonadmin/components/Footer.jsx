@@ -28,7 +28,7 @@ const Footer = () => {
       </div>
 
       {/* Socials */}
-      <div className="flex space-x-8 justify-center h-12">
+      <div className="flex space-x-1 md:space-x-8 md:justify-center h-12">
         <img src="/insta.png" alt="Instagram" />
         <img src="/youtube.png" alt="YouTube" />
         <img src="/whatsapp.svg" alt="WhatsApp" />

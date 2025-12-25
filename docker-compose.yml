@@ -22,7 +22,7 @@ services:
       - api_db
 
   fcm_api:
-    image: ilithyor/fcm_api:latest
+    build: ./api
     environment:
       - APP_NAME=fcm_api
     env_file: "api.env"
@@ -40,7 +40,7 @@ services:
       - api_db
 
   fcm_webserver:
-    image: ilithyor/fcm_webserver:latest
+    build: ./frontendVite
     container_name: fcm_webserver
     restart: always    
     depends_on:
@@ -54,12 +54,12 @@ services:
       - "traefik.enable=true"
 
       #HTTP router(needed for ACME)
-      - "traefik.http.routers.fcm_webserver_http.rule=Host(`finance-center-meier.com`)"
+      - "traefik.http.routers.fcm_webserver_http.rule=Host(`192.168.2.229`)"
       - "traefik.http.routers.fcm_webserver_http.entrypoints=web"
       - "traefik.http.routers.fcm_webserver_http.middlewares=redirect-to-https"
 
       #HTTPS router
-      - "traefik.http.routers.fcm_webserver_https.rule=Host(`finance-center-meier.com`)"
+      - "traefik.http.routers.fcm_webserver_https.rule=Host(`192.168.2.229`)"
       - "traefik.http.routers.fcm_webserver_https.entrypoints=websecure"
       - "traefik.http.routers.fcm_webserver_https.tls.certresolver=letsencrypt"
       - "traefik.http.services.fcm_webserver.loadbalancer.server.port=80"
